@@ -1,0 +1,27 @@
+---
+import { ViewTransitions } from "astro:transitions"
+import Head from "../components/Head.astro"
+
+import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config"
+
+const {
+  image,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  includeSidebar = true,
+  sideBarActiveItemID,
+  ogType,
+} = Astro.props;
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <Head title={title} description={description}/>
+  {TRANSITION_API && <ViewTransitions />}
+</head>
+<body>
+  <slot />
+</body>
+</html>
