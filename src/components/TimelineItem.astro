@@ -1,0 +1,33 @@
+---
+import LinkPill from "./LinkPill.astro"
+import ArrowRight from "./icons/ArrowRight.astro"
+
+interface Props {
+  title: string
+  description: string
+  link?: string
+  date: string
+}
+
+const { title, description, link, date } = Astro.props
+---
+
+<div
+  class='absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-gray-900 bg-gray-700'
+>
+</div>
+<time class='mb-1 text-sm font-normal leading-none text-sky-200/80'>{date}</time
+>
+<h3 class='mt-2 text-lg font-semibold text-lime-200'>
+  {title}
+</h3>
+<p class='mb-4 text-base font-normal text-gray-200 text-balance'>
+  {description}
+</p>
+{
+  link && (
+    <LinkPill href={link}>
+      Saber Más... <ArrowRight class='w-3 h-3 ms-2 rtl:rotate-180' />
+    </LinkPill>
+  )
+}
