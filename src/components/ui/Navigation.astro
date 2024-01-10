@@ -1,52 +1,52 @@
 ---
-import Code from "../icons/Code.astro";
-import LinkPill from "../LinkPill.astro";
-import GitHub from "../icons/GitHub.astro";
-import LinkedIn from "../icons/LinkedIn.astro";
-import Mail from "../icons/Mail.astro";
-import Clipboard from "../icons/Clipboard.astro";
-import ClipboardCheck from "../icons/ClipboardCheck.astro";
+import Code from "../icons/Code.astro"
+import LinkPill from "../LinkPill.astro"
+import GitHub from "../icons/GitHub.astro"
+import LinkedIn from "../icons/LinkedIn.astro"
+import Mail from "../icons/Mail.astro"
+import Clipboard from "../icons/Clipboard.astro"
+import ClipboardCheck from "../icons/ClipboardCheck.astro"
 ---
 
-<nav class="flex flex-col gap-1">
-  <div class="gap-5 mt-8">
-    <LinkPill href="https://www.linkedin.com/in/ismobla">
-      <LinkedIn class="size-4 md:size-6" /> LinkedIn
+<nav class='flex flex-col gap-1'>
+  <div class='gap-5 mt-8'>
+    <LinkPill href='https://www.linkedin.com/in/ismobla'>
+      <LinkedIn class='size-4 md:size-6' /> LinkedIn
     </LinkPill>
-    <LinkPill href="https://github.com/xSharkhy">
-      <GitHub class="size-4 md:size-6" /> GitHub
+    <LinkPill href='https://github.com/xSharkhy'>
+      <GitHub class='size-4 md:size-6' /> GitHub
     </LinkPill>
-    <LinkPill href="/cv.pdf" download>
-      <Code class="size-4 md:size-6" /> Currículum PDF
+    <LinkPill href='/cv.pdf' download>
+      <Code class='size-4 md:size-6' /> Currículum PDF
     </LinkPill>
   </div>
-  <div class="gap-5">
-    <div class="btn btn-outline gap-5">
+  <div class='gap-5'>
+    <div class='gap-5 btn btn-outline'>
       <a
-        href="mailto:ismamoreblas@gmail.com"
-        class="flex flex-row items-center gap-2"
+        href='mailto:ismamoreblas@gmail.com'
+        class='flex flex-row items-center gap-2 flex-nowrap'
       >
         <Mail /><span>ismamoreblas@gmail.com</span>
       </a>
-      <label class="swap swap-rotate pl-4 border-l border-neutral-content">
-        <input id="copy" type="checkbox" value="copy" />
-        <Clipboard class="size-4 md:size-5 swap-off" />
-        <ClipboardCheck class="size-4 md:size-5 swap-on" />
+      <label class='pl-4 border-l swap swap-rotate border-neutral-content'>
+        <input id='copy' type='checkbox' value='copy' />
+        <Clipboard class='size-4 md:size-5 swap-off' />
+        <ClipboardCheck class='size-4 md:size-5 swap-on' />
       </label>
     </div>
   </div>
 </nav>
 <script>
   const copyMail = async () => {
-    await navigator.clipboard.writeText("ismamoreblas@gmail.com");
-  };
+    await navigator.clipboard.writeText("ismamoreblas@gmail.com")
+  }
 
-  const button = document.querySelector("#copy") as HTMLInputElement;
+  const button = document.querySelector("#copy") as HTMLInputElement
 
   button.addEventListener("click", async () => {
-    await copyMail();
+    await copyMail()
     setTimeout(() => {
-      button.checked = false;
-    }, 2000);
-  });
+      button.checked = false
+    }, 2000)
+  })
 </script>
