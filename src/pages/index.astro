@@ -1,67 +1,67 @@
 ---
-import Card from "../components/Card.astro"
-import LinkPill from "../components/LinkPill.astro"
-import Code from "../components/icons/Code.astro"
-import GitHub from "../components/icons/GitHub.astro"
-import LinkedIn from "../components/icons/LinkedIn.astro"
-import Mail from "../components/icons/Mail.astro"
-import BaseLayout from "../layouts/BaseLayout.astro"
+import Card from "../components/Card.astro";
+import LinkPill from "../components/LinkPill.astro";
+import Code from "../components/icons/Code.astro";
+import GitHub from "../components/icons/GitHub.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import Mail from "../components/icons/Mail.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout sideBarActiveItemID='inicio'>
-  <section class='mt-5 py-36'>
-    <span class='py-1 text-xl text-primary-content'>¡Hola! 👋</span>
-    <h1 class='text-5xl font-bold'>
-      Soy <span class='text-primary'>Ismael Morejón</span>
+<BaseLayout sideBarActiveItemID="inicio">
+  <section class="mt-5 py-36">
+    <span class="py-1 text-xl text-primary-content">¡Hola! 👋</span>
+    <h1 class="text-5xl font-bold">
+      Soy <span class="text-primary">Ismael Morejón</span>
     </h1>
-    <h2 class='py-3 text-3xl font-bold text-primary-content'>
+    <h2 class="py-3 text-3xl font-bold text-primary-content">
       Desarrollador de Aplicaciones Web y Videojuegos
     </h2>
-    <text class='py-2 text-lg text-pretty'>
+    <text class="py-2 text-lg text-pretty">
       Desarrollador Web Júnior actualmente residiendo en <b
-        class='text-primary-content'>València, España</b
-      >. Con ganas de crear <i class='text-primary'>aplicaciones únicas</i> y aprendiendo
+        class="text-primary-content">València, España</b
+      >. Con ganas de crear <i class="text-primary">aplicaciones únicas</i> y aprendiendo
       de forma continua.
     </text>
-    <nav class='flex flex-row gap-5 mt-8'>
-      <LinkPill href='https://www.linkedin.com/in/ismobla'>
-        <LinkedIn class='size-4 md:size-6' /> LinkedIn
+    <nav class="flex flex-row gap-5 mt-8">
+      <LinkPill href="https://www.linkedin.com/in/ismobla">
+        <LinkedIn class="size-4 md:size-6" /> LinkedIn
       </LinkPill>
-      <LinkPill href='https://github.com/xSharkhy'>
-        <GitHub class='size-4 md:size-6' /> GitHub
+      <LinkPill href="https://github.com/xSharkhy">
+        <GitHub class="size-4 md:size-6" /> GitHub
       </LinkPill>
-      <LinkPill href='mailto:ismamoreblas@gmail.com'>
+      <LinkPill href="mailto:ismamoreblas@gmail.com">
         <Mail /> ismamoreblas@gmail.com
       </LinkPill>
     </nav>
   </section>
 
   <section>
-    <h2 class='flex items-center mb-6 text-3xl font-semibold gap-x-3'>
-      <Code class='size-7 md:size-6' /> Mis últimos proyectos
+    <h2 class="flex items-center mb-6 text-3xl font-semibold gap-x-3">
+      <Code class="size-7 md:size-6" /> Mis últimos proyectos
     </h2>
 
     <Card
-      title='Demo Project 1'
-      img='/post_img.webp'
-      desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      url='#'
-      badge='NEW'
+      title="Demo Project 1"
+      img="/post_img.webp"
+      desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      url="#"
+      badge="NEW"
     />
-    <hr class='h-px my-1 bg-gray-700 border-0' />
+    <hr class="h-px my-1 bg-gray-700 border-0" />
     <Card
-      title='Demo Project 2'
-      img='/post_img.webp'
-      desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      url='#'
+      title="Demo Project 2"
+      img="/post_img.webp"
+      desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      url="#"
     />
-    <hr class='h-px my-1 bg-gray-700 border-0' />
+    <hr class="h-px my-1 bg-gray-700 border-0" />
     <Card
-      title='Demo Project 3'
-      img='/post_img.webp'
-      desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-      url='#'
-      badge='FOSS'
+      title="Demo Project 3"
+      img="/post_img.webp"
+      desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      url="#"
+      badge="FOSS"
     />
   </section>
 </BaseLayout>
