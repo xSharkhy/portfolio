@@ -1,0 +1,46 @@
+---
+import Code from "../icons/Code.astro";
+import LinkPill from "../LinkPill.astro";
+import GitHub from "../icons/GitHub.astro";
+import LinkedIn from "../icons/LinkedIn.astro";
+import Mail from "../icons/Mail.astro";
+import Clipboard from "../icons/Clipboard.astro";
+import ClipboardCheck from "../icons/ClipboardCheck.astro"
+---
+
+<nav class="flex flex-col gap-1">
+  <div class="gap-5 mt-8">
+    <LinkPill href="https://www.linkedin.com/in/ismobla">
+      <LinkedIn class="size-4 md:size-6" /> LinkedIn
+    </LinkPill>
+    <LinkPill href="https://github.com/xSharkhy">
+      <GitHub class="size-4 md:size-6" /> GitHub
+    </LinkPill>
+    <LinkPill href="/cv.pdf" download>
+      <Code class="size-4 md:size-6" /> Currículum PDF
+    </LinkPill>
+  </div>
+  <div class="gap-5">
+    <LinkPill href="mailto:ismamoreblas@gmail.com">
+      <Mail /> ismamoreblas@gmail.com
+    </LinkPill>
+    <LinkPill id="copy">
+      <label class="swap swap-rotate">
+        <input type="checkbox" value="copy" />
+        <Clipboard class="size-4 md:size-6 swap-off" />
+        <ClipboardCheck class="size-4 md:size-6 swap-on" />
+      </label>
+    </LinkPill>
+  </div>
+</nav>
+<script>
+  const copyMail = async () => {
+    await navigator.clipboard.writeText("ismamoreblas@gmail.com")
+  }
+
+  const button = document.querySelector("#copy")
+
+  button.addEventListener("click", async () => {
+    await copyMail()
+  })
+</script>

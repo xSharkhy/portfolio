@@ -1,10 +1,7 @@
 ---
 import Card from "../components/Card.astro";
-import LinkPill from "../components/LinkPill.astro";
 import Code from "../components/icons/Code.astro";
-import GitHub from "../components/icons/GitHub.astro";
-import LinkedIn from "../components/icons/LinkedIn.astro";
-import Mail from "../components/icons/Mail.astro";
+import Navigation from "../components/ui/Navigation.astro"
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
@@ -23,17 +20,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       >. Con ganas de crear <i class="text-primary">aplicaciones únicas</i> y aprendiendo
       de forma continua.
     </text>
-    <nav class="flex flex-row gap-5 mt-8">
-      <LinkPill href="https://www.linkedin.com/in/ismobla">
-        <LinkedIn class="size-4 md:size-6" /> LinkedIn
-      </LinkPill>
-      <LinkPill href="https://github.com/xSharkhy">
-        <GitHub class="size-4 md:size-6" /> GitHub
-      </LinkPill>
-      <LinkPill href="mailto:ismamoreblas@gmail.com">
-        <Mail /> ismamoreblas@gmail.com
-      </LinkPill>
-    </nav>
+    <Navigation />
   </section>
 
   <section>
