@@ -24,9 +24,9 @@ import ClipboardCheck from "../icons/ClipboardCheck.astro"
     <LinkPill href="mailto:ismamoreblas@gmail.com">
       <Mail /> ismamoreblas@gmail.com
     </LinkPill>
-    <LinkPill id="copy">
+    <LinkPill>
       <label class="swap swap-rotate">
-        <input type="checkbox" value="copy" />
+        <input id="copy" type="checkbox" value="copy" />
         <Clipboard class="size-4 md:size-6 swap-off" />
         <ClipboardCheck class="size-4 md:size-6 swap-on" />
       </label>
@@ -38,9 +38,12 @@ import ClipboardCheck from "../icons/ClipboardCheck.astro"
     await navigator.clipboard.writeText("ismamoreblas@gmail.com")
   }
 
-  const button = document.querySelector("#copy")
+  const button = document.querySelector("#copy") as HTMLInputElement
 
   button.addEventListener("click", async () => {
     await copyMail()
+    setTimeout(() => {
+      button.checked = false
+    }, 2000)
   })
 </script>
