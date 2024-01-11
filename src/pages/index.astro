@@ -3,7 +3,6 @@ import Card from "../components/Card.astro"
 import Code from "../components/icons/Code.astro"
 import Navigation from "../components/ui/Navigation.astro"
 import BaseLayout from "../layouts/BaseLayout.astro"
-import post_img from "../assets/post_img.webp"
 ---
 
 <BaseLayout sideBarActiveItemID='inicio'>
@@ -33,7 +32,7 @@ import post_img from "../assets/post_img.webp"
 
     <Card
       title='Demo Project 1'
-      img={post_img}
+      img='/post_img.webp'
       desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       url='#'
       badge='NEW'
@@ -41,14 +40,14 @@ import post_img from "../assets/post_img.webp"
     <hr class='h-px my-1 bg-gray-700 border-0' />
     <Card
       title='Demo Project 2'
-      img={post_img}
+      img='/post_img.webp'
       desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       url='#'
     />
     <hr class='h-px my-1 bg-gray-700 border-0' />
     <Card
       title='Demo Project 3'
-      img={post_img}
+      img='/post_img.webp'
       desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       url='#'
       badge='FOSS'
