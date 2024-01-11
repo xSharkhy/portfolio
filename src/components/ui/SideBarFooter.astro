@@ -1,6 +1,7 @@
 ---
 import GitHub from "../icons/GitHub.astro"
 import LinkedIn from "../icons/LinkedIn.astro"
+import Mail from "../icons/Mail.astro"
 import Moon from "../icons/Moon.astro"
 import Sun from "../icons/Sun.astro"
 ---
@@ -13,7 +14,7 @@ import Sun from "../icons/Sun.astro"
 <div
   class='sticky flex items-center self-center justify-center gap-6 pt-1 social-icons bottom-8 bg-base-200'
 >
-  <label for='theme-controller' class='swap swap-rotate'>
+  <!--label for='theme-controller' class='swap swap-rotate'>
     <input
       id='theme-controller'
       type='checkbox'
@@ -22,7 +23,7 @@ import Sun from "../icons/Sun.astro"
     />
     <Sun class='size-8 swap-off' />
     <Moon class='size-7 swap-on' />
-  </label>
+  </label-->
   <a
     href='https://github.com/xSharkhy'
     target='_blank'
@@ -40,5 +41,13 @@ import Sun from "../icons/Sun.astro"
     title='Linkedin'
   >
     <LinkedIn class='size-6' />
+  </a>
+  <a
+    href='mailto:ismamoreblas@gmail.com'
+    class='mx-3'
+    aria-label='Email'
+    title='Email'
+  >
+    <Mail class='size-6' />
   </a>
 </div>
