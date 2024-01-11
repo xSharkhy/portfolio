@@ -13,8 +13,13 @@ import Sun from "../icons/Sun.astro"
 <div
   class='sticky flex items-center self-center justify-center gap-6 pt-1 social-icons bottom-8 bg-base-200'
 >
-  <label class='swap swap-rotate'>
-    <input type='checkbox' class='theme-controller' value='light' />
+  <label for='theme-controller' class='swap swap-rotate'>
+    <input
+      id='theme-controller'
+      type='checkbox'
+      class='theme-controller'
+      value='light'
+    />
     <Sun class='size-8 swap-off' />
     <Moon class='size-7 swap-on' />
   </label>
