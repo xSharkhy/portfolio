@@ -24,20 +24,20 @@ import ClipboardCheck from "../icons/ClipboardCheck.astro"
     </LinkPill>
   </div>
   <div class='gap-5'>
-    <div class='gap-5 btn btn-outline'>
+    <div class='gap-2 btn btn-outline'>
       <a
         href='mailto:ismamoreblas@gmail.com'
-        class='flex flex-row items-center gap-2 flex-nowrap'
+        class='flex flex-row items-center gap-2 pr-2 flex-nowrap'
       >
         <Mail /><span>ismamoreblas@gmail.com</span>
       </a>
       <label
         for='copy'
-        class='pl-4 border-l swap swap-rotate border-neutral-content'
+        class='py-1 pl-4 border-l border-current swap swap-rotate'
       >
         <input id='copy' type='checkbox' value='copy' />
-        <Clipboard class='size-4 md:size-5 swap-off' />
-        <ClipboardCheck class='size-4 md:size-5 swap-on' />
+        <Clipboard class='size-5 md:size-5 swap-off' />
+        <ClipboardCheck class='size-5 md:size-5 swap-on' />
       </label>
     </div>
   </div>
