@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro"
 import Card from "../components/Card.astro"
+import post_img from "../assets/post_img.webp"
 ---
 
 <BaseLayout title='Proyectos - Ismael Morejón' sideBarActiveItemID='proyectos'>
@@ -11,7 +12,7 @@ import Card from "../components/Card.astro"
 
     <Card
       title='Demo Project 1'
-      img='/post_img.webp'
+      img={post_img}
       desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       url='#'
       badge='NEW'
@@ -20,7 +21,7 @@ import Card from "../components/Card.astro"
 
     <Card
       title='Demo Project 2'
-      img='/post_img.webp'
+      img={post_img}
       desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       url='#'
     />
@@ -33,7 +34,7 @@ import Card from "../components/Card.astro"
 
     <Card
       title='Demo Project 3'
-      img='/post_img.webp'
+      img={post_img}
       desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       url='#'
       badge='FOSS'
@@ -42,7 +43,7 @@ import Card from "../components/Card.astro"
 
     <Card
       title='Demo Project 4'
-      img='/post_img.webp'
+      img={post_img}
       desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       url='#'
     />
@@ -50,7 +51,7 @@ import Card from "../components/Card.astro"
 
     <Card
       title='Demo Project 5'
-      img='/post_img.webp'
+      img={post_img}
       desc='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
       url='#'
     />
