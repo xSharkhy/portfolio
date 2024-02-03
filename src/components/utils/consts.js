@@ -1,6 +1,6 @@
 export const EXPERIENCES = [
   {
-    date: 'Marzo 2022',
+    date: 'Marzo 2023',
     title: 'Desarrollador Web - La Mina Estudio',
     description:
       'Desarrollo de herramientas de scraping y crawlers para la obtención de datos de sitios web. Optimización de procesos de obtención de datos y automatización de tareas. Implementación de Bases de Datos con grandes cantidades de entradas, SQL y NoSQL.'
