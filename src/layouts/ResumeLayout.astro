@@ -1,0 +1,23 @@
+---
+import { ViewTransitions } from "astro:transitions"
+import Head from "@/components/ui/Head.astro"
+
+import ResumeStyles from "@/styles/ResumeStyles.astro"
+
+import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "@/config"
+
+const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props
+---
+
+<!doctype html>
+<html lang='es'>
+  <head>
+    <Head title={title} description={description} />
+    {TRANSITION_API && <ViewTransitions />}
+    <ResumeStyles />
+    <link rel='preload' as='image' href='/profile.webp' />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<style is:global>
+  @font-face {
+    font-family: "Geist";
+    src:
+      url("/fonts/GeistVariableVF.woff2") format("woff2-variations"),
+      url("/fonts/GeistVariableVF.woff2") format("woff2");
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    font-variation-settings: "wght" 400;
+  }
+
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+</style>
