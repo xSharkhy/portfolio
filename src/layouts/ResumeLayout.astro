@@ -4,9 +4,12 @@ import Head from "@/components/ui/Head.astro"
 
 import ResumeStyles from "@/styles/ResumeStyles.astro"
 
-import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "@/config"
+import { SITE_DESCRIPTION, TRANSITION_API } from "@/config"
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props
+const {
+  title = "Currículum de Ismael Morejón",
+  description = SITE_DESCRIPTION,
+} = Astro.props
 ---
 
 <!doctype html>
