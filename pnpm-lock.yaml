@@ -14,6 +14,9 @@ dependencies:
   astro:
     specifier: ^4.1.1
     version: 4.1.1
+  non.geist:
+    specifier: ^1.0.2
+    version: 1.0.2
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
@@ -3665,6 +3668,10 @@ packages:
 
   /node-releases@2.0.14:
     resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}
+    dev: false
+
+  /non.geist@1.0.2:
+    resolution: {integrity: sha512-oGCfo7Ub5bJmCOAt4CMAsCrVal/JXkQtxgBcpXzdU3lQib9c5hHdr62I8vI6TtdlsLcaYAPD/HRfZNdBUobwFg==}
     dev: false
 
   /normalize-path@3.0.0:
