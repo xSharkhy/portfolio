@@ -29,7 +29,7 @@ export default {
           'base-200': '#d5e6dc',
           'base-300': '#adbdb4',
           neutral: '#333',
-          'neutral-content': '#5c5c5c'
+          'neutral-content': '#4c4c4c'
         },
         dark: {
           ...dark,
