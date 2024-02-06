@@ -1,0 +1,41 @@
+---
+import Section from "@/resume/Section.astro"
+
+import HTML from "@/resume/icons/html.astro"
+import CSS from "@/resume/icons/css.astro"
+import JavaScript from "@/resume/icons/javascript.astro"
+import React from "@/resume/icons/react.astro"
+import MySQL from "@/resume/icons/sql.astro"
+import Git from "@/resume/icons/git.astro"
+import GitHub from "@/icons/GitHub.astro"
+import Tailwind from "@/resume/icons/tailwind.astro"
+
+import { SKILLS } from "@/utils/consts"
+
+const SKILLS_ICONS = {
+  HTML,
+  CSS,
+  JavaScript,
+  MySQL,
+  Tailwind,
+  Git,
+  GitHub,
+  React,
+}
+---
+
+<Section title='Habilidades'>
+  <ul class='inline-flex flex-wrap gap-2'>
+    {
+      SKILLS.map(({ name }) => {
+        const Icon = SKILLS_ICONS[name]
+
+        return (
+          <li class='flex items-center gap-1 px-3 py-1 text-sm font-medium text-black rounded-md bg-slate-200'>
+            {Icon && <Icon class=' size-3' />} <span>{name}</span>
+          </li>
+        )
+      })
+    }
+  </ul>
+</Section>
