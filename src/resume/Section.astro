@@ -3,6 +3,12 @@ const { title } = Astro.props
 ---
 
 <section class='max-w-3xl mx-auto mt-0 mb-12 md:mb-9'>
-  {title && <h2 class='mb-2 text-2xl font-bold leading-6'>{title}</h2>}
+  {
+    title && (
+      <h2 class='mb-2 text-2xl font-bold leading-6 text-stone-800 dark:text-stone-300'>
+        {title}
+      </h2>
+    )
+  }
   <slot />
 </section>

@@ -4,7 +4,7 @@ export const TRANSITION_API = true
 
 export const BASICS_ES = {
   name: 'Ismael Morejón',
-  label: 'Desarrollador Web y de Videojuegos',
+  label: 'Desarrollador de Aplicaciones Web y Videojuegos',
   image: '/profile.webp',
   email: 'ismamoreblas@gmail.com',
   phone: '+34 627108409',
@@ -121,15 +121,15 @@ export const SKILLS = [
     level: 'Intermedio'
   },
   {
+    name: 'Python',
+    level: 'Intermedio'
+  },
+  {
     name: 'Astro',
     level: 'Intermedio'
   },
   {
     name: 'React',
-    level: 'Intermedio'
-  },
-  {
-    name: 'Node.js',
     level: 'Intermedio'
   },
   {
