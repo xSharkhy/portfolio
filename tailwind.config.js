@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 import { fontFamily } from 'tailwindcss/defaultTheme'
+import { light, dark } from 'daisyui/src/theming/themes'
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -9,6 +10,9 @@ export default {
       fontFamily: {
         sans: ['"Geist Variable"', ...fontFamily.sans],
         mono: ['"Geist Mono Variable"', ...fontFamily.mono]
+      },
+      screens: {
+        md: '700px'
       }
     }
   },
@@ -17,7 +21,7 @@ export default {
     themes: [
       {
         light: {
-          ...require('daisyui/src/theming/themes').light,
+          ...light,
           primary: '#26997B',
           'primary-content': '#41867c',
           secondary: '#467864',
@@ -28,7 +32,7 @@ export default {
           'neutral-content': '#5c5c5c'
         },
         dark: {
-          ...require('daisyui/src/theming/themes').dark,
+          ...dark,
           primary: '#26997B',
           'primary-content': '#cfffff',
           secondary: '#345e37',
