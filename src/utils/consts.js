@@ -4,10 +4,10 @@ export const TRANSITION_API = true
 
 export const BASICS_ES = {
   name: 'Ismael Morejón',
-  title: 'Desarrollador Web y de Videojuegos',
+  label: 'Desarrollador Web y de Videojuegos',
   image: '/profile.webp',
   email: 'ismamoreblas@gmail.com',
-  phone: null,
+  phone: '+34 627108409',
   url: 'https://ismobla.dev',
   summary: 'Desarrollador Web Júnior con gran motivación por aprender y contribuir a nuevos proyectos. Aunque mi experiencia laboral es breve, estoy dispuesto a afrontar nuevos retos y aportar valor a tu equipo. Soy una persona autodidacta con gran capacidad de aprendizaje y una fuerte motivación por convertirme en un profesional del desarrollo web.',
   location: {
@@ -36,7 +36,8 @@ export const EXPERIENCES_ES = [
     name: 'La Mina Estudio',
     position: 'Desarrollador Web',
     url: 'https://www.laminaestudio.com',
-    date: '2023',
+    startDate: '2023-03-01',
+    endDate: '2023-06-15',
     summary:
       'Desarrollo de herramientas de scraping y crawlers para la obtención de datos de sitios web. Optimización de procesos de obtención de datos y automatización de tareas. Implementación de Bases de Datos con grandes cantidades de entradas, SQL y NoSQL.',
     highlights: []
@@ -58,10 +59,10 @@ export const VOLUNTEER_ES = [
 export const EDUCATION_ES = [
   {
     institution: 'IES Abastos',
-    area: 'Desarrollo de Videojuegos',
+    area: 'Creación de Videojuegos y Realidad Virtual',
     studyType: 'Máster',
     startDate: '2023',
-    endDate: 'Actualidad',
+    endDate: null,
     gpa: null,
     courses: null
   },
@@ -76,8 +77,8 @@ export const EDUCATION_ES = [
   },
   {
     institution: 'Florida Secundaria',
-    area: 'Postobligatoria',
-    studyType: 'Bachillerato Científico-Tecnológico',
+    area: 'Científico-Tecnológico',
+    studyType: 'Bachillerato',
     startDate: '2018',
     endDate: '2020',
     gpa: 7,
