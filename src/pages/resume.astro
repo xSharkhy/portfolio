@@ -1,8 +1,33 @@
 ---
 import ResumeLayout from "@/layouts/ResumeLayout.astro"
+import About from "@/resume/components/About.astro"
+import Education from "@/resume/components/Education.astro"
+import Experience from "@/resume/components/Experience.astro"
+import Hero from "@/resume/components/Hero.astro"
+
+import { BASICS_ES } from "@/utils/consts"
+
+const { name, label } = BASICS_ES
 ---
 
-<ResumeLayout>
-  <h1>Resume</h1>
-  <p>My resume content</p>
+<ResumeLayout title=`Currículum de ${name} - ${label}`>
+  <main>
+    <Hero />
+    <About />
+    <Experience />
+    <Education />
+  </main>
 </ResumeLayout>
+<style>
+  main {
+    padding: 4rem;
+    margin: auto;
+    width: 100%;
+  }
+
+  @media (width <= 700px) {
+    main {
+      padding: 2rem;
+    }
+  }
+</style>
