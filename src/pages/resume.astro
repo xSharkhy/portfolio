@@ -11,23 +11,10 @@ const { name, label } = BASICS_ES
 ---
 
 <ResumeLayout title=`Currículum de ${name} - ${label}`>
-  <main>
+  <main class='w-full p-8 m-auto md:p-16'>
     <Hero />
     <About />
     <Experience />
     <Education />
   </main>
 </ResumeLayout>
-<style>
-  main {
-    padding: 4rem;
-    margin: auto;
-    width: 100%;
-  }
-
-  @media (width <= 700px) {
-    main {
-      padding: 2rem;
-    }
-  }
-</style>
