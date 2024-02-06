@@ -97,7 +97,11 @@ export const AWARDS_ES = [
 
 export const SKILLS = [
   {
-    name: 'HTML5 & CSS3',
+    name: 'HTML',
+    level: 'Avanzado'
+  },
+  {
+    name: 'CSS',
     level: 'Avanzado'
   },
   {
@@ -113,11 +117,11 @@ export const SKILLS = [
     level: 'Avanzado'
   },
   {
-    name: 'Tailwind CSS',
+    name: 'Tailwind',
     level: 'Intermedio'
   },
   {
-    name: 'Astro JS',
+    name: 'Astro',
     level: 'Intermedio'
   },
   {
@@ -126,6 +130,10 @@ export const SKILLS = [
   },
   {
     name: 'Node.js',
+    level: 'Intermedio'
+  },
+  {
+    name: 'MySQL',
     level: 'Intermedio'
   },
   {
