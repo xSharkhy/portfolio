@@ -1,4 +1,4 @@
-import AstroIcon from './AstroIcon.astro'
+import AstroIcon from './astroIcon.astro'
 import CSS from './CSS.astro'
 import Git from './Git.astro'
 import GitHub from './GitHub.astro'
