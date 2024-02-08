@@ -28,7 +28,11 @@ const printInfo = [email, phone, linkedUrl].filter(Boolean).join(" • ")
   >
     <div class='flex flex-col items-center gap-2 md:pr-8 md:items-start'>
       <h1 class='text-4xl text-neutral'>{name}</h1>
-      <h2 class='text-lg text-neutral-content text-balance'>{label}</h2>
+      <h2
+        class='text-lg text-center md:text-start text-neutral-content text-balance'
+      >
+        {label}
+      </h2>
       <span
         class='flex items-center gap-1 text-sm tracking-tighter text-stone-700 dark:text-stone-600'
       >
