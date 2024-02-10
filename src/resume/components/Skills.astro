@@ -9,9 +9,12 @@ const ICONS = await Astro.glob("/src/resume/icons/*.astro")
   <ul class='inline-flex flex-wrap gap-2 mt-2'>
     {
       SKILLS.map(({ name }) => {
-        const icon = ICONS.find((icon) =>
-          icon.default.name.includes(name.toLowerCase())
-        )
+        const icon = ICONS.find((icon) => {
+          const iconName = icon.default.name.toLowerCase()
+          const skillName = name.toLowerCase()
+
+          return iconName.includes(skillName) || skillName.includes(iconName)
+        })
 
         return (
           <li class='flex items-center gap-1 px-3 py-1 text-sm font-medium rounded-md hover:scale-105 text-stone-950 bg-stone-300'>
