@@ -33,6 +33,15 @@ export const BASICS_ES = {
 
 export const EXPERIENCES_ES = [
   {
+    name: 'Wenalyze',
+    position: 'Diseñador y Desarrollador Web Full Stack',
+    url: 'https://www.wenalyze.com',
+    startDate: '2024-04-30',
+    endDate: null,
+    summary: 'Diseño de componentes y desarrollo de nuevas funcionalidades para la plataforma web. Implementación de mejoras en la experiencia de usuario. Desarrollo avanzado de herramientas de scraping para la obtención de datos Open Data.',
+    highlights: []
+  },
+  {
     name: 'La Mina Estudio',
     position: 'Desarrollador Web',
     url: 'https://www.laminaestudio.com',
@@ -115,6 +124,14 @@ export const SKILLS = [
   {
     name: 'GitHub',
     level: 'Avanzado'
+  },
+  {
+    name: 'Angular',
+    level: 'Intermedio'
+  },
+  {
+    name: 'Puppeteer',
+    level: 'Intermedio'
   },
   {
     name: 'Tailwind',
