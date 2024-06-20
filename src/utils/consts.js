@@ -9,7 +9,7 @@ export const BASICS_ES = {
   email: 'ismamoreblas@gmail.com',
   phone: '+34 627108409',
   url: 'https://ismobla.dev',
-  summary: 'Desarrollador Web Júnior con gran motivación por aprender y contribuir a nuevos proyectos. Aunque mi experiencia laboral es breve, estoy dispuesto a afrontar nuevos retos y aportar valor a tu equipo. Soy una persona autodidacta con gran capacidad de aprendizaje y una fuerte motivación por convertirme en un profesional del desarrollo web.',
+  summary: 'Desarrollador Web Júnior con gran motivación por aprender y contribuir a nuevos proyectos. Estoy dispuesto a afrontar nuevos retos y aportar valor a tu equipo. Soy una persona autodidacta con gran capacidad de aprendizaje y una fuerte motivación por convertirme en un profesional del desarrollo de software.',
   location: {
     address: null,
     postalCode: '46290',
@@ -118,16 +118,28 @@ export const SKILLS = [
     level: 'Avanzado'
   },
   {
+    name: 'Node.js',
+    level: 'Avanzado'
+  },
+  {
+    name: 'Astro',
+    level: 'Intermedio'
+  },
+  {
+    name: 'Angular',
+    level: 'Intermedio'
+  },
+  {
+    name: 'React',
+    level: 'Intermedio'
+  },
+  {
     name: 'Git',
     level: 'Avanzado'
   },
   {
     name: 'GitHub',
     level: 'Avanzado'
-  },
-  {
-    name: 'Angular',
-    level: 'Intermedio'
   },
   {
     name: 'Puppeteer',
@@ -142,23 +154,11 @@ export const SKILLS = [
     level: 'Intermedio'
   },
   {
-    name: 'Astro',
-    level: 'Intermedio'
-  },
-  {
-    name: 'React',
-    level: 'Intermedio'
-  },
-  {
     name: 'MySQL',
     level: 'Intermedio'
   },
   {
     name: 'MongoDB',
-    level: 'Intermedio'
-  },
-  {
-    name: 'SCRUM',
     level: 'Intermedio'
   }
 ]
