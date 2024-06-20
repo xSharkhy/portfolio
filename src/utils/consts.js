@@ -122,6 +122,10 @@ export const SKILLS = [
     level: 'Avanzado'
   },
   {
+    name: 'PHP',
+    level: 'Intermedio'
+  },
+  {
     name: 'Astro',
     level: 'Intermedio'
   },
