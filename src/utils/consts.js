@@ -38,7 +38,7 @@ export const EXPERIENCES_ES = [
     url: 'https://www.wenalyze.com',
     startDate: '2024-04-30',
     endDate: null,
-    summary: 'Diseño de componentes y desarrollo de nuevas funcionalidades para la plataforma web. Implementación de mejoras en la experiencia de usuario. Desarrollo avanzado de herramientas de scraping para la obtención de datos Open Data.',
+    summary: 'Diseño de componentes y desarrollo de nuevas funcionalidades para la plataforma web con Figma, Angular y Typescript. Desarrollo avanzado de herramientas de scraping para la obtención de datos Open Data. Integración de datos con las API del equipo de Analytics y clientes con Node.js mediante patrones de API REST.',
     highlights: []
   },
   {
@@ -48,7 +48,7 @@ export const EXPERIENCES_ES = [
     startDate: '2023-03-01',
     endDate: '2023-06-15',
     summary:
-      'Desarrollo de herramientas de scraping y crawlers para la obtención de datos de sitios web. Optimización de procesos de obtención de datos y automatización de tareas. Implementación de Bases de Datos con grandes cantidades de entradas, SQL y NoSQL.',
+      'Desarrollo de herramientas de scraping y crawlers para la obtención de datos con librerías como Puppeteer y Playwright. Optimización de procesos de obtención de datos y automatización de tareas. Implementación de Bases de Datos con grandes cantidades de entradas, SQL y NoSQL.',
     highlights: []
   }
 ]
@@ -71,7 +71,7 @@ export const EDUCATION_ES = [
     area: 'Creación de Videojuegos y Realidad Virtual',
     studyType: 'Máster',
     startDate: '2023',
-    endDate: null,
+    endDate: '2024',
     gpa: null,
     courses: null
   },
@@ -123,6 +123,10 @@ export const SKILLS = [
   },
   {
     name: 'PHP',
+    level: 'Intermedio'
+  },
+  {
+    name: 'Laravel',
     level: 'Intermedio'
   },
   {
