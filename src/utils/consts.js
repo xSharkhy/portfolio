@@ -34,11 +34,11 @@ export const BASICS_ES = {
 export const EXPERIENCES_ES = [
   {
     name: 'Wenalyze',
-    position: 'Diseñador y Desarrollador Web Full Stack',
+    position: 'Desarrollador Full Stack',
     url: 'https://www.wenalyze.com',
     startDate: '2024-04-30',
     endDate: null,
-    summary: 'Diseño de componentes y desarrollo de nuevas funcionalidades para la plataforma web con Figma, Angular y Typescript. Desarrollo avanzado de herramientas de scraping para la obtención de datos Open Data. Integración de datos con las API del equipo de Analytics y clientes con Node.js mediante patrones de API REST.',
+    summary: 'Desarrollo avanzado de herramientas de scraping para la obtención de datos Open Data. Integración de datos con las API del equipo de Analytics y clientes con Node.js mediante patrones de API REST. Diseño de componentes y desarrollo de nuevas funcionalidades para la plataforma web con Figma, Angular y Typescript.',
     highlights: []
   },
   {
@@ -66,6 +66,15 @@ export const VOLUNTEER_ES = [
 ]
 
 export const EDUCATION_ES = [
+  {
+    institution: 'IES Serpis',
+    area: 'Desarrollo de Aplicaciones Multiplataforma',
+    studyType: 'Técnico Superior',
+    startDate: '2024',
+    endDate: null,
+    gpa: null,
+    courses: null
+  },
   {
     institution: 'IES Abastos',
     area: 'Creación de Videojuegos y Realidad Virtual',
