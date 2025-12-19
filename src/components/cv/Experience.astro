@@ -1,0 +1,88 @@
+---
+import type { Experience } from '@/data/cv'
+import type { Lang } from '@/data/i18n'
+import { t } from '@/data/i18n'
+
+interface Props {
+  experiences: Experience[]
+  lang?: Lang
+}
+
+const { experiences, lang = 'es' } = Astro.props
+
+const months: Record<Lang, string[]> = {
+  es: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
+  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  ca: ['gen', 'feb', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'oct', 'nov', 'des'],
+  gl: ['xan', 'feb', 'mar', 'abr', 'mai', 'xuñ', 'xul', 'ago', 'set', 'out', 'nov', 'dec']
+}
+
+function formatDate(dateStr: string | null): string {
+  if (!dateStr) return t(lang, 'cv.current')
+  const [year, month] = dateStr.split('-')
+  if (month) {
+    return `${months[lang][parseInt(month) - 1]} ${year}`
+  }
+  return year
+}
+---
+
+<section class="print-section mb-8 print:mb-4">
+  <h3 class="print-title text-lg print:text-sm font-semibold text-[--color-accent-violet] print:text-black mb-4 print:mb-2 uppercase tracking-wider">
+    {t(lang, 'section.experience')}
+  </h3>
+
+  <div class="space-y-6 print:space-y-4">
+    {experiences.map(exp => (
+      <article class="border-l-2 border-[--color-border-highlight] print:border-gray-300 pl-4 print:pl-3">
+        <!-- Position & Date -->
+        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-1">
+          <h4 class="font-semibold text-[--color-text-bright] print:text-black">
+            {exp.position}
+          </h4>
+          <span class="text-sm print:text-xs text-[--color-text-muted] print:text-gray-600 shrink-0">
+            {formatDate(exp.startDate)} — {formatDate(exp.endDate)}
+          </span>
+        </div>
+
+        <!-- Company -->
+        <a
+          href={exp.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-sm text-[--color-accent-primary] print:text-gray-700 hover:underline mb-2 inline-block"
+        >
+          {exp.name}
+        </a>
+
+        <!-- Summary -->
+        <p class="text-sm print:text-xs text-[--color-text-muted] print:text-gray-600 mb-3 print:mb-2">
+          {exp.summary}
+        </p>
+
+        <!-- Highlights (Bullet Points) -->
+        {exp.highlights && exp.highlights.length > 0 && (
+          <ul class="space-y-1.5 print:space-y-1 mb-3 print:mb-2">
+            {exp.highlights.map(highlight => (
+              <li class="text-sm print:text-xs text-[--color-text] print:text-gray-800 flex items-start gap-2">
+                <span class="text-[--color-accent-purple] print:text-gray-500 shrink-0 mt-1" aria-hidden="true">›</span>
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <!-- Tech Stack -->
+        {exp.technologies && exp.technologies.length > 0 && (
+          <div class="flex flex-wrap gap-1.5 print:gap-1">
+            {exp.technologies.map(tech => (
+              <span class="px-2 py-0.5 print:px-1.5 text-xs bg-[--color-bg] print:bg-gray-100 border border-[--color-border] print:border-gray-300 rounded text-[--color-text-muted] print:text-gray-600">
+                {tech}
+              </span>
+            ))}
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+</section>

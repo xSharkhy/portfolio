@@ -1,10 +1,15 @@
-import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
+// @ts-check
+import { defineConfig } from 'astro/config';
 
-import sitemap from '@astrojs/sitemap'
+import tailwindcss from '@tailwindcss/vite';
+import react from '@astrojs/react';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://ismobla.dev',
-  integrations: [tailwind(), sitemap()]
-})
+  vite: {
+    plugins: [tailwindcss()]
+  },
+  integrations: [react(), sitemap()]
+});

@@ -1,0 +1,37 @@
+---
+import type { SpokenLanguage } from '@/data/cv'
+import type { Lang } from '@/data/i18n'
+
+interface Props {
+  languages: SpokenLanguage[]
+  lang?: Lang
+}
+
+const { languages, lang = 'es' } = Astro.props
+
+const sectionTitle: Record<Lang, string> = {
+  es: 'Idiomas',
+  en: 'Languages',
+  ca: 'Idiomes',
+  gl: 'Idiomas'
+}
+---
+
+<section class="print-section mb-8 print:mb-4">
+  <h3 class="print-title text-lg print:text-sm font-semibold text-[--color-accent-violet] print:text-black mb-4 print:mb-2 uppercase tracking-wider">
+    {sectionTitle[lang]}
+  </h3>
+
+  <div class="flex flex-wrap gap-x-6 gap-y-2 print:gap-x-4">
+    {languages.map(language => (
+      <div class="flex items-center gap-2 text-sm print:text-xs">
+        <span class="text-[--color-text-bright] print:text-black font-medium">
+          {language.name[lang]}
+        </span>
+        <span class="text-[--color-text-muted] print:text-gray-600">
+          ({language.level[lang]})
+        </span>
+      </div>
+    ))}
+  </div>
+</section>

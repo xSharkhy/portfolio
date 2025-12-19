@@ -1,0 +1,93 @@
+---
+import Head from '@/components/Head.astro'
+import '@/styles/global.css'
+
+import type { Lang } from '@/data/i18n'
+import { t } from '@/data/i18n'
+
+interface Props {
+  title: string
+  description?: string
+  lang?: Lang
+}
+
+const { title, description = '', lang = 'es' } = Astro.props
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <Head title={title} description={description} />
+    <style>
+      /* CV-specific print styles */
+      @media print {
+        @page {
+          margin: 1cm;
+          size: A4;
+        }
+
+        html, body {
+          font-size: 10pt;
+          line-height: 1.4;
+          background: white !important;
+          color: black !important;
+          font-family: 'Geist', system-ui, sans-serif;
+        }
+
+        a {
+          color: inherit !important;
+          text-decoration: none;
+        }
+
+        .print-header {
+          border-bottom: 1px solid #ccc;
+          padding-bottom: 0.5rem;
+          margin-bottom: 1rem;
+        }
+
+        .print-section {
+          break-inside: avoid;
+          margin-bottom: 0.75rem;
+        }
+
+        .print-title {
+          font-size: 11pt;
+          font-weight: bold;
+          border-bottom: 1px solid #eee;
+          padding-bottom: 0.25rem;
+          margin-bottom: 0.5rem;
+          color: black !important;
+        }
+      }
+
+      @media screen {
+        .cv-container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[--color-bg]">
+    <div class="cv-container">
+      <!-- Print button (hidden on print) -->
+      <div class="no-print mb-6 flex justify-between items-center">
+        <a
+          href={lang === 'es' ? '/' : '/en'}
+          class="text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] transition-colors"
+        >
+          <span class="text-[--color-text-dark]">&lt;</span> {t(lang, 'cv.back')}
+        </a>
+        <button
+          onclick="window.print()"
+          class="px-4 py-2 bg-[--color-bg-surface] border border-[--color-border] rounded text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] hover:border-[--color-accent-primary] transition-colors"
+        >
+          {t(lang, 'cv.print')}
+        </button>
+      </div>
+
+      <slot />
+    </div>
+  </body>
+</html>

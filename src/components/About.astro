@@ -1,0 +1,21 @@
+---
+import { t } from '@/data/i18n'
+import type { Lang } from '@/data/i18n'
+
+interface Props {
+  summary: string
+  lang?: Lang
+}
+
+const { summary, lang = 'es' } = Astro.props
+---
+
+<section class="py-16 sm:py-20" aria-labelledby="about-heading">
+  <h2 id="about-heading" class="text-sm text-[--color-text-dark] mb-6">{t(lang, 'section.about')}</h2>
+
+  <div class="pl-4 sm:pl-6 border-l-2 border-[--color-accent-violet]/30">
+    <p class="text-[--color-text] text-lg sm:text-xl leading-relaxed max-w-2xl">
+      {summary}
+    </p>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+import type { Education } from '@/data/cv'
+import type { Lang } from '@/data/i18n'
+import { t } from '@/data/i18n'
+
+interface Props {
+  education: Education[]
+  lang?: Lang
+}
+
+const { education, lang = 'es' } = Astro.props
+
+function formatPeriod(start: string, end: string | null): string {
+  if (!end) return `${start} - ${t(lang, 'cv.current')}`
+  return `${start} - ${end}`
+}
+---
+
+<section class="print-section mb-8 print:mb-4">
+  <h3 class="print-title text-lg print:text-sm font-semibold text-[--color-accent-purple] print:text-black mb-4 print:mb-2 uppercase tracking-wider">
+    {t(lang, 'section.education')}
+  </h3>
+
+  <div class="space-y-4 print:space-y-2">
+    {education.map(edu => (
+      <div class="border-l-2 border-[--color-border-highlight] print:border-gray-300 pl-4 print:pl-2">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-1">
+          <h4 class="font-semibold text-[--color-text-bright] print:text-black">
+            {edu.area}
+          </h4>
+          <span class="text-sm print:text-xs text-[--color-text-muted] print:text-gray-600">
+            {formatPeriod(edu.startDate, edu.endDate)}
+          </span>
+        </div>
+        <p class="text-sm text-[--color-accent-primary] print:text-gray-700">
+          {edu.studyType} · {edu.institution}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>

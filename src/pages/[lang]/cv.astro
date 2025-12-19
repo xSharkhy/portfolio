@@ -1,0 +1,42 @@
+---
+import CVLayout from '@/layouts/CVLayout.astro'
+import Header from '@/components/cv/Header.astro'
+import Experience from '@/components/cv/Experience.astro'
+import Education from '@/components/cv/Education.astro'
+import Skills from '@/components/cv/Skills.astro'
+import Languages from '@/components/cv/Languages.astro'
+
+import { getBasics, getExperiences, getEducation, skillCategories, spokenLanguages, getSiteTitle, getSiteDescription } from '@/data/cv'
+import { languages } from '@/data/i18n'
+import type { Lang } from '@/data/i18n'
+
+export function getStaticPaths() {
+  return languages.map(lang => ({ params: { lang } }))
+}
+
+const { lang } = Astro.params as { lang: Lang }
+const basics = getBasics(lang)
+const experiences = getExperiences(lang)
+const education = getEducation(lang)
+
+const title = getSiteTitle(lang)
+const description = getSiteDescription(lang)
+---
+
+<CVLayout title={title} description={description} lang={lang}>
+  <Header basics={basics} />
+
+  <div class="grid md:grid-cols-3 gap-8 print:gap-4">
+    <!-- Main content: Experience & Education -->
+    <div class="md:col-span-2">
+      <Experience experiences={experiences} lang={lang} />
+      <Education education={education} lang={lang} />
+    </div>
+
+    <!-- Sidebar: Skills & Languages -->
+    <div>
+      <Skills categories={skillCategories} lang={lang} />
+      <Languages languages={spokenLanguages} lang={lang} />
+    </div>
+  </div>
+</CVLayout>
