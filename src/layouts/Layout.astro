@@ -1,0 +1,58 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import Head from '@/components/Head.astro'
+import Navbar from '@/components/Navbar.astro'
+import '@/styles/global.css'
+
+import type { Lang } from '@/data/i18n'
+import { getSiteTitle, getSiteDescription } from '@/data/cv'
+
+interface Props {
+  title?: string
+  description?: string
+  image?: string
+  ogType?: string
+  lang?: Lang
+}
+
+const {
+  lang = 'es',
+  title = getSiteTitle(lang),
+  description = getSiteDescription(lang),
+  image,
+  ogType,
+} = Astro.props
+
+const currentPath = Astro.url.pathname
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <Head title={title} description={description} image={image} ogType={ogType} />
+    <ViewTransitions />
+  </head>
+  <body class="min-h-screen bg-[--color-bg]">
+    <!-- Skip to main content link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-3 focus:bg-[--color-bg-surface] focus:text-[--color-text-bright] focus:border-2 focus:border-[--color-accent-primary] focus:rounded-lg focus:text-sm"
+    >
+      Skip to main content
+    </a>
+
+    <Navbar currentPath={currentPath} lang={lang} />
+
+    <main id="main-content" class="pt-20 px-4 sm:px-6 pb-12" tabindex="-1">
+      <div class="max-w-4xl mx-auto">
+        <slot />
+      </div>
+    </main>
+
+    <footer class="border-t border-[--color-border] py-8 text-center text-sm text-[--color-text-muted]">
+      <div class="max-w-4xl mx-auto px-6">
+        <span class="text-[--color-text-dark]">&gt;</span> {new Date().getFullYear()} Ismael Morejón
+      </div>
+    </footer>
+  </body>
+</html>

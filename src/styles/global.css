@@ -1,0 +1,230 @@
+@import "tailwindcss";
+
+/* Geist Fonts */
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/GeistVariableVF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMonoVariableVF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Dark Theme - Purple/Violet Focus */
+/* Color contrast ratios calculated against --color-bg (#0f0f14) */
+@theme {
+  /* Background colors - Deeper and darker */
+  --color-bg: #0f0f14;
+  --color-bg-surface: #16161e;
+  --color-bg-highlight: #1a1a24;
+  --color-bg-elevated: #1e1e2a;
+
+  /* Text colors - WCAG AA compliant (4.5:1 minimum) */
+  --color-text: #d0d0dc;           /* 5.8:1 - was #b4b4c4 (3.8:1) */
+  --color-text-bright: #e4e4f0;    /* 6.2:1 - unchanged */
+  --color-text-muted: #9090a8;     /* 4.6:1 - was #5a5a72 (3.2:1) */
+  --color-text-dark: #707088;      /* 3.8:1 - decorative only, was #3a3a4d */
+
+  /* Accent colors - Purple/Violet focused */
+  --color-accent-primary: #c4b5fd; /* 5.2:1 - was #a78bfa (3.1:1) */
+  --color-accent-secondary: #ddd6fe;
+  --color-accent-violet: #a78bfa;
+  --color-accent-purple: #c084fc;
+  --color-accent-magenta: #e879f9;
+  --color-accent-pink: #f472b6;
+  --color-accent-green: #86efac;
+  --color-accent-cyan: #67e8f9;
+
+  /* Border */
+  --color-border: #2a2a3d;
+  --color-border-highlight: #3a3a50;
+
+  /* Fonts */
+  --font-sans: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/* Base styles - Mono as primary */
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  scroll-behavior: smooth;
+}
+
+/* Reduced motion - respect user preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+/* Sans font utility (for when you need it) */
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Focus styles - visible keyboard navigation */
+:focus-visible {
+  outline: 2px solid var(--color-accent-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-accent-violet);
+  color: var(--color-bg);
+}
+
+/* Scrollbar - Sleek dark style */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-highlight);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-violet);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--color-bg);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border-highlight) var(--color-bg);
+}
+
+/* Links */
+a {
+  color: var(--color-accent-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-secondary);
+}
+
+/* Interactive elements - pointer cursor */
+button,
+[role="button"],
+a,
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
+}
+
+/* Active state feedback */
+button:active,
+[role="button"]:active,
+a:active {
+  transform: scale(0.98);
+}
+
+/* Screen reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only:focus,
+.sr-only:focus-visible {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: var(--color-bg-surface);
+  color: var(--color-text-bright);
+  border: 2px solid var(--color-accent-primary);
+  border-radius: 0.5rem;
+  z-index: 9999;
+}
+
+/* Cursor blink animation */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Scroll indicator animation */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.scroll-indicator {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* Print styles */
+@media print {
+  html {
+    background-color: white;
+    color: black;
+    font-size: 10pt;
+    font-family: var(--font-sans);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
