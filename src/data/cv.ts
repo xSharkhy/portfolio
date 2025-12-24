@@ -425,15 +425,27 @@ const education: Record<Lang, Education[]> = {
 // Projects - VALUE-FOCUSED descriptions
 export const projects: Project[] = [
   {
+    name: 'el-impostor',
+    description: {
+      es: 'Juego social multijugador en tiempo real. WebSockets, Clean Architecture en el backend, y desplegado en Raspberry Pi con SSL.',
+      en: 'Real-time multiplayer social deduction game. WebSockets, Clean Architecture backend, deployed on Raspberry Pi with SSL.',
+      ca: 'Joc social multijugador en temps real. WebSockets, Clean Architecture al backend, i desplegat en Raspberry Pi amb SSL.',
+      gl: 'Xogo social multixogador en tempo real. WebSockets, Clean Architecture no backend, e despregado en Raspberry Pi con SSL.'
+    },
+    technologies: ['React', 'TypeScript', 'Socket.io', 'Node.js', 'Supabase', 'Tailwind'],
+    github: 'https://github.com/xSharkhy/impostor-game',
+    demo: 'https://impostor.ismobla.dev'
+  },
+  {
     name: 'wenalyze-sync',
     description: {
-      es: 'Frontend completo para la sincronización de datos empresariales. Arquitectura optimizada que redujo las llamadas API y mejoró la experiencia de usuario.',
-      en: 'Complete frontend for enterprise data synchronization. Optimized architecture that reduced API calls and improved user experience.',
-      ca: 'Frontend complet per a la sincronització de dades empresarials. Arquitectura optimitzada que va reduir les crides API i va millorar l\'experiència d\'usuari.',
-      gl: 'Frontend completo para a sincronización de datos empresariais. Arquitectura optimizada que reduciu as chamadas API e mellorou a experiencia de usuario.'
+      es: 'Producto SaaS para sincronización de datos empresariales. Dashboard que diseñé y desarrollé desde cero con arquitectura optimizada.',
+      en: 'SaaS product for enterprise data synchronization. Dashboard I designed and built from scratch with optimized architecture.',
+      ca: 'Producte SaaS per a sincronització de dades empresarials. Dashboard que vaig dissenyar i desenvolupar des de zero amb arquitectura optimitzada.',
+      gl: 'Produto SaaS para sincronización de datos empresariais. Dashboard que deseñei e desenvolvín desde cero con arquitectura optimizada.'
     },
     technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
-    demo: 'https://sync.wenalyze.com'
+    demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
   },
   {
     name: 'portfolio',
@@ -446,17 +458,6 @@ export const projects: Project[] = [
     technologies: ['Astro', 'React', 'TypeScript', 'Tailwind'],
     github: 'https://github.com/xSharkhy/portfolio',
     demo: 'https://ismobla.dev'
-  },
-  {
-    name: 'data-scraper',
-    description: {
-      es: 'Sistema de extracción de datos con gestión de proxies, rate limiting y reintentos automáticos. Arquitectura que escala.',
-      en: 'Data extraction system with proxy management, rate limiting, and automatic retries. Architecture that scales.',
-      ca: 'Sistema d\'extracció de dades amb gestió de proxies, rate limiting i reintents automàtics. Arquitectura que escala.',
-      gl: 'Sistema de extracción de datos con xestión de proxies, rate limiting e reintentos automáticos. Arquitectura que escala.'
-    },
-    technologies: ['Node.js', 'TypeScript', 'Puppeteer'],
-    github: 'https://github.com/xSharkhy/data-scraper'
   }
 ]
 
