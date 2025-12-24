@@ -425,6 +425,18 @@ const education: Record<Lang, Education[]> = {
 // Projects - VALUE-FOCUSED descriptions
 export const projects: Project[] = [
   {
+    name: 'el-impostor',
+    description: {
+      es: 'Juego social multijugador en tiempo real. WebSockets, Clean Architecture en el backend, y desplegado en Raspberry Pi con SSL.',
+      en: 'Real-time multiplayer social deduction game. WebSockets, Clean Architecture backend, deployed on Raspberry Pi with SSL.',
+      ca: 'Joc social multijugador en temps real. WebSockets, Clean Architecture al backend, i desplegat en Raspberry Pi amb SSL.',
+      gl: 'Xogo social multixogador en tempo real. WebSockets, Clean Architecture no backend, e despregado en Raspberry Pi con SSL.'
+    },
+    technologies: ['React', 'TypeScript', 'Socket.io', 'Node.js', 'Supabase', 'Tailwind'],
+    github: 'https://github.com/xSharkhy/impostor-game',
+    demo: 'https://impostor.ismobla.dev'
+  },
+  {
     name: 'wenalyze-sync',
     description: {
       es: 'Frontend completo para la sincronización de datos empresariales. Arquitectura optimizada que redujo las llamadas API y mejoró la experiencia de usuario.',
