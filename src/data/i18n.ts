@@ -15,6 +15,7 @@ export const ui = {
     // Navigation
     'nav.home': 'inicio',
     'nav.cv': 'cv',
+    'nav.hire': 'contrátame',
 
     // Hero
     'hero.greeting': '> whoami',
@@ -57,6 +58,7 @@ export const ui = {
     // Navigation
     'nav.home': 'home',
     'nav.cv': 'cv',
+    'nav.hire': 'hire me',
 
     // Hero
     'hero.greeting': '> whoami',
@@ -99,6 +101,7 @@ export const ui = {
     // Navigation
     'nav.home': 'inici',
     'nav.cv': 'cv',
+    'nav.hire': 'contracta\'m',
 
     // Hero
     'hero.greeting': '> whoami',
@@ -141,6 +144,7 @@ export const ui = {
     // Navigation
     'nav.home': 'inicio',
     'nav.cv': 'cv',
+    'nav.hire': 'contrátame',
 
     // Hero
     'hero.greeting': '> whoami',

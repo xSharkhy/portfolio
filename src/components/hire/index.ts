@@ -1,0 +1,5 @@
+export { default as HireHook } from './HireHook'
+export { default as ProofCase } from './ProofCase'
+export { default as Testimonials } from './Testimonials'
+export { default as ValueProp } from './ValueProp'
+export { default as HireForm } from './HireForm'

@@ -1,13 +1,11 @@
 import { motion, useReducedMotion } from 'motion/react'
 import { getExperienceCopy, getHeadlines } from '@/data/copy'
 import type { Lang } from '@/data/i18n'
-import { t } from '@/data/i18n'
 import Card, { CardHeader, CardTitle, CardLabel, CardTags, CardPunchline } from '@/components/ui/Card'
 import {
   scrollRevealLeft,
   scrollRevealRight,
   scrollRevealBlur,
-  scaleInUp,
   getScrollAnimationProps,
   strictViewport,
   centerViewport
@@ -74,21 +72,6 @@ export default function Experience({ lang }: ExperienceProps) {
           </div>
         )}
 
-        {/* CTA to full CV - scale in */}
-        <motion.div
-          {...getScrollAnimationProps(scaleInUp, prefersReducedMotion, strictViewport)}
-          className="pt-6"
-        >
-          <a
-            href={`/${lang}/cv`}
-            className="inline-flex items-center gap-2 text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] transition-colors group"
-          >
-            <span>{t(lang, 'cta.viewCV')}</span>
-            <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">
-              →
-            </span>
-          </a>
-        </motion.div>
       </div>
     </section>
   )

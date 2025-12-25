@@ -99,6 +99,63 @@ export interface SectionHeadlines {
 }
 
 // ============================================================================
+// HIRE ME PAGE TYPES
+// ============================================================================
+
+export interface HireMeCopy {
+  meta: {
+    title: string;
+    description: string;
+  };
+  hook: {
+    headline: string;
+    subheadline: string[];
+  };
+  proof: {
+    headline: string;
+    subheadline: string;
+    intro: string[];
+    timeline: string;
+    stack: {
+      frontend: string[];
+      backend: string[];
+      infra: string[];
+    };
+    features: string[];
+    closing: string[];
+    cta: {
+      play: string;
+      code: string;
+    };
+  };
+  testimonials: {
+    headline: string;
+    items: {
+      quote: string;
+      translation: string;
+    }[];
+  };
+  value: {
+    headline: string;
+    intro: string[];
+    points: string[];
+    closing: string[];
+  };
+  form: {
+    headline: string;
+    intro: string[];
+    placeholder: string;
+    button: string;
+    note: string;
+  };
+}
+
+export interface EmailTemplateCopy {
+  subject: string;
+  body: string[];
+}
+
+// ============================================================================
 // COPY DATA
 // ============================================================================
 
@@ -1024,6 +1081,572 @@ export const contactCopy: Record<Lang, ContactCopy> = {
 };
 
 // ============================================================================
+// HIRE ME PAGE
+// ============================================================================
+
+export const hireMeCopy: Record<Lang, HireMeCopy> = {
+  es: {
+    meta: {
+      title: 'Contrátame — Ismael Morejón',
+      description: '2 años haciendo lo que otros tardan 5. Backend, productos desde cero, código que escala. Si buscas alguien que mejore lo que toca, hablemos.'
+    },
+    hook: {
+      headline: '2 años de experiencia.\nLo que no dice el número.',
+      subheadline: [
+        'Hay quien lleva una década haciendo lo mismo año tras año.',
+        'Y hay quien en dos años ha construido productos completos,',
+        'optimizado sistemas que nadie quería tocar,',
+        'y liderado migraciones que otros evitaban.',
+        'Yo soy del segundo tipo.'
+      ]
+    },
+    proof: {
+      headline: 'Un ejemplo vale más que mil bullets en un CV.',
+      subheadline: 'El Impostor — Juego multijugador de deducción social',
+      intro: [
+        'Un jugador es el impostor. No conoce la palabra secreta.',
+        'Los demás tienen que descubrirlo. En tiempo real. Sin piedad.',
+        'No heredé este código. No "colaboré" en un equipo de 20.',
+        'Lo diseñé, lo desarrollé y lo desplegué. Solo.'
+      ],
+      timeline: 'Una semana. Diciembre de 2025.\nFrontend, backend, WebSockets, OAuth, 5 idiomas, producción.\nSiete días.',
+      stack: {
+        frontend: ['React 19', 'TypeScript', 'Tailwind 4', 'Zustand', 'Socket.io', 'Motion'],
+        backend: ['Node.js', 'Express', 'Clean Architecture', 'Supabase', 'PostgreSQL'],
+        infra: ['Vercel', 'Raspberry Pi 5', 'nginx', 'SSL', 'GitHub webhooks']
+      },
+      features: [
+        '4 modos de juego, hasta 6 impostores simultáneos',
+        'OAuth con Google y GitHub',
+        'Votación en tiempo real con mayoría 2/3',
+        'Auto-reconexión sin perder el estado de partida',
+        'Mobile-first y accesible (WCAG AA)',
+        '5 idiomas: ES, EN, CA, EU, GL'
+      ],
+      closing: [
+        '¿Por qué importa esto?',
+        'Porque cuando digo que puedo construir un producto de cero',
+        '—frontend, backend, infraestructura, el paquete completo—',
+        'no es una promesa.',
+        'Es un hecho con URL.'
+      ],
+      cta: {
+        play: 'Jugar a El Impostor',
+        code: 'Ver código en GitHub'
+      }
+    },
+    testimonials: {
+      headline: 'Lo que dicen de mí.\n(Y lo que realmente significa)',
+      items: [
+        {
+          quote: '"Se le va la cabeza y afina muchísimo"',
+          translation: 'No entrego "lo que funciona". Entrego lo que funciona bien.'
+        },
+        {
+          quote: '"Hace más de lo que debe"',
+          translation: 'No me limito a mi ticket de Jira. Si veo algo que mejorar, lo mejoro.'
+        },
+        {
+          quote: '"Tiene buenas ideas"',
+          translation: 'No soy un ejecutor mudo. Pienso en el producto, no solo en el código.'
+        },
+        {
+          quote: '"No merece la pena darle tantas vueltas"',
+          translation: 'Decido rápido, ejecuto rápido, itero rápido. El perfeccionismo que paraliza no va conmigo.'
+        }
+      ]
+    },
+    value: {
+      headline: '¿Qué significa tenerme en tu equipo?',
+      intro: [
+        'Alguien que no espera instrucciones perfectas.',
+        'Que entiende el problema antes de picar código.',
+        'Que deja las cosas mejor de lo que las encontró.'
+      ],
+      points: [
+        'Backend que escala sin sustos',
+        'Migraciones que otros no quieren tocar',
+        'Código que el siguiente dev agradecerá',
+        'Alguien que piensa en el producto, no solo en el sprint'
+      ],
+      closing: [
+        'No tengo 10 años de experiencia.',
+        'Tengo 2 años de hacer las cosas bien.',
+        'Y los próximos van a ser mejores.'
+      ]
+    },
+    form: {
+      headline: '¿Te interesa?',
+      intro: [
+        'No voy a dejarte mi CV aquí colgado para que lo descarguen bots y recruiters de masas.',
+        'Si de verdad crees que puedo encajar en tu equipo, déjame tu email.',
+        'Te escribo yo.',
+        'Con mi CV, con contexto, y con una propuesta clara.',
+        'Sin spam. Sin newsletters. Solo una conversación.'
+      ],
+      placeholder: 'Tu email profesional',
+      button: 'Quiero que me escribas',
+      note: 'Solo respondo a emails corporativos. Si usas @gmail, cuéntame algo de tu proyecto.'
+    }
+  },
+  en: {
+    meta: {
+      title: 'Hire Me — Ismael Morejón',
+      description: '2 years doing what others take 5 to do. Backend, products from scratch, code that scales. If you\'re looking for someone who improves what they touch, let\'s talk.'
+    },
+    hook: {
+      headline: '2 years of experience.\nWhat the number doesn\'t tell you.',
+      subheadline: [
+        'Some people spend a decade doing the same thing year after year.',
+        'And some, in two years, have built complete products,',
+        'optimized systems nobody wanted to touch,',
+        'and led migrations others avoided.',
+        'I\'m the second type.'
+      ]
+    },
+    proof: {
+      headline: 'One example beats a hundred CV bullet points.',
+      subheadline: 'El Impostor — Real-time multiplayer social deduction game',
+      intro: [
+        'One player is the impostor. They don\'t know the secret word.',
+        'Everyone else has to find them. In real time. No mercy.',
+        'I didn\'t inherit this code. I didn\'t "collaborate" in a team of 20.',
+        'I designed it, built it, and deployed it. Solo.'
+      ],
+      timeline: 'One week. December 2025.\nFrontend, backend, WebSockets, OAuth, 5 languages, production.\nSeven days.',
+      stack: {
+        frontend: ['React 19', 'TypeScript', 'Tailwind 4', 'Zustand', 'Socket.io', 'Motion'],
+        backend: ['Node.js', 'Express', 'Clean Architecture', 'Supabase', 'PostgreSQL'],
+        infra: ['Vercel', 'Raspberry Pi 5', 'nginx', 'SSL', 'GitHub webhooks']
+      },
+      features: [
+        '4 game modes, up to 6 simultaneous impostors',
+        'OAuth with Google and GitHub',
+        'Real-time voting with 2/3 majority',
+        'Auto-reconnection without losing game state',
+        'Mobile-first and accessible (WCAG AA)',
+        '5 languages: ES, EN, CA, EU, GL'
+      ],
+      closing: [
+        'Why does this matter?',
+        'Because when I say I can build a product from scratch',
+        '—frontend, backend, infrastructure, the whole package—',
+        'it\'s not a promise.',
+        'It\'s a fact with a URL.'
+      ],
+      cta: {
+        play: 'Play El Impostor',
+        code: 'View code on GitHub'
+      }
+    },
+    testimonials: {
+      headline: 'What people say about me.\n(And what it really means)',
+      items: [
+        {
+          quote: '"He goes overboard and fine-tunes everything"',
+          translation: 'I don\'t deliver "what works". I deliver what works well.'
+        },
+        {
+          quote: '"He does more than he should"',
+          translation: 'I don\'t limit myself to my Jira ticket. If I see something to improve, I improve it.'
+        },
+        {
+          quote: '"He has good ideas"',
+          translation: 'I\'m not a silent executor. I think about the product, not just the code.'
+        },
+        {
+          quote: '"It\'s not worth overthinking it"',
+          translation: 'I decide fast, execute fast, iterate fast. Paralysis by analysis isn\'t my thing.'
+        }
+      ]
+    },
+    value: {
+      headline: 'What does having me on your team mean?',
+      intro: [
+        'Someone who doesn\'t wait for perfect instructions.',
+        'Who understands the problem before writing code.',
+        'Who leaves things better than they found them.'
+      ],
+      points: [
+        'Backend that scales without surprises',
+        'Migrations others don\'t want to touch',
+        'Code the next dev will thank you for',
+        'Someone who thinks about the product, not just the sprint'
+      ],
+      closing: [
+        'I don\'t have 10 years of experience.',
+        'I have 2 years of doing things right.',
+        'And the next ones are going to be even better.'
+      ]
+    },
+    form: {
+      headline: 'Interested?',
+      intro: [
+        'I\'m not leaving my CV here for bots and mass recruiters to download.',
+        'If you really think I could fit in your team, leave me your email.',
+        'I\'ll write to you.',
+        'With my CV, with context, and with a clear proposal.',
+        'No spam. No newsletters. Just a conversation.'
+      ],
+      placeholder: 'Your professional email',
+      button: 'I want you to write me',
+      note: 'I only reply to corporate emails. If you\'re using @gmail, tell me something about your project.'
+    }
+  },
+  ca: {
+    meta: {
+      title: 'Contracta\'m — Ismael Morejón',
+      description: '2 anys fent el que altres triguen 5. Backend, productes des de zero, codi que escala. Si busques algú que millore el que toca, parlem.'
+    },
+    hook: {
+      headline: '2 anys d\'experiència.\nEl que no diu el número.',
+      subheadline: [
+        'Hi ha qui porta una dècada fent el mateix any rere any.',
+        'I hi ha qui en dos anys ha construït productes complets,',
+        'optimitzat sistemes que ningú volia tocar,',
+        'i liderat migracions que altres evitaven.',
+        'Jo sóc del segon tipus.'
+      ]
+    },
+    proof: {
+      headline: 'Un exemple val més que mil punts en un CV.',
+      subheadline: 'El Impostor — Joc multijugador de deducció social en temps real',
+      intro: [
+        'Un jugador és l\'impostor. No coneix la paraula secreta.',
+        'Els altres l\'han de descobrir. En temps real. Sense pietat.',
+        'No vaig heretar aquest codi. No vaig "col·laborar" en un equip de 20.',
+        'El vaig dissenyar, desenvolupar i desplegar. Sol.'
+      ],
+      timeline: 'Una setmana. Desembre de 2025.\nFrontend, backend, WebSockets, OAuth, 5 idiomes, producció.\nSet dies.',
+      stack: {
+        frontend: ['React 19', 'TypeScript', 'Tailwind 4', 'Zustand', 'Socket.io', 'Motion'],
+        backend: ['Node.js', 'Express', 'Clean Architecture', 'Supabase', 'PostgreSQL'],
+        infra: ['Vercel', 'Raspberry Pi 5', 'nginx', 'SSL', 'GitHub webhooks']
+      },
+      features: [
+        '4 modes de joc, fins a 6 impostors simultanis',
+        'OAuth amb Google i GitHub',
+        'Votació en temps real amb majoria 2/3',
+        'Auto-reconnexió sense perdre l\'estat de partida',
+        'Mobile-first i accessible (WCAG AA)',
+        '5 idiomes: ES, EN, CA, EU, GL'
+      ],
+      closing: [
+        'Per què importa això?',
+        'Perquè quan dic que puc construir un producte de zero',
+        '—frontend, backend, infraestructura, el paquet complet—',
+        'no és una promesa.',
+        'És un fet amb URL.'
+      ],
+      cta: {
+        play: 'Jugar a El Impostor',
+        code: 'Veure codi a GitHub'
+      }
+    },
+    testimonials: {
+      headline: 'El que diuen de mi.\n(I el que realment significa)',
+      items: [
+        {
+          quote: '"Se li\'n va el cap i afina moltíssim"',
+          translation: 'No entregue "el que funciona". Entregue el que funciona bé.'
+        },
+        {
+          quote: '"Fa més del que deu"',
+          translation: 'No em limite al meu ticket de Jira. Si veig algo que millorar, ho millore.'
+        },
+        {
+          quote: '"Té bones idees"',
+          translation: 'No sóc un executor mut. Pense en el producte, no només en el codi.'
+        },
+        {
+          quote: '"No paga la pena donar-li tantes voltes"',
+          translation: 'Decideixc ràpid, execute ràpid, itere ràpid. El perfeccionisme que paralitza no va amb mi.'
+        }
+      ]
+    },
+    value: {
+      headline: 'Què significa tenir-me al teu equip?',
+      intro: [
+        'Algú que no espera instruccions perfectes.',
+        'Que entén el problema abans de picar codi.',
+        'Que deixa les coses millor del que les va trobar.'
+      ],
+      points: [
+        'Backend que escala sense sustos',
+        'Migracions que altres no volen tocar',
+        'Codi que el següent dev agrairà',
+        'Algú que pensa en el producte, no només en l\'sprint'
+      ],
+      closing: [
+        'No tinc 10 anys d\'experiència.',
+        'Tinc 2 anys de fer les coses bé.',
+        'I els pròxims seran millors.'
+      ]
+    },
+    form: {
+      headline: 'T\'interessa?',
+      intro: [
+        'No vaig a deixar-te el meu CV ací penjat perquè el descarreguen bots i recruiters de masses.',
+        'Si de veritat creus que puc encaixar al teu equip, deixa\'m el teu email.',
+        'T\'escric jo.',
+        'Amb el meu CV, amb context, i amb una proposta clara.',
+        'Sense spam. Sense newsletters. Només una conversa.'
+      ],
+      placeholder: 'El teu email professional',
+      button: 'Vull que m\'escrigues',
+      note: 'Només respong a emails corporatius. Si uses @gmail, conta\'m algo del teu projecte.'
+    }
+  },
+  gl: {
+    meta: {
+      title: 'Contrátame — Ismael Morejón',
+      description: '2 anos facendo o que outros tardan 5. Backend, produtos desde cero, código que escala. Se buscas a alguén que mellore o que toca, falemos.'
+    },
+    hook: {
+      headline: '2 anos de experiencia.\nO que non di o número.',
+      subheadline: [
+        'Hai quen leva unha década facendo o mesmo ano tras ano.',
+        'E hai quen en dous anos construíu produtos completos,',
+        'optimizou sistemas que ninguén quería tocar,',
+        'e liderou migracións que outros evitaban.',
+        'Eu son do segundo tipo.'
+      ]
+    },
+    proof: {
+      headline: 'Un exemplo vale máis que mil puntos nun CV.',
+      subheadline: 'El Impostor — Xogo multixogador de dedución social en tempo real',
+      intro: [
+        'Un xogador é o impostor. Non coñece a palabra secreta.',
+        'Os demais teñen que descubrilo. En tempo real. Sen piedade.',
+        'Non herdei este código. Non "colaborei" nun equipo de 20.',
+        'Deseñeino, desenvolvino e despregueino. So.'
+      ],
+      timeline: 'Unha semana. Decembro de 2025.\nFrontend, backend, WebSockets, OAuth, 5 idiomas, produción.\nSete días.',
+      stack: {
+        frontend: ['React 19', 'TypeScript', 'Tailwind 4', 'Zustand', 'Socket.io', 'Motion'],
+        backend: ['Node.js', 'Express', 'Clean Architecture', 'Supabase', 'PostgreSQL'],
+        infra: ['Vercel', 'Raspberry Pi 5', 'nginx', 'SSL', 'GitHub webhooks']
+      },
+      features: [
+        '4 modos de xogo, ata 6 impostores simultáneos',
+        'OAuth con Google e GitHub',
+        'Votación en tempo real con maioría 2/3',
+        'Auto-reconexión sen perder o estado de partida',
+        'Mobile-first e accesible (WCAG AA)',
+        '5 idiomas: ES, EN, CA, EU, GL'
+      ],
+      closing: [
+        'Por que importa isto?',
+        'Porque cando digo que podo construír un produto de cero',
+        '—frontend, backend, infraestrutura, o paquete completo—',
+        'non é unha promesa.',
+        'É un feito con URL.'
+      ],
+      cta: {
+        play: 'Xogar a El Impostor',
+        code: 'Ver código en GitHub'
+      }
+    },
+    testimonials: {
+      headline: 'O que din de min.\n(E o que realmente significa)',
+      items: [
+        {
+          quote: '"Váiselle a cabeza e afina moitísimo"',
+          translation: 'Non entrego "o que funciona". Entrego o que funciona ben.'
+        },
+        {
+          quote: '"Fai máis do que debe"',
+          translation: 'Non me limito ao meu ticket de Jira. Se vexo algo que mellorar, mélloroo.'
+        },
+        {
+          quote: '"Ten boas ideas"',
+          translation: 'Non son un executor mudo. Penso no produto, non só no código.'
+        },
+        {
+          quote: '"Non paga a pena darlle tantas voltas"',
+          translation: 'Decido rápido, executo rápido, itero rápido. O perfeccionismo que paraliza non vai comigo.'
+        }
+      ]
+    },
+    value: {
+      headline: 'Que significa terme no teu equipo?',
+      intro: [
+        'Alguén que non espera instrucións perfectas.',
+        'Que entende o problema antes de picar código.',
+        'Que deixa as cousas mellor do que as atopou.'
+      ],
+      points: [
+        'Backend que escala sen sustos',
+        'Migracións que outros non queren tocar',
+        'Código que o seguinte dev agradecerá',
+        'Alguén que pensa no produto, non só no sprint'
+      ],
+      closing: [
+        'Non teño 10 anos de experiencia.',
+        'Teño 2 anos de facer as cousas ben.',
+        'E os próximos van ser mellores.'
+      ]
+    },
+    form: {
+      headline: 'Interésache?',
+      intro: [
+        'Non vou deixarche o meu CV aquí colgado para que o descarguen bots e recruiters de masas.',
+        'Se de verdade cres que podo encaixar no teu equipo, déixame o teu email.',
+        'Escríboche eu.',
+        'Co meu CV, con contexto, e cunha proposta clara.',
+        'Sen spam. Sen newsletters. Só unha conversa.'
+      ],
+      placeholder: 'O teu email profesional',
+      button: 'Quero que me escribas',
+      note: 'Só respondo a emails corporativos. Se usas @gmail, cóntame algo do teu proxecto.'
+    }
+  }
+};
+
+// ============================================================================
+// EMAIL TEMPLATES
+// ============================================================================
+
+export const emailTemplates: Record<Lang, EmailTemplateCopy> = {
+  es: {
+    subject: 'Mi CV, como prometí — Ismael Morejón',
+    body: [
+      'Hola,',
+      '',
+      'Gracias por dejar tu email en mi web.',
+      'No lo hace cualquiera, y eso me dice algo.',
+      '',
+      'Te prometí mi CV con contexto, así que aquí va:',
+      '',
+      '[Adjunto: CV en PDF]',
+      '',
+      'Pero antes de que lo abras, déjame ahorrarte tiempo.',
+      '',
+      'Si buscas a alguien que ejecute tickets sin pensar, no soy yo.',
+      'Si buscas a alguien que lleve 10 años haciendo lo mismo, tampoco.',
+      '',
+      'Pero si buscas a alguien que:',
+      '→ Piensa en el producto, no solo en el código',
+      '→ Deja las cosas mejor de lo que las encuentra',
+      '→ Aprende rápido y ejecuta más rápido',
+      '',
+      'Entonces merece la pena seguir hablando.',
+      '',
+      '¿Tienes 15 minutos esta semana para una llamada rápida?',
+      'Me adapto a tu horario.',
+      '',
+      'Un saludo,',
+      'Ismael',
+      '',
+      '—',
+      'ismobla.dev'
+    ]
+  },
+  en: {
+    subject: 'My CV, as promised — Ismael Morejón',
+    body: [
+      'Hi,',
+      '',
+      'Thanks for leaving your email on my website.',
+      'Not everyone does that, and it tells me something.',
+      '',
+      'I promised you my CV with context, so here it is:',
+      '',
+      '[Attached: CV as PDF]',
+      '',
+      'But before you open it, let me save you some time.',
+      '',
+      'If you\'re looking for someone who just executes tickets without thinking, I\'m not your guy.',
+      'If you\'re looking for someone with 10 years of doing the same thing, also not me.',
+      '',
+      'But if you\'re looking for someone who:',
+      '→ Thinks about the product, not just the code',
+      '→ Leaves things better than they found them',
+      '→ Learns fast and ships faster',
+      '',
+      'Then it\'s worth continuing this conversation.',
+      '',
+      'Do you have 15 minutes this week for a quick call?',
+      'I\'ll work around your schedule.',
+      '',
+      'Best,',
+      'Ismael',
+      '',
+      '—',
+      'ismobla.dev'
+    ]
+  },
+  ca: {
+    subject: 'El meu CV, com vaig prometre — Ismael Morejón',
+    body: [
+      'Hola,',
+      '',
+      'Gràcies per deixar el teu email a la meua web.',
+      'No ho fa tothom, i això em diu alguna cosa.',
+      '',
+      'Et vaig prometre el meu CV amb context, així que ací el tens:',
+      '',
+      '[Adjunt: CV en PDF]',
+      '',
+      'Però abans que l\'obris, deixa\'m estalviar-te temps.',
+      '',
+      'Si busques algú que execute tickets sense pensar, no sóc jo.',
+      'Si busques algú que porte 10 anys fent el mateix, tampoc.',
+      '',
+      'Però si busques algú que:',
+      '→ Pensa en el producte, no només en el codi',
+      '→ Deixa les coses millor del que les troba',
+      '→ Aprèn ràpid i executa més ràpid',
+      '',
+      'Llavors val la pena continuar parlant.',
+      '',
+      'Tens 15 minuts aquesta setmana per una trucada ràpida?',
+      'M\'adapte al teu horari.',
+      '',
+      'Una salutació,',
+      'Ismael',
+      '',
+      '—',
+      'ismobla.dev'
+    ]
+  },
+  gl: {
+    subject: 'O meu CV, como prometín — Ismael Morejón',
+    body: [
+      'Ola,',
+      '',
+      'Grazas por deixar o teu email na miña web.',
+      'Non o fai calquera, e iso dime algo.',
+      '',
+      'Prometinche o meu CV con contexto, así que aquí o tes:',
+      '',
+      '[Adxunto: CV en PDF]',
+      '',
+      'Pero antes de que o abras, déixame aforrarte tempo.',
+      '',
+      'Se buscas a alguén que execute tickets sen pensar, non son eu.',
+      'Se buscas a alguén que leve 10 anos facendo o mesmo, tampouco.',
+      '',
+      'Pero se buscas a alguén que:',
+      '→ Pensa no produto, non só no código',
+      '→ Deixa as cousas mellor do que as atopa',
+      '→ Aprende rápido e executa máis rápido',
+      '',
+      'Entón paga a pena seguir falando.',
+      '',
+      'Tes 15 minutos esta semana para unha chamada rápida?',
+      'Adáptome ao teu horario.',
+      '',
+      'Un saúdo,',
+      'Ismael',
+      '',
+      '—',
+      'ismobla.dev'
+    ]
+  }
+};
+
+// ============================================================================
 // GETTERS
 // ============================================================================
 
@@ -1053,4 +1676,12 @@ export function getContactCopy (lang: Lang): ContactCopy {
 
 export function getHeadlines (lang: Lang): SectionHeadlines {
   return headlines[lang];
+}
+
+export function getHireMeCopy (lang: Lang): HireMeCopy {
+  return hireMeCopy[lang];
+}
+
+export function getEmailTemplate (lang: Lang): EmailTemplateCopy {
+  return emailTemplates[lang];
 }

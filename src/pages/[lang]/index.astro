@@ -6,6 +6,7 @@ import Experience from '@/components/Experience'
 import TerminalSkills from '@/components/TerminalSkills'
 import Projects from '@/components/Projects'
 import Contact from '@/components/Contact'
+import HireCTA from '@/components/HireCTA'
 
 import { getBasics } from '@/data/cv'
 import { languages } from '@/data/i18n'
@@ -29,7 +30,6 @@ const basics = getBasics(lang)
     client:load
     name={basics.name}
     lang={lang}
-    email={basics.email}
     linkedIn={basics.profiles.find(p => p.network === 'LinkedIn')?.url || ''}
     github={basics.profiles.find(p => p.network === 'GitHub')?.url || ''}
   />
@@ -54,6 +54,12 @@ const basics = getBasics(lang)
 
   <!-- Projects: Work -->
   <Projects
+    client:visible
+    lang={lang}
+  />
+
+  <!-- Hire CTA -->
+  <HireCTA
     client:visible
     lang={lang}
   />

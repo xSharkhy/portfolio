@@ -1,0 +1,53 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { HireHook, ProofCase, Testimonials, ValueProp, HireForm } from '@/components/hire'
+import { getHireMeCopy } from '@/data/copy'
+import { languages } from '@/data/i18n'
+import type { Lang } from '@/data/i18n'
+
+export function getStaticPaths() {
+  return languages.map(lang => ({ params: { lang } }))
+}
+
+const { lang } = Astro.params as { lang: Lang }
+const copy = getHireMeCopy(lang)
+---
+
+<Layout
+  title={copy.meta.title}
+  description={copy.meta.description}
+  lang={lang}
+>
+  <div class="max-w-4xl">
+    <!-- Hook: The attention grabber -->
+    <HireHook
+      client:load
+      copy={copy.hook}
+    />
+
+    <!-- Proof: El Impostor case study -->
+    <ProofCase
+      client:visible
+      copy={copy.proof}
+    />
+
+    <!-- Testimonials: What they say -->
+    <Testimonials
+      client:visible
+      copy={copy.testimonials}
+    />
+
+    <!-- Value: What you get -->
+    <ValueProp
+      client:visible
+      copy={copy.value}
+    />
+
+    <!-- Form: Email capture -->
+    <HireForm
+      client:visible
+      copy={copy.form}
+      lang={lang}
+    />
+  </div>
+</Layout>

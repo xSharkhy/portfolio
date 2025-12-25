@@ -79,18 +79,10 @@ export default function Contact({ lang }: ContactProps) {
         {/* Contact Options - scale in */}
         <motion.div
           {...getScrollAnimationProps(scaleInUp, prefersReducedMotion, centerViewport)}
-          className={`grid sm:grid-cols-3 gap-4 mb-12 transition-opacity duration-500 ${
+          className={`grid sm:grid-cols-2 gap-4 mb-12 transition-opacity duration-500 ${
             commandComplete ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <ContactCard
-            type="email"
-            label={copy.options.email.label}
-            description={copy.options.email.description}
-            href={`mailto:${copy.options.email.value}`}
-            prefersReducedMotion={prefersReducedMotion}
-            accentColor="var(--color-accent-cyan)"
-          />
           <ContactCard
             type="linkedin"
             label={copy.options.linkedin.label}
@@ -135,7 +127,7 @@ export default function Contact({ lang }: ContactProps) {
 // ============================================================================
 
 interface ContactCardProps {
-  type: 'email' | 'linkedin' | 'github'
+  type: 'linkedin' | 'github'
   label: string
   description: string
   href: string
@@ -195,21 +187,12 @@ function ContactCard({
 // ICONS
 // ============================================================================
 
-function getIcon(type: 'email' | 'linkedin' | 'github') {
+function getIcon(type: 'linkedin' | 'github') {
   const icons = {
-    email: EmailIcon,
     linkedin: LinkedInIcon,
     github: GitHubIcon
   }
   return icons[type]
-}
-
-function EmailIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-    </svg>
-  )
 }
 
 function LinkedInIcon({ className }: { className?: string }) {

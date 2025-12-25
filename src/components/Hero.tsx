@@ -7,7 +7,6 @@ import TypeWriter from '@/components/ui/TypeWriter'
 interface HeroProps {
   name: string
   lang: Lang
-  email: string
   linkedIn: string
   github: string
 }
@@ -15,7 +14,7 @@ interface HeroProps {
 // Animation phases
 type Phase = 'command' | 'diagnosis' | 'solution' | 'identity' | 'complete'
 
-export default function Hero({ name, lang, email, linkedIn, github }: HeroProps) {
+export default function Hero({ name, lang, linkedIn, github }: HeroProps) {
   const prefersReducedMotion = useReducedMotion()
   const copy = getHeroCopy(lang)
 
@@ -200,15 +199,6 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
             transition={{ duration: 0.6, delay: prefersReducedMotion ? 0 : 0.75 }}
             className="flex gap-4 mt-6"
           >
-            <a
-              href={`mailto:${email}`}
-              className="text-[--color-text-muted] hover:text-[--color-accent-primary] transition-colors p-2 -m-2"
-              aria-label="Email"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </a>
             <a
               href={linkedIn}
               target="_blank"
