@@ -1,12 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import Hero from '@/components/Hero'
-import About from '@/components/About.astro'
+import Problem from '@/components/Problem'
+import Experience from '@/components/Experience'
 import TerminalSkills from '@/components/TerminalSkills'
 import Projects from '@/components/Projects'
+import Contact from '@/components/Contact'
 
-import { getBasics, skillCategories, projects } from '@/data/cv'
-import { languages, t } from '@/data/i18n'
+import { getBasics } from '@/data/cv'
+import { languages } from '@/data/i18n'
 import type { Lang } from '@/data/i18n'
 
 export function getStaticPaths() {
@@ -22,30 +24,43 @@ const basics = getBasics(lang)
   description={basics.summary}
   lang={lang}
 >
+  <!-- Hero: Tension + Promise -->
   <Hero
     client:load
     name={basics.name}
-    label={basics.label}
-    location={`${basics.location.city}, ${basics.location.region}`}
+    lang={lang}
     email={basics.email}
     linkedIn={basics.profiles.find(p => p.network === 'LinkedIn')?.url || ''}
     github={basics.profiles.find(p => p.network === 'GitHub')?.url || ''}
-    scrollText={t(lang, 'hero.scroll')}
   />
 
-  <About summary={basics.summary} lang={lang} />
-
-  <Projects
+  <!-- Problem: Empathy -->
+  <Problem
     client:visible
-    projects={projects}
     lang={lang}
-    title={t(lang, 'section.projects')}
   />
 
+  <!-- Experience: Proof -->
+  <Experience
+    client:visible
+    lang={lang}
+  />
+
+  <!-- Skills: Method -->
   <TerminalSkills
     client:visible
-    categories={skillCategories}
     lang={lang}
-    title={t(lang, 'section.skills')}
+  />
+
+  <!-- Projects: Work -->
+  <Projects
+    client:visible
+    lang={lang}
+  />
+
+  <!-- Contact: CTA -->
+  <Contact
+    client:visible
+    lang={lang}
   />
 </Layout>

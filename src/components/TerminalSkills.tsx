@@ -1,91 +1,163 @@
+import { useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import type { SkillCategory } from '@/data/cv'
+import { getSkillsCopy, getHeadlines } from '@/data/copy'
+import type { Lang } from '@/data/i18n'
+import Terminal, { TerminalPrompt } from '@/components/ui/Terminal'
+import TypeWriter from '@/components/ui/TypeWriter'
+import {
+  staggerContainer,
+  scrollReveal,
+  getScrollAnimationProps
+} from '@/lib/animations'
 
 interface TerminalSkillsProps {
-  categories: SkillCategory[]
-  lang: 'es' | 'en' | 'ca' | 'gl'
-  title?: string
+  lang: Lang
 }
 
-export default function TerminalSkills({ categories, lang, title = '// skills' }: TerminalSkillsProps) {
+export default function TerminalSkills({ lang }: TerminalSkillsProps) {
   const prefersReducedMotion = useReducedMotion()
-  const maxLabelLength = Math.max(...categories.map(c => c.label[lang].length))
+  const copy = getSkillsCopy(lang)
+  const headlines = getHeadlines(lang)
+  const [commandComplete, setCommandComplete] = useState(prefersReducedMotion ?? false)
 
   return (
-    <section className="py-16 sm:py-20" aria-labelledby="skills-heading">
-      <h2 id="skills-heading" className="text-sm text-[--color-text-dark] mb-8 sm:mb-10">{title}</h2>
-
-      <motion.div
-        initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-        whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={prefersReducedMotion ? {} : { duration: 0.5 }}
-        className="font-mono text-xs sm:text-sm"
+    <section className="py-20 sm:py-28" aria-labelledby="skills-heading" id="skills">
+      {/* Headline */}
+      <motion.h2
+        id="skills-heading"
+        {...getScrollAnimationProps(scrollReveal, prefersReducedMotion)}
+        className="text-sm text-[--color-text-dark] mb-8 sm:mb-10"
       >
-        {/* Terminal window */}
-        <figure
-          className="border border-[--color-border] rounded-lg overflow-hidden bg-[--color-bg-surface]"
-          role="img"
-          aria-label="Terminal window displaying technical skills"
+        {headlines.skills}
+      </motion.h2>
+
+      {/* Intro text */}
+      <motion.p
+        {...getScrollAnimationProps(scrollReveal, prefersReducedMotion, {
+          once: true,
+          margin: '-50px'
+        })}
+        className="text-[--color-text] text-lg mb-8 max-w-2xl"
+      >
+        {copy.intro}
+      </motion.p>
+
+      {/* Terminal */}
+      <Terminal title="~/.skills" animate={true}>
+        {/* Command */}
+        <div className="text-[--color-accent-primary] mb-4">
+          {prefersReducedMotion ? (
+            '$ cat ~/.approach'
+          ) : (
+            <TypeWriter
+              text="$ cat ~/.approach"
+              charDelay={50}
+              onComplete={() => setCommandComplete(true)}
+              cursorClassName="text-[--color-text]"
+              showCursor={false}
+            />
+          )}
+        </div>
+
+        {/* Skills categories */}
+        <motion.dl
+          variants={prefersReducedMotion ? {} : staggerContainer}
+          initial="hidden"
+          animate={commandComplete ? 'visible' : 'hidden'}
+          className="space-y-4"
         >
-          {/* Terminal header */}
-          <div className="flex items-center gap-2 px-3 sm:px-4 py-2 border-b border-[--color-border] bg-[--color-bg]" aria-hidden="true">
-            <div className="flex gap-1.5">
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80"></span>
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500/80"></span>
-              <span className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500/80"></span>
-            </div>
-            <span className="text-xs text-[--color-text-muted] ml-2">~/.skills</span>
-          </div>
+          {copy.categories.map((category, index) => (
+            <SkillCategory
+              key={category.key}
+              label={category.label}
+              items={category.items}
+              comment={category.comment}
+              index={index}
+              prefersReducedMotion={prefersReducedMotion}
+            />
+          ))}
+        </motion.dl>
 
-          {/* Terminal content */}
-          <div className="p-3 sm:p-4">
-            <motion.div
-              initial={prefersReducedMotion ? {} : { opacity: 0 }}
-              whileInView={prefersReducedMotion ? {} : { opacity: 1 }}
-              viewport={{ once: true }}
-              transition={prefersReducedMotion ? {} : { delay: 0.2 }}
-              className="text-[--color-accent-primary] mb-3"
-              aria-hidden="true"
-            >
-              $ cat ~/.skills
-            </motion.div>
+        {/* Prompt */}
+        <motion.div
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          animate={commandComplete ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.8 }}
+          className="mt-6"
+        >
+          <TerminalPrompt blinking={!prefersReducedMotion} />
+        </motion.div>
+      </Terminal>
 
-            {/* Skills list - actual content for screen readers */}
-            <dl className="space-y-1">
-              {categories.map((category, index) => (
-                <motion.div
-                  key={category.key}
-                  initial={prefersReducedMotion ? {} : { opacity: 0, x: -10 }}
-                  whileInView={prefersReducedMotion ? {} : { opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={prefersReducedMotion ? {} : { delay: 0.3 + index * 0.1 }}
-                  className="flex flex-wrap sm:flex-nowrap"
-                >
-                  <dt className="text-[--color-accent-purple] w-full sm:w-[100px] md:w-[140px] shrink-0">
-                    {category.label[lang]}:
-                  </dt>
-                  <dd className="text-[--color-text] break-words">
-                    {category.items.join(', ')}
-                  </dd>
-                </motion.div>
-              ))}
-            </dl>
-
-            <motion.div
-              initial={prefersReducedMotion ? {} : { opacity: 0 }}
-              whileInView={prefersReducedMotion ? {} : { opacity: 1 }}
-              viewport={{ once: true }}
-              transition={prefersReducedMotion ? {} : { delay: 0.8 }}
-              className="mt-4 flex items-center"
-              aria-hidden="true"
-            >
-              <span className="text-[--color-accent-primary]">$</span>
-              <span className={`ml-2 w-2 h-4 bg-[--color-text] ${prefersReducedMotion ? '' : 'animate-pulse'}`}></span>
-            </motion.div>
-          </div>
-        </figure>
-      </motion.div>
+      {/* Outro text */}
+      <motion.p
+        {...getScrollAnimationProps(scrollReveal, prefersReducedMotion, {
+          once: true,
+          margin: '-50px'
+        })}
+        className="text-[--color-text-muted] text-sm mt-6 italic"
+      >
+        {copy.outro}
+      </motion.p>
     </section>
+  )
+}
+
+// ============================================================================
+// SKILL CATEGORY
+// ============================================================================
+
+interface SkillCategoryProps {
+  label: string
+  items: string[]
+  comment: string
+  index: number
+  prefersReducedMotion: boolean | null
+}
+
+function SkillCategory({
+  label,
+  items,
+  comment,
+  index,
+  prefersReducedMotion
+}: SkillCategoryProps) {
+  const variants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.3,
+        delay: index * 0.1
+      }
+    }
+  }
+
+  return (
+    <motion.div
+      variants={prefersReducedMotion ? {} : variants}
+      className="space-y-1"
+    >
+      {/* Label and items */}
+      <div className="flex flex-wrap sm:flex-nowrap gap-x-2">
+        <dt className="text-[--color-accent-purple] shrink-0">
+          &gt; {label}:
+        </dt>
+        <dd className="text-[--color-text]">
+          {items.join(', ')}
+        </dd>
+      </div>
+
+      {/* Comment */}
+      <motion.p
+        initial={prefersReducedMotion ? {} : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: (index * 0.1) + 0.15 }}
+        className="text-[--color-text-muted] pl-4 text-xs sm:text-sm"
+      >
+        # {comment}
+      </motion.p>
+    </motion.div>
   )
 }
