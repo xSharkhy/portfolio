@@ -67,7 +67,7 @@ export default function Problem({ lang }: ProblemProps) {
       <div className="sticky top-0 h-screen flex items-center overflow-hidden">
         {/* Progress line (left side) */}
         <motion.div
-          className="absolute left-0 top-0 w-0.5 bg-gradient-to-b from-[--color-accent-violet] to-[--color-accent-purple] origin-top"
+          className="absolute left-0 top-0 w-0.5 bg-linear-to-b from-[--color-accent-violet] to-[--color-accent-purple] origin-top"
           style={{ height: lineHeight }}
           aria-hidden="true"
         />

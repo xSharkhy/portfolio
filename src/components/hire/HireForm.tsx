@@ -126,7 +126,7 @@ export default function HireForm({ copy, lang }: HireFormProps) {
         className="max-w-md"
       >
         {/* Honeypot - hidden from humans, bots fill it */}
-        <div className="absolute -left-[9999px]" aria-hidden="true">
+        <div className="opacity-0 absolute top-0 left-0 h-0 w-0 -z-10 overflow-hidden" aria-hidden="true">
           <input
             type="text"
             id="website"

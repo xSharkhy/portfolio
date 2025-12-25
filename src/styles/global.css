@@ -57,6 +57,7 @@ html {
   color: var(--color-text);
   font-family: var(--font-mono);
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 /* Reduced motion - respect user preferences */
@@ -79,6 +80,7 @@ body {
   min-height: 100vh;
   line-height: 1.7;
   font-weight: 400;
+  overflow-x: clip;
 }
 
 /* Sans font utility (for when you need it) */

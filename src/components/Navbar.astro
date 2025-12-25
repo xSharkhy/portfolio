@@ -115,7 +115,7 @@ const isActive = (href: string) => currentPath === href || (href === `/${lang}` 
         <a
           href={link.href}
           class:list={[
-            "block text-sm transition-colors min-h-11 flex items-center px-2 rounded-md",
+            "text-sm transition-colors min-h-11 flex items-center px-2 rounded-md",
             isActive(link.href)
               ? "text-[--color-accent-primary] bg-[--color-bg-surface]"
               : "text-[--color-text-muted] hover:text-[--color-text] hover:bg-[--color-bg-surface]"
