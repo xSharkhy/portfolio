@@ -18,7 +18,7 @@ const pathWithoutLang = getPathWithoutLang(currentPath)
 const isActive = (href: string) => currentPath === href || (href === `/${lang}` && currentPath === `/${lang}/`)
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 border-b border-[--color-border] bg-[--color-bg]/95 backdrop-blur-lg" role="navigation" aria-label="Main navigation">
+<nav class="fixed top-0 left-0 right-0 z-50 border-b border-[--color-border] bg-[--color-bg]/95 backdrop-blur-lg" role="navigation" aria-label="Main navigation" transition:persist>
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
     <!-- Logo -->
     <a
@@ -172,14 +172,27 @@ const isActive = (href: string) => currentPath === href || (href === `/${lang}` 
 </nav>
 
 <script>
-  // Mobile menu functionality only
-  const mobileTrigger = document.querySelector('[data-mobile-trigger]') as HTMLButtonElement
-  const mobileMenu = document.querySelector('[data-mobile-menu]') as HTMLElement
-  const menuIcon = document.querySelector('[data-menu-icon]') as SVGElement
-  const closeIcon = document.querySelector('[data-close-icon]') as SVGElement
+  // Mobile menu - runs once since nav persists
+  function initMobileMenu() {
+    const mobileTrigger = document.querySelector('[data-mobile-trigger]') as HTMLButtonElement
+    const mobileMenu = document.querySelector('[data-mobile-menu]') as HTMLElement
+    const menuIcon = document.querySelector('[data-menu-icon]') as SVGElement
+    const closeIcon = document.querySelector('[data-close-icon]') as SVGElement
 
-  if (mobileTrigger && mobileMenu) {
+    if (!mobileTrigger || !mobileMenu || mobileTrigger.dataset.initialized) return
+    mobileTrigger.dataset.initialized = 'true'
+
     let isMobileOpen = false
+
+    const closeMobile = () => {
+      if (!isMobileOpen) return
+      isMobileOpen = false
+      mobileTrigger.setAttribute('aria-expanded', 'false')
+      mobileTrigger.setAttribute('aria-label', 'Open menu')
+      mobileMenu.classList.add('hidden')
+      menuIcon?.classList.remove('hidden')
+      closeIcon?.classList.add('hidden')
+    }
 
     const toggleMobile = () => {
       isMobileOpen = !isMobileOpen
@@ -198,13 +211,16 @@ const isActive = (href: string) => currentPath === href || (href === `/${lang}` 
     }
 
     mobileTrigger.addEventListener('click', toggleMobile)
-
-    // Close on escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isMobileOpen) {
-        toggleMobile()
+        closeMobile()
         mobileTrigger.focus()
       }
     })
+
+    // Close mobile menu on navigation (View Transitions)
+    document.addEventListener('astro:before-preparation', closeMobile)
   }
+
+  initMobileMenu()
 </script>

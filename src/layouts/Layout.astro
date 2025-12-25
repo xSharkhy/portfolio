@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import Head from '@/components/Head.astro'
 import Navbar from '@/components/Navbar.astro'
 import '@/styles/global.css'
@@ -30,7 +30,7 @@ const currentPath = Astro.url.pathname
 <html lang={lang}>
   <head>
     <Head title={title} description={description} image={image} ogType={ogType} lang={lang} />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="min-h-screen bg-[--color-bg]">
     <!-- Skip to main content link -->
@@ -43,7 +43,7 @@ const currentPath = Astro.url.pathname
 
     <Navbar currentPath={currentPath} lang={lang} />
 
-    <main id="main-content" class="pt-20 px-4 sm:px-6 pb-12" tabindex="-1">
+    <main id="main-content" class="pt-20 px-4 sm:px-6 pb-12" tabindex="-1" transition:animate="fade">
       <div class="max-w-4xl mx-auto">
         <slot />
       </div>
