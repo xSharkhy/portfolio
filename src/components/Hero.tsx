@@ -30,11 +30,11 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
     if (visibleDiagnosis < copy.diagnosis.length) {
       const timer = setTimeout(() => {
         setVisibleDiagnosis(prev => prev + 1)
-      }, 400) // Delay between diagnosis lines
+      }, 600) // Delay between diagnosis lines
       return () => clearTimeout(timer)
     } else {
       // All diagnosis shown, move to solution
-      const timer = setTimeout(() => setPhase('solution'), 600)
+      const timer = setTimeout(() => setPhase('solution'), 800)
       return () => clearTimeout(timer)
     }
   }, [phase, visibleDiagnosis, copy.diagnosis.length, prefersReducedMotion])
@@ -75,7 +75,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
           ) : (
             <TypeWriter
               text={copy.command}
-              charDelay={60}
+              charDelay={80}
               onComplete={() => setPhase('diagnosis')}
               cursorClassName="text-[--color-accent-primary]"
             />
@@ -95,7 +95,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
                   ? { opacity: 1, y: 0 }
                   : { opacity: 0, y: 10 }
               }
-              transition={{ duration: 0.3, ease: 'easeOut' }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
               className="text-base sm:text-lg text-[--color-text-muted]"
             >
               {line}
@@ -109,10 +109,10 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
         <motion.p
           initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
           onAnimationComplete={() => {
             if (!prefersReducedMotion && phase === 'solution') {
-              setTimeout(() => setPhase('identity'), 400)
+              setTimeout(() => setPhase('identity'), 700)
             }
           }}
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-[--color-text-bright] mb-8 sm:mb-10"
@@ -126,7 +126,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
         <motion.div
           initial={prefersReducedMotion ? {} : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
           onAnimationComplete={() => {
             if (!prefersReducedMotion && phase === 'identity') {
               setPhase('complete')
@@ -138,7 +138,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
             id="hero-heading"
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : 0.1 }}
+            transition={{ duration: 0.6, delay: prefersReducedMotion ? 0 : 0.15 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-[--color-text-bright]"
           >
             {name}
@@ -148,7 +148,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
           <motion.h2
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : 0.2 }}
+            transition={{ duration: 0.6, delay: prefersReducedMotion ? 0 : 0.3 }}
             className="text-lg sm:text-xl md:text-2xl text-[--color-accent-purple] mb-6 sm:mb-8 font-medium max-w-2xl"
           >
             {copy.title}
@@ -158,7 +158,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
           <motion.p
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : 0.3 }}
+            transition={{ duration: 0.6, delay: prefersReducedMotion ? 0 : 0.45 }}
             className="text-base sm:text-lg text-[--color-text-muted] mb-8 sm:mb-12"
           >
             <span className="text-[--color-text-dark]" aria-hidden="true">// </span>
@@ -169,7 +169,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : 0.4 }}
+            transition={{ duration: 0.6, delay: prefersReducedMotion ? 0 : 0.6 }}
             className="flex flex-wrap gap-3 sm:gap-4"
             role="group"
             aria-label="Actions"
@@ -197,7 +197,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: prefersReducedMotion ? 0 : 0.5 }}
+            transition={{ duration: 0.6, delay: prefersReducedMotion ? 0 : 0.75 }}
             className="flex gap-4 mt-6"
           >
             <a
@@ -240,7 +240,7 @@ export default function Hero({ name, lang, email, linkedIn, github }: HeroProps)
         <motion.button
           initial={prefersReducedMotion ? {} : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: prefersReducedMotion ? 0 : 0.3 }}
+          transition={{ duration: 0.6, delay: prefersReducedMotion ? 0 : 0.5 }}
           onClick={scrollToContent}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[--color-text-muted] hover:text-[--color-accent-primary] transition-colors cursor-pointer min-h-11 min-w-11 justify-center"
           aria-label="Scroll to main content"

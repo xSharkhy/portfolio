@@ -1,4 +1,4 @@
-import type { Lang } from './i18n'
+import type { Lang } from './i18n';
 
 // Site metadata - Lead with value, not just title
 export const SITE_TITLE: Record<Lang, string> = {
@@ -6,75 +6,75 @@ export const SITE_TITLE: Record<Lang, string> = {
   en: 'Ismael Morejón - Full Stack Developer & Problem Solver',
   ca: 'Ismael Morejón - Full Stack Developer & Problem Solver',
   gl: 'Ismael Morejón - Full Stack Developer & Problem Solver'
-}
+};
 
 export const SITE_DESCRIPTION: Record<Lang, string> = {
   es: 'Desarrollador Full Stack que optimiza sistemas y entrega productos. Reduje tiempos de scraping un 60%, lideré migraciones a NestJS y construyo interfaces desde cero.',
   en: 'Full Stack Developer who optimizes systems and ships products. Cut scraping times by 60%, led NestJS migrations, and build interfaces from scratch.',
   ca: 'Desenvolupador Full Stack que optimitza sistemes i lliura productes. Vaig reduir temps de scraping un 60%, vaig liderar migracions a NestJS i construeixo interfícies des de zero.',
   gl: 'Desenvolvedor Full Stack que optimiza sistemas e entrega produtos. Reducín tempos de scraping un 60%, liderei migracións a NestJS e constrúo interfaces desde cero.'
-}
+};
 
 // Types
 export interface Profile {
-  network: string
-  username: string
-  url: string
+  network: string;
+  username: string;
+  url: string;
 }
 
 export interface Location {
-  address: string | null
-  postalCode: string
-  city: string
-  countryCode: string
-  region: string
+  address: string | null;
+  postalCode: string;
+  city: string;
+  countryCode: string;
+  region: string;
 }
 
 export interface Basics {
-  name: string
-  label: string
-  image: string
-  email: string
-  phone: string
-  url: string
-  summary: string
-  introduction: string // NEW: Short intro for CV
-  location: Location
-  profiles: Profile[]
+  name: string;
+  label: string;
+  image: string;
+  email: string;
+  phone: string;
+  url: string;
+  summary: string;
+  introduction: string; // NEW: Short intro for CV
+  location: Location;
+  profiles: Profile[];
 }
 
 export interface Experience {
-  name: string
-  position: string
-  url: string
-  startDate: string
-  endDate: string | null
-  summary: string
-  highlights: string[]
-  technologies: string[]
+  name: string;
+  position: string;
+  url: string;
+  startDate: string;
+  endDate: string | null;
+  summary: string;
+  highlights: string[];
+  technologies: string[];
 }
 
 export interface Education {
-  institution: string
-  area: string
-  studyType: string
-  startDate: string
-  endDate: string | null
+  institution: string;
+  area: string;
+  studyType: string;
+  startDate: string;
+  endDate: string | null;
 }
 
 export interface Project {
-  name: string
-  description: Record<Lang, string>
-  technologies: string[]
-  github?: string
-  demo?: string
+  name: string;
+  description: Record<Lang, string>;
+  technologies: string[];
+  github?: string;
+  demo?: string;
 }
 
 // Skills by category - EXPANDED
 export interface SkillCategory {
-  key: string
-  label: Record<Lang, string>
-  items: string[]
+  key: string;
+  label: Record<Lang, string>;
+  items: string[];
 }
 
 export const skillCategories: SkillCategory[] = [
@@ -103,12 +103,12 @@ export const skillCategories: SkillCategory[] = [
     label: { es: 'devops', en: 'devops', ca: 'devops', gl: 'devops' },
     items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP']
   }
-]
+];
 
 // Spoken languages - separate from technical skills
 export interface SpokenLanguage {
-  name: Record<Lang, string>
-  level: Record<Lang, string>
+  name: Record<Lang, string>;
+  level: Record<Lang, string>;
 }
 
 export const spokenLanguages: SpokenLanguage[] = [
@@ -124,7 +124,7 @@ export const spokenLanguages: SpokenLanguage[] = [
     name: { es: 'Catalán', en: 'Catalan', ca: 'Català', gl: 'Catalán' },
     level: { es: 'Nativo', en: 'Native', ca: 'Natiu', gl: 'Nativo' }
   }
-]
+];
 
 // Shared data
 const profiles: Profile[] = [
@@ -138,14 +138,14 @@ const profiles: Profile[] = [
     username: 'xSharkhy',
     url: 'https://www.github.com/xSharkhy'
   }
-]
+];
 
 const baseLocation = {
   address: null,
   postalCode: '46290',
   city: 'Alcàsser',
   countryCode: 'ES',
-}
+};
 
 // Data by language - IMPACTFUL COPY
 const basics: Record<Lang, Basics> = {
@@ -170,7 +170,7 @@ const basics: Record<Lang, Basics> = {
     url: 'https://ismobla.dev',
     introduction: 'Full Stack Developer focused on backend and system optimization. Experience leading technical migrations, building products from scratch, and cutting execution times by up to 60%. Looking for teams where I can solve complex problems and deliver real value.',
     summary: 'I build solutions that work and scale. Cut execution times by 60%, led backend migrations to NestJS, and shipped complete products from scratch. My approach: find the real problem and solve it right.',
-    location: { ...baseLocation, region: 'Valencia, Spain' },
+    location: { ...baseLocation, region: 'València, Spain' },
     profiles
   },
   ca: {
@@ -194,10 +194,10 @@ const basics: Record<Lang, Basics> = {
     url: 'https://ismobla.dev',
     introduction: 'Desenvolvedor Full Stack con enfoque en backend e optimización de sistemas. Experiencia liderando migracións técnicas, construíndo produtos desde cero e reducindo tempos de execución ata un 60%. Busco equipos onde resolver problemas complexos e entregar valor real.',
     summary: 'Desenvolvo solucións que funcionan e escalan. Reducín tempos de execución un 60%, liderei migracións de backend a NestJS e construín produtos completos desde cero. O meu enfoque: atopar o problema real e resolvelo ben.',
-    location: { ...baseLocation, region: 'Valencia' },
+    location: { ...baseLocation, region: 'València' },
     profiles
   }
-}
+};
 
 // Experience - ACHIEVEMENT-FOCUSED with 3+ highlights
 const experiences: Record<Lang, Experience[]> = {
@@ -325,7 +325,7 @@ const experiences: Record<Lang, Experience[]> = {
       technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
     }
   ]
-}
+};
 
 const education: Record<Lang, Education[]> = {
   es: [
@@ -420,7 +420,7 @@ const education: Record<Lang, Education[]> = {
       endDate: '2023'
     }
   ]
-}
+};
 
 // Projects - VALUE-FOCUSED descriptions
 export const projects: Project[] = [
@@ -459,25 +459,25 @@ export const projects: Project[] = [
     github: 'https://github.com/xSharkhy/portfolio',
     demo: 'https://ismobla.dev'
   }
-]
+];
 
 // Getters by language
-export function getBasics(lang: Lang): Basics {
-  return basics[lang]
+export function getBasics (lang: Lang): Basics {
+  return basics[lang];
 }
 
-export function getExperiences(lang: Lang): Experience[] {
-  return experiences[lang]
+export function getExperiences (lang: Lang): Experience[] {
+  return experiences[lang];
 }
 
-export function getEducation(lang: Lang): Education[] {
-  return education[lang]
+export function getEducation (lang: Lang): Education[] {
+  return education[lang];
 }
 
-export function getSiteTitle(lang: Lang): string {
-  return SITE_TITLE[lang]
+export function getSiteTitle (lang: Lang): string {
+  return SITE_TITLE[lang];
 }
 
-export function getSiteDescription(lang: Lang): string {
-  return SITE_DESCRIPTION[lang]
+export function getSiteDescription (lang: Lang): string {
+  return SITE_DESCRIPTION[lang];
 }

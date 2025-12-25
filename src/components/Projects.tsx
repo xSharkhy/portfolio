@@ -3,9 +3,14 @@ import { getProjectsCopy, getHeadlines } from '@/data/copy'
 import type { Lang } from '@/data/i18n'
 import Card, { CardHeader, CardTitle, CardTags, CardPunchline } from '@/components/ui/Card'
 import {
-  staggerContainerSlow,
   scrollRevealLeft,
-  getScrollAnimationProps
+  scrollRevealRight,
+  scrollRevealBlur,
+  scaleInUp,
+  getScrollAnimationProps,
+  getAlternatingVariant,
+  strictViewport,
+  centerViewport
 } from '@/lib/animations'
 
 interface ProjectsProps {
@@ -17,38 +22,43 @@ export default function Projects({ lang }: ProjectsProps) {
   const projects = getProjectsCopy(lang)
   const headlines = getHeadlines(lang)
 
-  const containerProps = getScrollAnimationProps(staggerContainerSlow, prefersReducedMotion)
-
   return (
     <section
       className="py-20 sm:py-28"
       aria-labelledby="projects-heading"
       id="projects"
     >
-      {/* Headline */}
+      {/* Headline - from left */}
       <motion.h2
         id="projects-heading"
-        {...getScrollAnimationProps(scrollRevealLeft, prefersReducedMotion)}
+        {...getScrollAnimationProps(scrollRevealLeft, prefersReducedMotion, strictViewport)}
         className="text-sm text-[--color-text-dark] mb-10 sm:mb-12"
       >
         {headlines.projects}
       </motion.h2>
 
-      {/* Projects list - vertical narrative layout */}
-      <motion.div
-        {...containerProps}
+      {/* Projects list - varied animations per project */}
+      <div
         className="space-y-8"
         role="list"
         aria-label="Projects"
       >
-        {projects.map((project) => (
-          <ProjectCard
+        {projects.map((project, index) => (
+          <motion.div
             key={project.id}
-            project={project}
-            prefersReducedMotion={prefersReducedMotion}
-          />
+            {...getScrollAnimationProps(
+              getAlternatingVariant(index),
+              prefersReducedMotion,
+              centerViewport
+            )}
+          >
+            <ProjectCard
+              project={project}
+              prefersReducedMotion={prefersReducedMotion}
+            />
+          </motion.div>
         ))}
-      </motion.div>
+      </div>
     </section>
   )
 }

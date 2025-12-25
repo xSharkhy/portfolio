@@ -3,6 +3,12 @@
  *
  * Centralized animation configurations for Motion/Framer Motion.
  * All animations respect reduced motion preferences.
+ *
+ * Design principles:
+ * - Animations should be NOTICEABLE, not subtle
+ * - Variety: not everything fades up from below
+ * - Late trigger: elements appear when well into viewport
+ * - Some sections use sticky scroll for "static screen" effect
  */
 
 import type { Variants, Transition } from 'motion/react'
@@ -12,22 +18,27 @@ import type { Variants, Transition } from 'motion/react'
 // ============================================================================
 
 export const defaultTransition: Transition = {
-  duration: 0.5,
-  ease: [0.25, 0.46, 0.45, 0.94] // Custom ease-out
+  duration: 0.7,
+  ease: [0.16, 1, 0.3, 1] // Custom spring-like ease
 }
 
 export const quickTransition: Transition = {
-  duration: 0.3,
+  duration: 0.4,
   ease: 'easeOut'
 }
 
 export const slowTransition: Transition = {
-  duration: 0.8,
-  ease: [0.25, 0.46, 0.45, 0.94]
+  duration: 1,
+  ease: [0.16, 1, 0.3, 1]
+}
+
+export const dramaticTransition: Transition = {
+  duration: 0.9,
+  ease: [0.22, 1, 0.36, 1]
 }
 
 // ============================================================================
-// FADE VARIANTS
+// FADE VARIANTS (more dramatic)
 // ============================================================================
 
 export const fadeIn: Variants = {
@@ -39,7 +50,7 @@ export const fadeIn: Variants = {
 }
 
 export const fadeInUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 60 },
   visible: {
     opacity: 1,
     y: 0,
@@ -47,8 +58,17 @@ export const fadeInUp: Variants = {
   }
 }
 
+export const fadeInUpDramatic: Variants = {
+  hidden: { opacity: 0, y: 100 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: dramaticTransition
+  }
+}
+
 export const fadeInDown: Variants = {
-  hidden: { opacity: 0, y: -20 },
+  hidden: { opacity: 0, y: -60 },
   visible: {
     opacity: 1,
     y: 0,
@@ -57,7 +77,7 @@ export const fadeInDown: Variants = {
 }
 
 export const fadeInLeft: Variants = {
-  hidden: { opacity: 0, x: -20 },
+  hidden: { opacity: 0, x: -80 },
   visible: {
     opacity: 1,
     x: 0,
@@ -66,7 +86,7 @@ export const fadeInLeft: Variants = {
 }
 
 export const fadeInRight: Variants = {
-  hidden: { opacity: 0, x: 20 },
+  hidden: { opacity: 0, x: 80 },
   visible: {
     opacity: 1,
     x: 0,
@@ -75,11 +95,11 @@ export const fadeInRight: Variants = {
 }
 
 // ============================================================================
-// SCALE VARIANTS
+// SCALE VARIANTS (more dramatic)
 // ============================================================================
 
 export const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.95 },
+  hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
     scale: 1,
@@ -88,12 +108,81 @@ export const scaleIn: Variants = {
 }
 
 export const scaleInUp: Variants = {
-  hidden: { opacity: 0, scale: 0.95, y: 20 },
+  hidden: { opacity: 0, scale: 0.85, y: 40 },
   visible: {
     opacity: 1,
     scale: 1,
     y: 0,
+    transition: dramaticTransition
+  }
+}
+
+export const scaleInDramatic: Variants = {
+  hidden: { opacity: 0, scale: 0.7 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+}
+
+// ============================================================================
+// BLUR VARIANTS (cinematic feel)
+// ============================================================================
+
+export const blurIn: Variants = {
+  hidden: { opacity: 0, filter: 'blur(10px)' },
+  visible: {
+    opacity: 1,
+    filter: 'blur(0px)',
     transition: defaultTransition
+  }
+}
+
+export const blurInUp: Variants = {
+  hidden: { opacity: 0, y: 40, filter: 'blur(10px)' },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: 'blur(0px)',
+    transition: defaultTransition
+  }
+}
+
+// ============================================================================
+// CLIP/REVEAL VARIANTS
+// ============================================================================
+
+export const clipRevealUp: Variants = {
+  hidden: {
+    clipPath: 'inset(100% 0% 0% 0%)',
+    opacity: 0
+  },
+  visible: {
+    clipPath: 'inset(0% 0% 0% 0%)',
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1]
+    }
+  }
+}
+
+export const clipRevealLeft: Variants = {
+  hidden: {
+    clipPath: 'inset(0% 100% 0% 0%)',
+    opacity: 0
+  },
+  visible: {
+    clipPath: 'inset(0% 0% 0% 0%)',
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      ease: [0.16, 1, 0.3, 1]
+    }
   }
 }
 
@@ -106,7 +195,7 @@ export const staggerContainer: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.15,
       delayChildren: 0.1
     }
   }
@@ -117,8 +206,8 @@ export const staggerContainerSlow: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.2
+      staggerChildren: 0.2,
+      delayChildren: 0.15
     }
   }
 }
@@ -128,49 +217,59 @@ export const staggerContainerFast: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.05,
+      staggerChildren: 0.08,
       delayChildren: 0.05
     }
   }
 }
 
 // ============================================================================
-// SCROLL-TRIGGERED VARIANTS
+// SCROLL-TRIGGERED VARIANTS (more dramatic, varied directions)
 // ============================================================================
 
 export const scrollReveal: Variants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 80 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
+    transition: dramaticTransition
   }
 }
 
 export const scrollRevealLeft: Variants = {
-  hidden: { opacity: 0, x: -30 },
+  hidden: { opacity: 0, x: -100 },
   visible: {
     opacity: 1,
     x: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
+    transition: dramaticTransition
+  }
+}
+
+export const scrollRevealRight: Variants = {
+  hidden: { opacity: 0, x: 100 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: dramaticTransition
   }
 }
 
 export const scrollRevealScale: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.8 },
   visible: {
     opacity: 1,
     scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
+    transition: dramaticTransition
+  }
+}
+
+export const scrollRevealBlur: Variants = {
+  hidden: { opacity: 0, filter: 'blur(20px)', y: 30 },
+  visible: {
+    opacity: 1,
+    filter: 'blur(0px)',
+    y: 0,
+    transition: dramaticTransition
   }
 }
 
@@ -179,17 +278,17 @@ export const scrollRevealScale: Variants = {
 // ============================================================================
 
 export const hoverScale = {
-  scale: 1.02,
+  scale: 1.03,
   transition: quickTransition
 }
 
 export const hoverLift = {
-  y: -4,
+  y: -6,
   transition: quickTransition
 }
 
 export const hoverGlow = {
-  boxShadow: '0 0 20px rgba(187, 154, 247, 0.15)',
+  boxShadow: '0 0 30px rgba(187, 154, 247, 0.2)',
   transition: quickTransition
 }
 
@@ -198,8 +297,8 @@ export const hoverGlow = {
 // ============================================================================
 
 export const card3DHover = {
-  rotateX: 2,
-  rotateY: 2,
+  rotateX: 3,
+  rotateY: 3,
   scale: 1.02,
   transition: {
     duration: 0.2,
@@ -215,10 +314,7 @@ export const lineGrow: Variants = {
   hidden: { scaleY: 0, originY: 0 },
   visible: {
     scaleY: 1,
-    transition: {
-      duration: 1,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
+    transition: slowTransition
   }
 }
 
@@ -226,10 +322,7 @@ export const lineGrowHorizontal: Variants = {
   hidden: { scaleX: 0, originX: 0 },
   visible: {
     scaleX: 1,
-    transition: {
-      duration: 0.8,
-      ease: [0.25, 0.46, 0.45, 0.94]
-    }
+    transition: slowTransition
   }
 }
 
@@ -238,28 +331,37 @@ export const lineGrowHorizontal: Variants = {
 // ============================================================================
 
 export const typewriterConfig = {
-  charDelay: 60, // ms per character
-  cursorBlinkSpeed: 530, // ms
-  pauseAfterComplete: 300 // ms before triggering next animation
+  charDelay: 50,
+  cursorBlinkSpeed: 530,
+  pauseAfterComplete: 200
 }
 
 // ============================================================================
-// VIEWPORT CONFIG
+// VIEWPORT CONFIG - MORE STRICT (elements appear later)
 // ============================================================================
 
+// Default: element must be 40% in viewport before animating
 export const defaultViewport = {
   once: true,
-  margin: '-100px'
+  amount: 0.4
 }
 
+// Strict: element must be 60% in viewport
+export const strictViewport = {
+  once: true,
+  amount: 0.6
+}
+
+// Center: element must be roughly centered
+export const centerViewport = {
+  once: true,
+  amount: 0.5
+}
+
+// Early: for elements that should appear sooner (headers)
 export const earlyViewport = {
   once: true,
-  margin: '-50px'
-}
-
-export const lateViewport = {
-  once: true,
-  margin: '-150px'
+  amount: 0.2
 }
 
 // ============================================================================
@@ -306,6 +408,7 @@ export function getAnimationProps(
 
 /**
  * Creates whileInView props respecting reduced motion
+ * Now with stricter viewport defaults
  */
 export function getScrollAnimationProps(
   variants: Variants,
@@ -327,4 +430,18 @@ export function getScrollAnimationProps(
     variants,
     viewport
   }
+}
+
+/**
+ * Get alternating animation direction based on index
+ */
+export function getAlternatingVariant(index: number): Variants {
+  const variants = [
+    scrollReveal,      // from below
+    scrollRevealLeft,  // from left
+    scrollRevealRight, // from right
+    scrollRevealScale, // scale up
+    scrollRevealBlur   // blur in
+  ]
+  return variants[index % variants.length]
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { typewriterConfig } from '@/lib/animations'
 
@@ -28,6 +28,13 @@ export default function TypeWriter({
   const [isComplete, setIsComplete] = useState(false)
   const [hasStarted, setHasStarted] = useState(false)
 
+  // Use ref for callback to prevent re-triggering animation
+  const onCompleteRef = useRef(onComplete)
+  onCompleteRef.current = onComplete
+
+  // Track if animation has already completed to prevent loops
+  const hasCompletedRef = useRef(false)
+
   const startTyping = useCallback(() => {
     setHasStarted(true)
   }, [])
@@ -43,11 +50,15 @@ export default function TypeWriter({
   }, [startDelay, hasStarted, startTyping])
 
   useEffect(() => {
+    // Prevent re-running if already completed
+    if (hasCompletedRef.current) return
+
     // Skip animation if reduced motion is preferred
     if (prefersReducedMotion) {
       setDisplayedText(text)
       setIsComplete(true)
-      onComplete?.()
+      hasCompletedRef.current = true
+      onCompleteRef.current?.()
       return
     }
 
@@ -62,15 +73,16 @@ export default function TypeWriter({
       } else {
         clearInterval(timer)
         setIsComplete(true)
+        hasCompletedRef.current = true
         // Small delay before triggering onComplete for visual pause
         setTimeout(() => {
-          onComplete?.()
+          onCompleteRef.current?.()
         }, typewriterConfig.pauseAfterComplete)
       }
     }, charDelay)
 
     return () => clearInterval(timer)
-  }, [text, charDelay, prefersReducedMotion, hasStarted, onComplete])
+  }, [text, charDelay, prefersReducedMotion, hasStarted])
 
   return (
     <span className={className}>

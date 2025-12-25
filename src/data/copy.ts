@@ -6,96 +6,96 @@
  * story-driven content while keeping data clean.
  */
 
-import type { Lang } from './i18n'
+import type { Lang } from './i18n';
 
 // ============================================================================
 // TYPES
 // ============================================================================
 
 export interface HeroCopy {
-  command: string
-  diagnosis: string[]
-  solution: string
-  title: string
-  location: string
+  command: string;
+  diagnosis: string[];
+  solution: string;
+  title: string;
+  location: string;
   cta: {
-    primary: { text: string; hover: string }
-    secondary: { text: string; hover: string }
-  }
-  scroll: string
+    primary: { text: string; hover: string; };
+    secondary: { text: string; hover: string; };
+  };
+  scroll: string;
 }
 
 export interface ProblemCopy {
-  headline: string
+  headline: string;
   blocks: {
-    text: string
-    highlight?: boolean
-  }[]
+    text: string;
+    highlight?: boolean;
+  }[];
 }
 
 export interface ExperienceCardCopy {
-  id: string
-  company: string
-  period: string
-  headline: string
-  narrative: string[]
-  punchline: string
-  technologies: string[]
-  cta?: { text: string; url: string }
-  featured?: boolean
+  id: string;
+  company: string;
+  period: string;
+  headline: string;
+  narrative: string[];
+  punchline: string;
+  technologies: string[];
+  cta?: { text: string; url: string; };
+  featured?: boolean;
 }
 
 export interface SkillCategoryCopy {
-  key: string
-  label: string
-  items: string[]
-  comment: string
+  key: string;
+  label: string;
+  items: string[];
+  comment: string;
 }
 
 export interface ProjectCopy {
-  id: string
-  name: string
-  tagline: string
-  narrative: string[]
-  punchline: string
-  technologies: string[]
+  id: string;
+  name: string;
+  tagline: string;
+  narrative: string[];
+  punchline: string;
+  technologies: string[];
   links: {
-    github?: string
-    demo?: string
-  }
+    github?: string;
+    demo?: string;
+  };
 }
 
 export interface ContactCopy {
-  headline: string
-  command: string
-  narrative: string[]
+  headline: string;
+  command: string;
+  narrative: string[];
   options: {
     email: {
-      value: string
-      label: string
-      description: string
-    }
+      value: string;
+      label: string;
+      description: string;
+    };
     linkedin: {
-      value: string
-      label: string
-      description: string
-    }
+      value: string;
+      label: string;
+      description: string;
+    };
     github: {
-      value: string
-      label: string
-      description: string
-    }
-  }
-  footer: string[]
-  exitCode: string
+      value: string;
+      label: string;
+      description: string;
+    };
+  };
+  footer: string[];
+  exitCode: string;
 }
 
 export interface SectionHeadlines {
-  problem: string
-  experience: string
-  skills: string
-  projects: string
-  contact: string
+  problem: string;
+  experience: string;
+  skills: string;
+  projects: string;
+  contact: string;
 }
 
 // ============================================================================
@@ -131,7 +131,7 @@ export const headlines: Record<Lang, SectionHeadlines> = {
     projects: '// cousas_que_construin',
     contact: '// seguinte_comando'
   }
-}
+};
 
 // ============================================================================
 // HERO
@@ -143,13 +143,13 @@ export const heroCopy: Record<Lang, HeroCopy> = {
     diagnosis: [
       'Tu backend es lento.',
       'Tu frontend es un parche sobre otro parche.',
-      'Y el dev anterior "ya no trabaja aqui".'
+      'Y el dev anterior "ya no trabaja aquí".'
     ],
     solution: 'Yo arreglo eso.',
     title: 'Full Stack Developer que optimiza sistemas y entrega resultados.',
-    location: 'Valencia, ES — Remoto donde haga falta.',
+    location: 'València, ES — Remoto donde haga falta.',
     cta: {
-      primary: { text: 'Ver como lo hago', hover: '$ cd ./experience' },
+      primary: { text: 'Ver cómo lo hago', hover: '$ cd ./experience' },
       secondary: { text: 'Hablemos', hover: '$ open ./contact' }
     },
     scroll: 'scroll'
@@ -163,7 +163,7 @@ export const heroCopy: Record<Lang, HeroCopy> = {
     ],
     solution: 'I fix that.',
     title: 'Full Stack Developer who optimizes systems and delivers results.',
-    location: 'Valencia, ES — Remote wherever needed.',
+    location: 'València, ES — Remote wherever needed.',
     cta: {
       primary: { text: 'See how I do it', hover: '$ cd ./experience' },
       secondary: { text: "Let's talk", hover: '$ open ./contact' }
@@ -173,13 +173,13 @@ export const heroCopy: Record<Lang, HeroCopy> = {
   ca: {
     command: '> analyzing_your_codebase...',
     diagnosis: [
-      'El teu backend es lent.',
-      'El teu frontend es un pedac sobre un altre pedac.',
-      'I el dev anterior "ja no treballa aci".'
+      'El teu backend és lent.',
+      'El teu frontend és un pedaç sobre un altre pedaç.',
+      'I el dev anterior "ja no treballa ací".'
     ],
-    solution: 'Jo arregle aixo.',
+    solution: 'Jo arregle això.',
     title: 'Full Stack Developer que optimitza sistemes i lliura resultats.',
-    location: 'Valencia, ES — Remot on faça falta.',
+    location: 'València, ES — Remot on faça falta.',
     cta: {
       primary: { text: 'Veure com ho faig', hover: '$ cd ./experience' },
       secondary: { text: 'Parlem', hover: '$ open ./contact' }
@@ -189,20 +189,20 @@ export const heroCopy: Record<Lang, HeroCopy> = {
   gl: {
     command: '> analyzing_your_codebase...',
     diagnosis: [
-      'O teu backend e lento.',
-      'O teu frontend e un parche sobre outro parche.',
-      'E o dev anterior "xa non traballa aqui".'
+      'O teu backend é lento.',
+      'O teu frontend é un parche sobre outro parche.',
+      'E o dev anterior "xa non traballa aquí".'
     ],
     solution: 'Eu arranxo iso.',
     title: 'Full Stack Developer que optimiza sistemas e entrega resultados.',
-    location: 'Valencia, ES — Remoto onde faga falta.',
+    location: 'València, ES — Remoto onde faga falta.',
     cta: {
       primary: { text: 'Ver como o fago', hover: '$ cd ./experience' },
       secondary: { text: 'Falemos', hover: '$ open ./contact' }
     },
     scroll: 'scroll'
   }
-}
+};
 
 // ============================================================================
 // PROBLEM SECTION
@@ -212,13 +212,13 @@ export const problemCopy: Record<Lang, ProblemCopy> = {
   es: {
     headline: '// el_problema_real',
     blocks: [
-      { text: 'Contratar desarrolladores es una loteria.' },
-      { text: 'Algunos escriben codigo que funciona.' },
-      { text: 'Pocos entienden POR QUE deberia funcionar.' },
-      { text: 'Menos aun saben CUANDO NO deberia existir ese codigo.' },
-      { text: 'Yo no soy el dev que anade features.' },
-      { text: 'Soy el que pregunta si esa feature deberia existir.' },
-      { text: 'Y despues la construye en la mitad de tiempo.', highlight: true }
+      { text: 'Contratar desarrolladores es una lotería.' },
+      { text: 'Algunos escriben código que funciona.' },
+      { text: 'Pocos entienden POR QUÉ debería funcionar.' },
+      { text: 'Menos aún saben CUÁNDO NO debería existir ese código.' },
+      { text: 'Yo no soy el dev que añade features.' },
+      { text: 'Soy el que pregunta si esa feature debería existir.' },
+      { text: 'Y después la construye en la mitad de tiempo.', highlight: true }
     ]
   },
   en: {
@@ -236,28 +236,28 @@ export const problemCopy: Record<Lang, ProblemCopy> = {
   ca: {
     headline: '// el_problema_real',
     blocks: [
-      { text: 'Contractar desenvolupadors es una loteria.' },
+      { text: 'Contractar desenvolupadors és una loteria.' },
       { text: 'Alguns escriuen codi que funciona.' },
-      { text: 'Pocs entenen PER QUE hauria de funcionar.' },
+      { text: 'Pocs entenen PER QUÈ hauria de funcionar.' },
       { text: 'Menys encara saben QUAN NO hauria d\'existir eixe codi.' },
-      { text: 'Jo no soc el dev que afig features.' },
-      { text: 'Soc el que pregunta si eixa feature hauria d\'existir.' },
-      { text: 'I despres la construeix en la meitat de temps.', highlight: true }
+      { text: 'Jo no sóc el dev que afig features.' },
+      { text: 'Sóc el que pregunta si eixa feature hauria d\'existir.' },
+      { text: 'I després la construeix en la meitat de temps.', highlight: true }
     ]
   },
   gl: {
     headline: '// o_problema_real',
     blocks: [
-      { text: 'Contratar desenvolvedores e unha loteria.' },
-      { text: 'Alguns escriben codigo que funciona.' },
-      { text: 'Poucos entenden POR QUE deberia funcionar.' },
-      { text: 'Menos ainda saben CANDO NON deberia existir ese codigo.' },
+      { text: 'Contratar desenvolvedores é unha lotería.' },
+      { text: 'Algúns escriben código que funciona.' },
+      { text: 'Poucos entenden POR QUE debería funcionar.' },
+      { text: 'Menos aínda saben CANDO NON debería existir ese código.' },
       { text: 'Eu non son o dev que engade features.' },
-      { text: 'Son o que pregunta se esa feature deberia existir.' },
-      { text: 'E despois construea na metade do tempo.', highlight: true }
+      { text: 'Son o que pregunta se esa feature debería existir.' },
+      { text: 'E despois constrúea na metade do tempo.', highlight: true }
     ]
   }
-}
+};
 
 // ============================================================================
 // EXPERIENCE SECTION
@@ -269,20 +269,20 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       id: 'wenalyze-optimization',
       company: 'Wenalyze',
       period: '2024 - Presente',
-      headline: '> Optimizacion significativa',
+      headline: '> Optimización significativa',
       narrative: [
-        'El sistema de scraping llevaba anos funcionando.',
-        '"Funciona" era el unico requisito.',
-        'El problema: lento, caro, fragil.',
+        'El sistema de scraping llevaba años funcionando.',
+        '"Funciona" era el único requisito.',
+        'El problema: lento, caro, frágil.',
         'Nadie lo tocaba porque "si funciona, no lo toques".',
-        'Yo lo toque.',
-        'No anadiendo codigo. Quitando.',
-        'Eliminando redundancias que nadie veia.',
-        'Optimizando flujos que "siempre se habian hecho asi".',
-        'Resultado: reduccion significativa en tiempo de ejecucion.',
+        'Yo lo toqué.',
+        'No añadiendo código. Quitando.',
+        'Eliminando redundancias que nadie veía.',
+        'Optimizando flujos que "siempre se habían hecho así".',
+        'Resultado: reducción significativa en tiempo de ejecución.',
         'Mismos datos. Menos recursos. Menos facturas de AWS.'
       ],
-      punchline: 'A veces el mejor codigo es el que eliminas.',
+      punchline: 'A veces el mejor código es el que eliminas.',
       technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS'],
       featured: true
     },
@@ -293,13 +293,13 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       headline: '> De Express a NestJS',
       narrative: [
         '"Tenemos que migrar el backend."',
-        '"Pero no podemos parar produccion."',
+        '"Pero no podemos parar producción."',
         '"Y tiene que estar para ayer."',
-        'Lidere la migracion completa.',
+        'Lideré la migración completa.',
         'Sin downtime. Sin features rotas.',
-        'Sin el clasico "ya lo arreglaremos despues".'
+        'Sin el clásico "ya lo arreglaremos después".'
       ],
-      punchline: 'El codigo legacy no da miedo. Lo que da miedo es dejarlo crecer.',
+      punchline: 'El código legacy no da miedo. Lo que da miedo es dejarlo crecer.',
       technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL']
     },
     {
@@ -308,9 +308,9 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       period: '2024',
       headline: '> Producto completo',
       narrative: [
-        'Wenalyze Sync: de idea en una pizarra a SaaS en produccion.',
+        'Wenalyze Sync: de idea en una pizarra a SaaS en producción.',
         'Arquitectura. Frontend. API. Despliegue.',
-        'Todo, desde la primera linea hasta el primer usuario.'
+        'Todo, desde la primera línea hasta el primer usuario.'
       ],
       punchline: 'Cuando alguien dice "desde cero", yo escucho "sin excusas si algo falla".',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
@@ -375,20 +375,20 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       id: 'wenalyze-optimization',
       company: 'Wenalyze',
       period: '2024 - Present',
-      headline: '> Optimitzacio significativa',
+      headline: '> Optimització significativa',
       narrative: [
         'El sistema de scraping portava anys funcionant.',
-        '"Funciona" era l\'unic requisit.',
-        'El problema: lent, car, fragil.',
-        'Ningu el tocava perque "si funciona, no el toques".',
+        '"Funciona" era l\'únic requisit.',
+        'El problema: lent, car, fràgil.',
+        'Ningú el tocava perquè "si funciona, no el toques".',
         'Jo el vaig tocar.',
         'No afegint codi. Llevant.',
-        'Eliminant redundancies que ningu veia.',
-        'Optimitzant fluxos que "sempre s\'havien fet aixi".',
-        'Resultat: reduccio significativa en temps d\'execucio.',
+        'Eliminant redundàncies que ningú veia.',
+        'Optimitzant fluxos que "sempre s\'havien fet així".',
+        'Resultat: reducció significativa en temps d\'execució.',
         'Mateixes dades. Menys recursos. Menys factures d\'AWS.'
       ],
-      punchline: 'De vegades el millor codi es el que elimines.',
+      punchline: 'De vegades el millor codi és el que elimines.',
       technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS'],
       featured: true
     },
@@ -399,13 +399,13 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       headline: '> D\'Express a NestJS',
       narrative: [
         '"Hem de migrar el backend."',
-        '"Pero no podem parar produccio."',
+        '"Però no podem parar producció."',
         '"I ha d\'estar per a ahir."',
-        'Vaig liderar la migracio completa.',
+        'Vaig liderar la migració completa.',
         'Sense downtime. Sense features trencades.',
-        'Sense el classic "ja ho arreglarem despres".'
+        'Sense el clàssic "ja ho arreglarem després".'
       ],
-      punchline: 'El codi legacy no fa por. El que fa por es deixar-lo creixer.',
+      punchline: 'El codi legacy no fa por. El que fa por és deixar-lo créixer.',
       technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL']
     },
     {
@@ -414,11 +414,11 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       period: '2024',
       headline: '> Producte complet',
       narrative: [
-        'Wenalyze Sync: d\'idea en una pissarra a SaaS en produccio.',
+        'Wenalyze Sync: d\'idea en una pissarra a SaaS en producció.',
         'Arquitectura. Frontend. API. Desplegament.',
-        'Tot, des de la primera linia fins al primer usuari.'
+        'Tot, des de la primera línia fins al primer usuari.'
       ],
-      punchline: 'Quan algu diu "des de zero", jo escolte "sense excuses si algo falla".',
+      punchline: 'Quan algú diu "des de zero", jo escolte "sense excuses si algo falla".',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       cta: { text: 'Veure projecte', url: '#projects' }
     }
@@ -428,20 +428,20 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       id: 'wenalyze-optimization',
       company: 'Wenalyze',
       period: '2024 - Presente',
-      headline: '> Optimizacion significativa',
+      headline: '> Optimización significativa',
       narrative: [
         'O sistema de scraping levaba anos funcionando.',
-        '"Funciona" era o unico requisito.',
-        'O problema: lento, caro, fraxil.',
+        '"Funciona" era o único requisito.',
+        'O problema: lento, caro, fráxil.',
         'Ninguén o tocaba porque "se funciona, non o toques".',
         'Eu toquei.',
-        'Non engadindo codigo. Quitando.',
-        'Eliminando redundancias que ninguén via.',
-        'Optimizando fluxos que "sempre se fixeran asi".',
-        'Resultado: reducción significativa en tempo de execucion.',
+        'Non engadindo código. Quitando.',
+        'Eliminando redundancias que ninguén vía.',
+        'Optimizando fluxos que "sempre se fixeran así".',
+        'Resultado: redución significativa en tempo de execución.',
         'Mesmos datos. Menos recursos. Menos facturas de AWS.'
       ],
-      punchline: 'As veces o mellor codigo e o que eliminas.',
+      punchline: 'Ás veces o mellor código é o que eliminas.',
       technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS'],
       featured: true
     },
@@ -452,13 +452,13 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       headline: '> De Express a NestJS',
       narrative: [
         '"Temos que migrar o backend."',
-        '"Pero non podemos parar produccion."',
+        '"Pero non podemos parar produción."',
         '"E ten que estar para onte."',
-        'Liderei a migracion completa.',
+        'Liderei a migración completa.',
         'Sen downtime. Sen features rotas.',
-        'Sen o clasico "xa o arranxaremos despois".'
+        'Sen o clásico "xa o arranxaremos despois".'
       ],
-      punchline: 'O codigo legacy non da medo. O que da medo e deixalo crecer.',
+      punchline: 'O código legacy non dá medo. O que dá medo é deixalo crecer.',
       technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL']
     },
     {
@@ -467,24 +467,24 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       period: '2024',
       headline: '> Produto completo',
       narrative: [
-        'Wenalyze Sync: de idea nunha pizarra a SaaS en produccion.',
+        'Wenalyze Sync: de idea nunha pizarra a SaaS en produción.',
         'Arquitectura. Frontend. API. Despregue.',
-        'Todo, desde a primeira lina ata o primeiro usuario.'
+        'Todo, desde a primeira liña ata o primeiro usuario.'
       ],
       punchline: 'Cando alguén di "desde cero", eu escoito "sen escusas se algo falla".',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       cta: { text: 'Ver proxecto', url: '#projects' }
     }
   ]
-}
+};
 
 // ============================================================================
 // SKILLS SECTION
 // ============================================================================
 
-export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategoryCopy[]; outro: string }> = {
+export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategoryCopy[]; outro: string; }> = {
   es: {
-    intro: 'Las herramientas son eso: herramientas. Un martillo no te hace carpintero. Saber cuando NO usarlo, si.',
+    intro: 'Las herramientas son eso: herramientas. Un martillo no te hace carpintero. Saber cuándo NO usarlo, sí.',
     categories: [
       {
         key: 'languages',
@@ -514,7 +514,7 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
         key: 'devops',
         label: 'devops',
         items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP'],
-        comment: 'Si no se despliega facil, no esta terminado.'
+        comment: 'Si no se despliega fácil, no está terminado.'
       }
     ],
     outro: '¿Falta algo? Probablemente lo aprenda antes de que termines de escribir el email.'
@@ -556,7 +556,7 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
     outro: 'Missing something? I\'ll probably learn it before you finish typing the email.'
   },
   ca: {
-    intro: 'Les eines son aixo: eines. Un martell no et fa fuster. Saber quan NO usar-lo, si.',
+    intro: 'Les eines són això: eines. Un martell no et fa fuster. Saber quan NO usar-lo, sí.',
     categories: [
       {
         key: 'languages',
@@ -574,31 +574,31 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
         key: 'backend',
         label: 'backend',
         items: ['Node.js', 'NestJS', 'Express', 'REST APIs'],
-        comment: 'NestJS per arquitectures series. Express quan cal eixir ja.'
+        comment: 'NestJS per arquitectures sèries. Express quan cal eixir ja.'
       },
       {
         key: 'data',
         label: 'dades',
         items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Firestore'],
-        comment: 'SQL primer. Sempre. NoSQL quan te sentit, no quan mola.'
+        comment: 'SQL primer. Sempre. NoSQL quan té sentit, no quan mola.'
       },
       {
         key: 'devops',
         label: 'devops',
         items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP'],
-        comment: 'Si no es desplega facil, no esta acabat.'
+        comment: 'Si no es desplega fàcil, no està acabat.'
       }
     ],
     outro: 'Falta algo? Probablement ho aprenga abans que acabes d\'escriure l\'email.'
   },
   gl: {
-    intro: 'As ferramentas son iso: ferramentas. Un martelo non te fai carpinteiro. Saber cando NON usalo, si.',
+    intro: 'As ferramentas son iso: ferramentas. Un martelo non te fai carpinteiro. Saber cando NON usalo, sí.',
     categories: [
       {
         key: 'languages',
         label: 'linguaxes',
         items: ['TypeScript', 'JavaScript', 'Python', 'PHP'],
-        comment: 'TypeScript por defecto. Os tipos preveñen bugs as 3am.'
+        comment: 'TypeScript por defecto. Os tipos preveñen bugs ás 3am.'
       },
       {
         key: 'frontend',
@@ -610,7 +610,7 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
         key: 'backend',
         label: 'backend',
         items: ['Node.js', 'NestJS', 'Express', 'REST APIs'],
-        comment: 'NestJS para arquitecturas serias. Express cando hai que sair xa.'
+        comment: 'NestJS para arquitecturas serias. Express cando hai que saír xa.'
       },
       {
         key: 'data',
@@ -622,12 +622,12 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
         key: 'devops',
         label: 'devops',
         items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP'],
-        comment: 'Se non se desprega facil, non esta rematado.'
+        comment: 'Se non se desprega fácil, non está rematado.'
       }
     ],
     outro: 'Falta algo? Probablemente o aprenda antes de que remates de escribir o email.'
   }
-}
+};
 
 // ============================================================================
 // PROJECTS SECTION
@@ -659,18 +659,18 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
     {
       id: 'wenalyze-sync',
       name: 'wenalyze-sync',
-      tagline: 'De "necesitamos un dashboard" a SaaS en produccion.',
+      tagline: 'De "necesitamos un dashboard" a SaaS en producción.',
       narrative: [
         'Un producto para sincronizar datos empresariales.',
         'Suena corporativo. Suena aburrido.',
-        'Lo interesante esta en los detalles:',
+        'Lo interesante está en los detalles:',
         '- Arquitectura que optimiza llamadas API',
         '- UI que no necesita manual de instrucciones',
         '- Rendimiento que no te hace esperar',
-        'Disenado y desarrollado desde cero.',
-        'Cada decision, mia. Cada bug a las 3am, tambien mio.'
+        'Diseñado y desarrollado desde cero.',
+        'Cada decisión, mía. Cada bug a las 3am, también mío.'
       ],
-      punchline: 'Cuando tienes ownership total, no hay donde esconderse. Y eso esta bien.',
+      punchline: 'Cuando tienes ownership total, no hay donde esconderse. Y eso está bien.',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
         demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
@@ -681,13 +681,13 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       name: 'portfolio',
       tagline: 'El sitio donde digo que los detalles importan.',
       narrative: [
-        'Multiidioma porque Valencia no es solo Espana.',
+        'Multiidioma porque València no es solo España.',
         'Accesible porque la web es para todos.',
-        '100 en Lighthouse porque los numeros verdes molan.',
+        '100 en Lighthouse porque los números verdes molan.',
         'Pero sobre todo:',
-        'Porque queria un lugar para decir las cosas que no caben en un CV de una pagina.'
+        'Porque quería un lugar para decir las cosas que no caben en un CV de una página.'
       ],
-      punchline: 'Si el portfolio de un dev no esta bien hecho, ¿por que confiarias en su codigo?',
+      punchline: 'Si el portfolio de un dev no está bien hecho, ¿por qué confiarías en su código?',
       technologies: ['Astro', 'React', 'TypeScript', 'Tailwind', 'Motion'],
       links: {
         github: 'https://github.com/xSharkhy/portfolio',
@@ -742,7 +742,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       name: 'portfolio',
       tagline: 'The site where I say details matter.',
       narrative: [
-        'Multilingual because Valencia isn\'t just Spain.',
+        'Multilingual because València isn\'t just Spain.',
         'Accessible because the web is for everyone.',
         '100 on Lighthouse because green numbers are cool.',
         'But mostly:',
@@ -760,18 +760,18 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
     {
       id: 'el-impostor',
       name: 'el-impostor',
-      tagline: 'Joc multijugador en temps real. En una Raspberry Pi. Perque puc.',
+      tagline: 'Joc multijugador en temps real. En una Raspberry Pi. Perquè puc.',
       narrative: [
         '"Fem un joc social tipus Among Us."',
         '"Multijugador."',
         '"En temps real."',
         '"I desplega\'l en una Raspberry Pi que tinc a casa."',
-        'Aixo no es un projecte. Es un repte personal.',
-        'WebSockets perque tot passe a l\'instant.',
-        'Clean Architecture perque el caos no escala (ni quan son 4 amics jugant a les 2am).',
-        'SSL perque la seguretat no es opcional, ni tan sols en una Pi.'
+        'Això no és un projecte. És un repte personal.',
+        'WebSockets perquè tot passe a l\'instant.',
+        'Clean Architecture perquè el caos no escala (ni quan són 4 amics jugant a les 2am).',
+        'SSL perquè la seguretat no és opcional, ni tan sols en una Pi.'
       ],
-      punchline: 'La millor forma d\'aprendre algo es construir-ho quan ningu t\'ho demana.',
+      punchline: 'La millor forma d\'aprendre algo és construir-ho quan ningú t\'ho demana.',
       technologies: ['React', 'TypeScript', 'Socket.io', 'Node.js', 'Supabase', 'Tailwind'],
       links: {
         github: 'https://github.com/xSharkhy/impostor-game',
@@ -781,18 +781,18 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
     {
       id: 'wenalyze-sync',
       name: 'wenalyze-sync',
-      tagline: 'De "necessitem un dashboard" a SaaS en produccio.',
+      tagline: 'De "necessitem un dashboard" a SaaS en producció.',
       narrative: [
         'Un producte per sincronitzar dades empresarials.',
         'Sona corporatiu. Sona avorrit.',
-        'L\'interessant esta en els detalls:',
+        'L\'interessant està en els detalls:',
         '- Arquitectura que optimitza crides API',
         '- UI que no necessita manual d\'instruccions',
         '- Rendiment que no et fa esperar',
         'Dissenyat i desenvolupat des de zero.',
-        'Cada decisio, meua. Cada bug a les 3am, tambe meu.'
+        'Cada decisió, meua. Cada bug a les 3am, també meu.'
       ],
-      punchline: 'Quan tens ownership total, no hi ha on amagar-se. I aixo esta be.',
+      punchline: 'Quan tens ownership total, no hi ha on amagar-se. I això està bé.',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
         demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
@@ -803,13 +803,13 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       name: 'portfolio',
       tagline: 'El lloc on dic que els detalls importen.',
       narrative: [
-        'Multiidioma perque Valencia no es nomes Espanya.',
-        'Accessible perque la web es per a tots.',
-        '100 en Lighthouse perque els numeros verds molen.',
-        'Pero sobretot:',
-        'Perque volia un lloc per dir les coses que no caben en un CV d\'una pagina.'
+        'Multiidioma perquè València no és només Espanya.',
+        'Accessible perquè la web és per a tots.',
+        '100 en Lighthouse perquè els números verds molen.',
+        'Però sobretot:',
+        'Perquè volia un lloc per dir les coses que no caben en un CV d\'una pàgina.'
       ],
-      punchline: 'Si el portfolio d\'un dev no esta ben fet, per que confaries en el seu codi?',
+      punchline: 'Si el portfolio d\'un dev no està ben fet, per què confaries en el seu codi?',
       technologies: ['Astro', 'React', 'TypeScript', 'Tailwind', 'Motion'],
       links: {
         github: 'https://github.com/xSharkhy/portfolio',
@@ -827,12 +827,12 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
         '"Multixogador."',
         '"En tempo real."',
         '"E despregao nunha Raspberry Pi que teño na casa."',
-        'Iso non e un proxecto. E un reto persoal.',
+        'Iso non é un proxecto. É un reto persoal.',
         'WebSockets para que todo pase ao instante.',
-        'Clean Architecture porque o caos non escala (nin cando son 4 amigos xogando as 2am).',
-        'SSL porque a seguridade non e opcional, nin sequera nunha Pi.'
+        'Clean Architecture porque o caos non escala (nin cando son 4 amigos xogando ás 2am).',
+        'SSL porque a seguridade non é opcional, nin sequera nunha Pi.'
       ],
-      punchline: 'A mellor forma de aprender algo e construilo cando ninguén cho pide.',
+      punchline: 'A mellor forma de aprender algo é construílo cando ninguén cho pide.',
       technologies: ['React', 'TypeScript', 'Socket.io', 'Node.js', 'Supabase', 'Tailwind'],
       links: {
         github: 'https://github.com/xSharkhy/impostor-game',
@@ -842,18 +842,18 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
     {
       id: 'wenalyze-sync',
       name: 'wenalyze-sync',
-      tagline: 'De "necesitamos un dashboard" a SaaS en produccion.',
+      tagline: 'De "necesitamos un dashboard" a SaaS en produción.',
       narrative: [
         'Un produto para sincronizar datos empresariais.',
         'Soa corporativo. Soa aburrido.',
-        'O interesante esta nos detalles:',
+        'O interesante está nos detalles:',
         '- Arquitectura que optimiza chamadas API',
-        '- UI que non necesita manual de instrucions',
+        '- UI que non necesita manual de instrucións',
         '- Rendemento que non te fai esperar',
         'Deseñado e desenvolvido desde cero.',
-        'Cada decision, mina. Cada bug as 3am, tamen meu.'
+        'Cada decisión, miña. Cada bug ás 3am, tamén meu.'
       ],
-      punchline: 'Cando tes ownership total, non hai onde esconderse. E iso esta ben.',
+      punchline: 'Cando tes ownership total, non hai onde esconderse. E iso está ben.',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
         demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
@@ -864,13 +864,13 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       name: 'portfolio',
       tagline: 'O sitio onde digo que os detalles importan.',
       narrative: [
-        'Multilingue porque Valencia non e so España.',
-        'Accesible porque a web e para todos.',
-        '100 en Lighthouse porque os numeros verdes molan.',
+        'Multilingüe porque València non é só España.',
+        'Accesible porque a web é para todos.',
+        '100 en Lighthouse porque os números verdes molan.',
         'Pero sobre todo:',
-        'Porque queria un lugar para dicir as cousas que non caben nun CV dunha paxina.'
+        'Porque quería un lugar para dicir as cousas que non caben nun CV dunha páxina.'
       ],
-      punchline: 'Se o portfolio dun dev non esta ben feito, por que confiarias no seu codigo?',
+      punchline: 'Se o portfolio dun dev non está ben feito, por que confiarías no seu código?',
       technologies: ['Astro', 'React', 'TypeScript', 'Tailwind', 'Motion'],
       links: {
         github: 'https://github.com/xSharkhy/portfolio',
@@ -878,7 +878,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       }
     }
   ]
-}
+};
 
 // ============================================================================
 // CONTACT SECTION
@@ -889,9 +889,9 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     headline: '// siguiente_comando',
     command: '$ echo "hablemos"',
     narrative: [
-      'Si has llegado hasta aqui, una de dos:',
+      'Si has llegado hasta aquí, una de dos:',
       '1. Tienes un proyecto que necesita a alguien que lo entienda de verdad.',
-      '2. Te aburrias y esto era mas entretenido que scrollear LinkedIn.',
+      '2. Te aburrías y esto era más entretenido que scrollear LinkedIn.',
       'Si es la primera, hablemos.',
       'Si es la segunda... gracias por leer, supongo.'
     ],
@@ -909,15 +909,15 @@ export const contactCopy: Record<Lang, ContactCopy> = {
       github: {
         value: 'https://www.github.com/xSharkhy',
         label: 'GitHub',
-        description: 'Para los que quieren ver codigo antes de hablar.'
+        description: 'Para los que quieren ver código antes de hablar.'
       }
     },
     footer: [
-      '// Alcasser, Valencia',
-      '// Remoto o presencial, lo que tenga mas sentido.',
+      '// Alcàsser, València',
+      '// Remoto o presencial, lo que tenga más sentido.',
       '// Zona horaria: CET (pero flexible si el proyecto lo vale).'
     ],
-    exitCode: '$ exit 0  // Gracias por scrollear hasta aqui.'
+    exitCode: '$ exit 0  // Gracias por scrollear hasta aquí.'
   },
   en: {
     headline: '// next_command',
@@ -947,21 +947,21 @@ export const contactCopy: Record<Lang, ContactCopy> = {
       }
     },
     footer: [
-      '// Alcasser, Valencia',
+      '// Alcasser, València',
       '// Remote or on-site, whatever makes more sense.',
       '// Timezone: CET (but flexible if the project\'s worth it).'
     ],
     exitCode: '$ exit 0  // Thanks for scrolling this far.'
   },
   ca: {
-    headline: '// seguent_comanda',
+    headline: '// següent_comanda',
     command: '$ echo "parlem"',
     narrative: [
-      'Si has arribat fins aci, una de dos:',
-      '1. Tens un projecte que necessita a algu que l\'entenga de veritat.',
-      '2. T\'avorries i aixo era mes entretingut que fer scroll a LinkedIn.',
-      'Si es la primera, parlem.',
-      'Si es la segona... gracies per llegir, supose.'
+      'Si has arribat fins ací, una de dos:',
+      '1. Tens un projecte que necessita a algú que l\'entenga de veritat.',
+      '2. T\'avorries i això era més entretingut que fer scroll a LinkedIn.',
+      'Si és la primera, parlem.',
+      'Si és la segona... gràcies per llegir, supose.'
     ],
     options: {
       email: {
@@ -981,21 +981,21 @@ export const contactCopy: Record<Lang, ContactCopy> = {
       }
     },
     footer: [
-      '// Alcasser, Valencia',
-      '// Remot o presencial, el que tinga mes sentit.',
-      '// Zona horaria: CET (pero flexible si el projecte ho val).'
+      '// Alcàsser, València',
+      '// Remot o presencial, el que tinga més sentit.',
+      '// Zona horària: CET (però flexible si el projecte ho val).'
     ],
-    exitCode: '$ exit 0  // Gracies per fer scroll fins aci.'
+    exitCode: '$ exit 0  // Gràcies per fer scroll fins ací.'
   },
   gl: {
     headline: '// seguinte_comando',
     command: '$ echo "falemos"',
     narrative: [
-      'Se chegaches ata aqui, unha de dúas:',
+      'Se chegaches ata aquí, unha de dúas:',
       '1. Tes un proxecto que necesita a alguén que o entenda de verdade.',
-      '2. Aburriaste e isto era mais entretido que scrollear LinkedIn.',
-      'Se e a primeira, falemos.',
-      'Se e a segunda... grazas por ler, supoño.'
+      '2. Aburríraste e isto era máis entretido que scrollear LinkedIn.',
+      'Se é a primeira, falemos.',
+      'Se é a segunda... grazas por ler, supoño.'
     ],
     options: {
       email: {
@@ -1011,46 +1011,46 @@ export const contactCopy: Record<Lang, ContactCopy> = {
       github: {
         value: 'https://www.github.com/xSharkhy',
         label: 'GitHub',
-        description: 'Para os que queren ver codigo antes de falar.'
+        description: 'Para os que queren ver código antes de falar.'
       }
     },
     footer: [
-      '// Alcasser, Valencia',
-      '// Remoto ou presencial, o que teña mais sentido.',
+      '// Alcàsser, València',
+      '// Remoto ou presencial, o que teña máis sentido.',
       '// Zona horaria: CET (pero flexible se o proxecto o vale).'
     ],
-    exitCode: '$ exit 0  // Grazas por scrollear ata aqui.'
+    exitCode: '$ exit 0  // Grazas por scrollear ata aquí.'
   }
-}
+};
 
 // ============================================================================
 // GETTERS
 // ============================================================================
 
-export function getHeroCopy(lang: Lang): HeroCopy {
-  return heroCopy[lang]
+export function getHeroCopy (lang: Lang): HeroCopy {
+  return heroCopy[lang];
 }
 
-export function getProblemCopy(lang: Lang): ProblemCopy {
-  return problemCopy[lang]
+export function getProblemCopy (lang: Lang): ProblemCopy {
+  return problemCopy[lang];
 }
 
-export function getExperienceCopy(lang: Lang): ExperienceCardCopy[] {
-  return experienceCopy[lang]
+export function getExperienceCopy (lang: Lang): ExperienceCardCopy[] {
+  return experienceCopy[lang];
 }
 
-export function getSkillsCopy(lang: Lang) {
-  return skillsCopy[lang]
+export function getSkillsCopy (lang: Lang) {
+  return skillsCopy[lang];
 }
 
-export function getProjectsCopy(lang: Lang): ProjectCopy[] {
-  return projectsCopy[lang]
+export function getProjectsCopy (lang: Lang): ProjectCopy[] {
+  return projectsCopy[lang];
 }
 
-export function getContactCopy(lang: Lang): ContactCopy {
-  return contactCopy[lang]
+export function getContactCopy (lang: Lang): ContactCopy {
+  return contactCopy[lang];
 }
 
-export function getHeadlines(lang: Lang): SectionHeadlines {
-  return headlines[lang]
+export function getHeadlines (lang: Lang): SectionHeadlines {
+  return headlines[lang];
 }

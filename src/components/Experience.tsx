@@ -4,11 +4,13 @@ import type { Lang } from '@/data/i18n'
 import { t } from '@/data/i18n'
 import Card, { CardHeader, CardTitle, CardLabel, CardTags, CardPunchline } from '@/components/ui/Card'
 import {
-  staggerContainer,
   scrollRevealLeft,
-  scrollReveal,
+  scrollRevealRight,
+  scrollRevealBlur,
+  scaleInUp,
   getScrollAnimationProps,
-  defaultViewport
+  strictViewport,
+  centerViewport
 } from '@/lib/animations'
 
 interface ExperienceProps {
@@ -20,57 +22,62 @@ export default function Experience({ lang }: ExperienceProps) {
   const experiences = getExperienceCopy(lang)
   const headlines = getHeadlines(lang)
 
-  // Separate featured (main) card from secondary cards
   const featuredExp = experiences.find(exp => exp.featured)
   const secondaryExps = experiences.filter(exp => !exp.featured)
 
-  const containerProps = getScrollAnimationProps(staggerContainer, prefersReducedMotion)
-
   return (
     <section
-      className="py-20 sm:py-28"
+      className="py-24 sm:py-32"
       aria-labelledby="experience-heading"
       id="experience"
     >
-      {/* Headline */}
+      {/* Headline - from left */}
       <motion.h2
         id="experience-heading"
-        {...getScrollAnimationProps(scrollRevealLeft, prefersReducedMotion)}
-        className="text-sm text-[--color-text-dark] mb-10 sm:mb-12"
+        {...getScrollAnimationProps(scrollRevealLeft, prefersReducedMotion, strictViewport)}
+        className="text-sm text-[--color-text-dark] mb-12 sm:mb-16"
       >
         {headlines.experience}
       </motion.h2>
 
-      <motion.div {...containerProps} className="space-y-6">
-        {/* Featured Card */}
+      <div className="space-y-8">
+        {/* Featured Card - scale up with blur */}
         {featuredExp && (
-          <ExperienceCardFeatured
-            experience={featuredExp}
-            prefersReducedMotion={prefersReducedMotion}
-          />
+          <motion.div
+            {...getScrollAnimationProps(scrollRevealBlur, prefersReducedMotion, centerViewport)}
+          >
+            <ExperienceCardFeatured
+              experience={featuredExp}
+              prefersReducedMotion={prefersReducedMotion}
+            />
+          </motion.div>
         )}
 
-        {/* Secondary Cards Grid */}
+        {/* Secondary Cards Grid - alternate directions */}
         {secondaryExps.length > 0 && (
           <div className="grid md:grid-cols-2 gap-6">
             {secondaryExps.map((exp, index) => (
-              <ExperienceCard
+              <motion.div
                 key={exp.id}
-                experience={exp}
-                index={index}
-                prefersReducedMotion={prefersReducedMotion}
-              />
+                {...getScrollAnimationProps(
+                  index % 2 === 0 ? scrollRevealLeft : scrollRevealRight,
+                  prefersReducedMotion,
+                  strictViewport
+                )}
+              >
+                <ExperienceCard
+                  experience={exp}
+                  prefersReducedMotion={prefersReducedMotion}
+                />
+              </motion.div>
             ))}
           </div>
         )}
 
-        {/* CTA to full CV */}
+        {/* CTA to full CV - scale in */}
         <motion.div
-          {...getScrollAnimationProps(scrollReveal, prefersReducedMotion, {
-            once: true,
-            margin: '-50px'
-          })}
-          className="pt-4"
+          {...getScrollAnimationProps(scaleInUp, prefersReducedMotion, strictViewport)}
+          className="pt-6"
         >
           <a
             href={`/${lang}/cv`}
@@ -82,7 +89,7 @@ export default function Experience({ lang }: ExperienceProps) {
             </span>
           </a>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }
@@ -100,33 +107,34 @@ function ExperienceCardFeatured({ experience, prefersReducedMotion }: Experience
   return (
     <Card
       as="article"
-      className="p-6 sm:p-8"
+      className="p-6 sm:p-8 md:p-10"
       hover3D={!prefersReducedMotion}
       hoverBorderColor="var(--color-accent-cyan)"
+      animate={false} // Parent handles animation
     >
       <CardHeader className="mb-6">
         <CardLabel>{experience.company} · {experience.period}</CardLabel>
-        <CardTitle as="h3" className="text-xl sm:text-2xl mt-2">
+        <CardTitle as="h3" className="text-xl sm:text-2xl md:text-3xl mt-2">
           {experience.headline.replace('> ', '')}
         </CardTitle>
       </CardHeader>
 
       {/* Narrative */}
-      <div className="space-y-3 text-[--color-text] leading-relaxed">
+      <div className="space-y-3 text-[--color-text] text-base sm:text-lg leading-relaxed">
         {experience.narrative.map((line, index) => (
-          <p key={index} className={`${index < 4 ? 'text-[--color-text-muted]' : ''}`}>
+          <p key={index} className={index < 4 ? 'text-[--color-text-muted]' : ''}>
             {line}
           </p>
         ))}
       </div>
 
       {/* Punchline */}
-      <CardPunchline className="text-lg mt-6">
+      <CardPunchline className="text-lg sm:text-xl mt-8">
         {experience.punchline}
       </CardPunchline>
 
       {/* Technologies */}
-      <CardTags tags={experience.technologies} className="mt-6" />
+      <CardTags tags={experience.technologies} className="mt-8" />
     </Card>
   )
 }
@@ -137,15 +145,15 @@ function ExperienceCardFeatured({ experience, prefersReducedMotion }: Experience
 
 interface ExperienceCardProps {
   experience: ReturnType<typeof getExperienceCopy>[0]
-  index: number
   prefersReducedMotion: boolean | null
 }
 
-function ExperienceCard({ experience, index, prefersReducedMotion }: ExperienceCardProps) {
+function ExperienceCard({ experience, prefersReducedMotion }: ExperienceCardProps) {
   return (
     <Card
       as="article"
       hover3D={!prefersReducedMotion}
+      animate={false} // Parent handles animation
     >
       <CardHeader>
         <CardLabel>{experience.company} · {experience.period}</CardLabel>
@@ -155,14 +163,14 @@ function ExperienceCard({ experience, index, prefersReducedMotion }: ExperienceC
       </CardHeader>
 
       {/* Narrative (shorter for secondary cards) */}
-      <div className="space-y-2 text-sm text-[--color-text-muted] leading-relaxed">
+      <div className="space-y-2 text-sm text-[--color-text-muted] leading-relaxed mt-4">
         {experience.narrative.slice(0, 6).map((line, idx) => (
           <p key={idx}>{line}</p>
         ))}
       </div>
 
       {/* Punchline */}
-      <CardPunchline className="text-sm">
+      <CardPunchline className="text-sm mt-4">
         {experience.punchline}
       </CardPunchline>
 

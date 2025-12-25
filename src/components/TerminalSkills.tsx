@@ -5,9 +5,13 @@ import type { Lang } from '@/data/i18n'
 import Terminal, { TerminalPrompt } from '@/components/ui/Terminal'
 import TypeWriter from '@/components/ui/TypeWriter'
 import {
-  staggerContainer,
-  scrollReveal,
-  getScrollAnimationProps
+  staggerContainerSlow,
+  scrollRevealLeft,
+  scrollRevealBlur,
+  fadeInUp,
+  getScrollAnimationProps,
+  strictViewport,
+  centerViewport
 } from '@/lib/animations'
 
 interface TerminalSkillsProps {
@@ -22,21 +26,18 @@ export default function TerminalSkills({ lang }: TerminalSkillsProps) {
 
   return (
     <section className="py-20 sm:py-28" aria-labelledby="skills-heading" id="skills">
-      {/* Headline */}
+      {/* Headline - from left */}
       <motion.h2
         id="skills-heading"
-        {...getScrollAnimationProps(scrollReveal, prefersReducedMotion)}
+        {...getScrollAnimationProps(scrollRevealLeft, prefersReducedMotion, strictViewport)}
         className="text-sm text-[--color-text-dark] mb-8 sm:mb-10"
       >
         {headlines.skills}
       </motion.h2>
 
-      {/* Intro text */}
+      {/* Intro text - blur in */}
       <motion.p
-        {...getScrollAnimationProps(scrollReveal, prefersReducedMotion, {
-          once: true,
-          margin: '-50px'
-        })}
+        {...getScrollAnimationProps(scrollRevealBlur, prefersReducedMotion, centerViewport)}
         className="text-[--color-text] text-lg mb-8 max-w-2xl"
       >
         {copy.intro}
@@ -61,7 +62,7 @@ export default function TerminalSkills({ lang }: TerminalSkillsProps) {
 
         {/* Skills categories */}
         <motion.dl
-          variants={prefersReducedMotion ? {} : staggerContainer}
+          variants={prefersReducedMotion ? {} : staggerContainerSlow}
           initial="hidden"
           animate={commandComplete ? 'visible' : 'hidden'}
           className="space-y-4"
@@ -89,12 +90,9 @@ export default function TerminalSkills({ lang }: TerminalSkillsProps) {
         </motion.div>
       </Terminal>
 
-      {/* Outro text */}
+      {/* Outro text - fade up */}
       <motion.p
-        {...getScrollAnimationProps(scrollReveal, prefersReducedMotion, {
-          once: true,
-          margin: '-50px'
-        })}
+        {...getScrollAnimationProps(fadeInUp, prefersReducedMotion, strictViewport)}
         className="text-[--color-text-muted] text-sm mt-6 italic"
       >
         {copy.outro}

@@ -4,10 +4,14 @@ import { getContactCopy } from '@/data/copy'
 import type { Lang } from '@/data/i18n'
 import TypeWriter from '@/components/ui/TypeWriter'
 import {
-  staggerContainer,
-  scrollReveal,
+  staggerContainerSlow,
+  scrollRevealLeft,
+  scrollRevealBlur,
+  scaleInUp,
   fadeInUp,
-  getScrollAnimationProps
+  getScrollAnimationProps,
+  strictViewport,
+  centerViewport
 } from '@/lib/animations'
 
 interface ContactProps {
@@ -19,10 +23,7 @@ export default function Contact({ lang }: ContactProps) {
   const copy = getContactCopy(lang)
   const [commandComplete, setCommandComplete] = useState(prefersReducedMotion ?? false)
 
-  const containerProps = getScrollAnimationProps(staggerContainer, prefersReducedMotion, {
-    once: true,
-    margin: '-100px'
-  })
+  const containerProps = getScrollAnimationProps(staggerContainerSlow, prefersReducedMotion, centerViewport)
 
   return (
     <section
@@ -30,19 +31,19 @@ export default function Contact({ lang }: ContactProps) {
       aria-labelledby="contact-heading"
       id="contact"
     >
-      {/* Headline */}
+      {/* Headline - from left */}
       <motion.h2
         id="contact-heading"
-        {...getScrollAnimationProps(scrollReveal, prefersReducedMotion)}
+        {...getScrollAnimationProps(scrollRevealLeft, prefersReducedMotion, strictViewport)}
         className="text-sm text-[--color-text-dark] mb-10 sm:mb-12"
       >
         {copy.headline}
       </motion.h2>
 
       <div className="max-w-2xl">
-        {/* Command with TypeWriter */}
+        {/* Command with TypeWriter - blur in */}
         <motion.div
-          {...getScrollAnimationProps(fadeInUp, prefersReducedMotion)}
+          {...getScrollAnimationProps(scrollRevealBlur, prefersReducedMotion, centerViewport)}
           className="text-xl sm:text-2xl text-[--color-accent-primary] font-mono mb-8"
         >
           {prefersReducedMotion ? (
@@ -57,7 +58,7 @@ export default function Contact({ lang }: ContactProps) {
           )}
         </motion.div>
 
-        {/* Narrative */}
+        {/* Narrative - stagger container */}
         <motion.div
           {...containerProps}
           className={`space-y-4 mb-12 transition-opacity duration-500 ${
@@ -75,16 +76,15 @@ export default function Contact({ lang }: ContactProps) {
           ))}
         </motion.div>
 
-        {/* Contact Options */}
+        {/* Contact Options - scale in */}
         <motion.div
-          {...getScrollAnimationProps(staggerContainer, prefersReducedMotion)}
+          {...getScrollAnimationProps(scaleInUp, prefersReducedMotion, centerViewport)}
           className={`grid sm:grid-cols-3 gap-4 mb-12 transition-opacity duration-500 ${
             commandComplete ? 'opacity-100' : 'opacity-0'
           }`}
         >
           <ContactCard
             type="email"
-            value={copy.options.email.value}
             label={copy.options.email.label}
             description={copy.options.email.description}
             href={`mailto:${copy.options.email.value}`}
@@ -93,7 +93,6 @@ export default function Contact({ lang }: ContactProps) {
           />
           <ContactCard
             type="linkedin"
-            value={copy.options.linkedin.value}
             label={copy.options.linkedin.label}
             description={copy.options.linkedin.description}
             href={copy.options.linkedin.value}
@@ -103,7 +102,6 @@ export default function Contact({ lang }: ContactProps) {
           />
           <ContactCard
             type="github"
-            value={copy.options.github.value}
             label={copy.options.github.label}
             description={copy.options.github.description}
             href={copy.options.github.value}
@@ -113,12 +111,9 @@ export default function Contact({ lang }: ContactProps) {
           />
         </motion.div>
 
-        {/* Footer */}
+        {/* Footer - fade up */}
         <motion.div
-          {...getScrollAnimationProps(fadeInUp, prefersReducedMotion, {
-            once: true,
-            margin: '-50px'
-          })}
+          {...getScrollAnimationProps(fadeInUp, prefersReducedMotion, strictViewport)}
           className={`space-y-1 text-sm text-[--color-text-muted] transition-opacity duration-500 ${
             commandComplete ? 'opacity-100' : 'opacity-0'
           }`}
@@ -141,7 +136,6 @@ export default function Contact({ lang }: ContactProps) {
 
 interface ContactCardProps {
   type: 'email' | 'linkedin' | 'github'
-  value: string
   label: string
   description: string
   href: string
@@ -152,7 +146,6 @@ interface ContactCardProps {
 
 function ContactCard({
   type,
-  value,
   label,
   description,
   href,
