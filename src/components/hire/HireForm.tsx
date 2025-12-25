@@ -18,24 +18,28 @@ interface HireFormProps {
   lang: Lang
 }
 
-type FormStatus = 'idle' | 'submitting' | 'success' | 'error'
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error' | 'rate_limit'
 
-const statusMessages: Record<Lang, { success: string; error: string }> = {
+const statusMessages: Record<Lang, { success: string; error: string; rate_limit: string }> = {
   es: {
     success: 'Recibido. Te escribo pronto.',
-    error: 'Algo falló. Prueba de nuevo o escríbeme directamente.'
+    error: 'Algo falló. Prueba de nuevo o escríbeme directamente.',
+    rate_limit: 'Demasiados intentos. Espera un poco.'
   },
   en: {
     success: 'Got it. I\'ll write to you soon.',
-    error: 'Something went wrong. Try again or email me directly.'
+    error: 'Something went wrong. Try again or email me directly.',
+    rate_limit: 'Too many attempts. Please wait a bit.'
   },
   ca: {
     success: 'Rebut. T\'escric prompte.',
-    error: 'Alguna cosa ha fallat. Prova de nou o escriu-me directament.'
+    error: 'Alguna cosa ha fallat. Prova de nou o escriu-me directament.',
+    rate_limit: 'Massa intents. Espera una mica.'
   },
   gl: {
     success: 'Recibido. Escríboche pronto.',
-    error: 'Algo fallou. Proba de novo ou escríbeme directamente.'
+    error: 'Algo fallou. Proba de novo ou escríbeme directamente.',
+    rate_limit: 'Demasiados intentos. Agarda un pouco.'
   }
 }
 
@@ -53,17 +57,16 @@ export default function HireForm({ copy, lang }: HireFormProps) {
     setStatus('submitting')
 
     try {
-      // TODO: Replace with actual webhook endpoint
-      const response = await fetch('/api/hire-interest', {
+      const response = await fetch('https://qbzhmrfaehunqdlcmhrd.supabase.co/functions/v1/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           email,
-          message,
+          message: message || undefined,
           lang,
-          timestamp: new Date().toISOString()
+          honeypot: (document.getElementById('website') as HTMLInputElement)?.value || ''
         })
       })
 
@@ -71,6 +74,8 @@ export default function HireForm({ copy, lang }: HireFormProps) {
         setStatus('success')
         setEmail('')
         setMessage('')
+      } else if (response.status === 429) {
+        setStatus('rate_limit')
       } else {
         setStatus('error')
       }
@@ -120,6 +125,17 @@ export default function HireForm({ copy, lang }: HireFormProps) {
         onSubmit={handleSubmit}
         className="max-w-md"
       >
+        {/* Honeypot - hidden from humans, bots fill it */}
+        <div className="absolute -left-[9999px]" aria-hidden="true">
+          <input
+            type="text"
+            id="website"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         {/* Email input */}
         <div className="mb-4">
           <input
@@ -178,13 +194,13 @@ export default function HireForm({ copy, lang }: HireFormProps) {
           </motion.p>
         )}
 
-        {status === 'error' && (
+        {(status === 'error' || status === 'rate_limit') && (
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             className="mt-4 text-red-400"
           >
-            {statusMessages[lang].error}
+            {status === 'rate_limit' ? statusMessages[lang].rate_limit : statusMessages[lang].error}
           </motion.p>
         )}
       </motion.form>
