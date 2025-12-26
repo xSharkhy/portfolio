@@ -240,8 +240,22 @@ Deno.serve(async (req) => {
 
     const template = emailTemplates[lang as keyof typeof emailTemplates]
 
-    // Get CV from Supabase Storage
-    const cvUrl = Deno.env.get('CV_URL') // URL pública del CV en Supabase Storage
+    // Get CV URL by language (with fallback to Spanish)
+    const cvUrls: Record<string, string | undefined> = {
+      es: Deno.env.get('CV_URL_ES'),
+      en: Deno.env.get('CV_URL_EN'),
+      ca: Deno.env.get('CV_URL_CA'),
+      gl: Deno.env.get('CV_URL_GL'),
+    }
+    const cvUrl = cvUrls[lang] || cvUrls['es'] // Fallback to Spanish if language not available
+
+    // Filename by language
+    const cvFilenames: Record<string, string> = {
+      es: 'CV_Ismael_Morejon_ES.pdf',
+      en: 'CV_Ismael_Morejon_EN.pdf',
+      ca: 'CV_Ismael_Morejon_CA.pdf',
+      gl: 'CV_Ismael_Morejon_GL.pdf',
+    }
 
     // Send email to user with CV attached
     await resend.emails.send({
@@ -251,7 +265,7 @@ Deno.serve(async (req) => {
       html: bodyToHtml(template.body),
       attachments: cvUrl ? [
         {
-          filename: 'CV_Ismael_Morejon.pdf',
+          filename: cvFilenames[lang] || cvFilenames['es'],
           path: cvUrl,
         }
       ] : [],
