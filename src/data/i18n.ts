@@ -58,7 +58,7 @@ export const ui = {
     // Navigation
     'nav.home': 'home',
     'nav.cv': 'cv',
-    'nav.hire': 'hire me',
+    'nav.hire': 'hire-me',
 
     // Hero
     'hero.greeting': '> whoami',

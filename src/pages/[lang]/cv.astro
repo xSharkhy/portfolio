@@ -11,6 +11,10 @@ import { languages } from '@/data/i18n'
 import type { Lang } from '@/data/i18n'
 
 export function getStaticPaths() {
+  // Solo generar en desarrollo, no en producción
+  if (import.meta.env.PROD) {
+    return []
+  }
   return languages.map(lang => ({ params: { lang } }))
 }
 

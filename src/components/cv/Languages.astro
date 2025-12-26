@@ -17,21 +17,18 @@ const sectionTitle: Record<Lang, string> = {
 }
 ---
 
-<section class="print-section mb-8 print:mb-4">
-  <h3 class="print-title text-lg print:text-sm font-semibold text-[--color-accent-violet] print:text-black mb-4 print:mb-2 uppercase tracking-wider">
+<section class="print-section mb-8">
+  <h3 class="print-title text-sm font-semibold text-[--color-accent-violet] print:text-black mb-4 uppercase tracking-wider font-mono">
     {sectionTitle[lang]}
   </h3>
 
-  <div class="flex flex-wrap gap-x-6 gap-y-2 print:gap-x-4">
-    {languages.map(language => (
-      <div class="flex items-center gap-2 text-sm print:text-xs">
-        <span class="text-[--color-text-bright] print:text-black font-medium">
-          {language.name[lang]}
-        </span>
-        <span class="text-[--color-text-muted] print:text-gray-600">
-          ({language.level[lang]})
-        </span>
-      </div>
+  <p class="text-sm text-[--color-text] print:text-gray-800">
+    {languages.map((language, i) => (
+      <>
+        <span class="font-medium">{language.name[lang]}</span>
+        <span class="text-[--color-text-muted] print:text-gray-500 font-mono text-xs"> ({language.level[lang]})</span>
+        {i < languages.length - 1 && <span class="text-[--color-text-dark] print:text-gray-400 mx-2">·</span>}
+      </>
     ))}
-  </div>
+  </p>
 </section>

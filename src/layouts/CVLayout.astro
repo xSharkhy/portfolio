@@ -19,18 +19,18 @@ const { title, description = '', lang = 'es' } = Astro.props
   <head>
     <Head title={title} description={description} />
     <style>
-      /* CV-specific print styles */
+      /* CV-specific styles - Professional single A4 page */
       @media print {
         @page {
-          margin: 1cm;
+          margin: 1cm 1.2cm;
           size: A4;
         }
 
         html, body {
           font-size: 10pt;
-          line-height: 1.4;
+          line-height: 1.45;
           background: white !important;
-          color: black !important;
+          color: #1a1a1a !important;
           font-family: 'Geist', system-ui, sans-serif;
         }
 
@@ -39,24 +39,34 @@ const { title, description = '', lang = 'es' } = Astro.props
           text-decoration: none;
         }
 
+        /* Font utilities for print */
+        .font-mono {
+          font-family: 'Geist Mono', ui-monospace, monospace !important;
+        }
+
+        .font-sans {
+          font-family: 'Geist', system-ui, sans-serif !important;
+        }
+
         .print-header {
-          border-bottom: 1px solid #ccc;
+          border-bottom: 1.5px solid #333;
           padding-bottom: 0.5rem;
-          margin-bottom: 1rem;
+          margin-bottom: 0.75rem;
         }
 
         .print-section {
           break-inside: avoid;
-          margin-bottom: 0.75rem;
+          margin-bottom: 0.6rem;
         }
 
         .print-title {
-          font-size: 11pt;
-          font-weight: bold;
-          border-bottom: 1px solid #eee;
-          padding-bottom: 0.25rem;
-          margin-bottom: 0.5rem;
-          color: black !important;
+          font-size: 9pt;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #444 !important;
+          margin-bottom: 0.4rem;
+          font-family: 'Geist Mono', ui-monospace, monospace !important;
         }
       }
 

@@ -2,10 +2,10 @@ import type { Lang } from './i18n';
 
 // Site metadata - Lead with value, not just title
 export const SITE_TITLE: Record<Lang, string> = {
-  es: 'Ismael Morejón - Full Stack Developer & Problem Solver',
-  en: 'Ismael Morejón - Full Stack Developer & Problem Solver',
-  ca: 'Ismael Morejón - Full Stack Developer & Problem Solver',
-  gl: 'Ismael Morejón - Full Stack Developer & Problem Solver'
+  es: 'Ismael Morejón - Full Stack Developer | Backend & Performance',
+  en: 'Ismael Morejón - Full Stack Developer | Backend & Performance',
+  ca: 'Ismael Morejón - Full Stack Developer | Backend & Performance',
+  gl: 'Ismael Morejón - Full Stack Developer | Backend & Performance'
 };
 
 export const SITE_DESCRIPTION: Record<Lang, string> = {
@@ -91,7 +91,7 @@ export const skillCategories: SkillCategory[] = [
   {
     key: 'backend',
     label: { es: 'backend', en: 'backend', ca: 'backend', gl: 'backend' },
-    items: ['Node.js', 'NestJS', 'Express', 'REST APIs']
+    items: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'WebSockets']
   },
   {
     key: 'data',
@@ -99,9 +99,14 @@ export const skillCategories: SkillCategory[] = [
     items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Firestore']
   },
   {
+    key: 'scraping',
+    label: { es: 'scraping & ETL', en: 'scraping & ETL', ca: 'scraping & ETL', gl: 'scraping & ETL' },
+    items: ['Puppeteer', 'Playwright', 'Data Extraction', 'ETL Pipelines']
+  },
+  {
     key: 'devops',
-    label: { es: 'devops', en: 'devops', ca: 'devops', gl: 'devops' },
-    items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP']
+    label: { es: 'devops & workflow', en: 'devops & workflow', ca: 'devops & workflow', gl: 'devops & workflow' },
+    items: ['Git', 'Docker', 'CI/CD', 'AWS', 'GCP', 'Agile']
   }
 ];
 
@@ -151,49 +156,49 @@ const baseLocation = {
 const basics: Record<Lang, Basics> = {
   es: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer',
+    label: 'Full Stack Developer | Backend & Performance',
     image: '/profile.webp',
     email: 'ismamoreblas@gmail.com',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Desarrollador Full Stack con enfoque en backend y optimización de sistemas. Experiencia liderando migraciones técnicas, construyendo productos desde cero y reduciendo tiempos de ejecución hasta un 60%. Busco equipos donde resolver problemas complejos y entregar valor real.',
-    summary: 'Desarrollo soluciones que funcionan y escalan. He reducido tiempos de ejecución un 60%, liderado migraciones de backend a NestJS y construido productos completos desde cero. Mi enfoque: encontrar el problema real y resolverlo bien.',
+    introduction: 'Full Stack Developer especializado en backend, optimización de rendimiento y sistemas de datos. He reducido tiempos de ejecución un 60%, liderado migraciones de arquitectura (Express → NestJS) y construido productos SaaS desde cero. Mi obsesión: que los sistemas funcionen rápido y no se rompan.',
+    summary: 'Desarrollo sistemas que escalan y no se rompen. Backend y optimización: 60% menos tiempo de ejecución en sistemas legacy. Full Stack cuando hace falta: frontends completos desde la primera línea de código.',
     location: { ...baseLocation, region: 'València' },
     profiles
   },
   en: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer',
+    label: 'Full Stack Developer | Backend & Performance',
     image: '/profile.webp',
     email: 'ismamoreblas@gmail.com',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer focused on backend and system optimization. Experience leading technical migrations, building products from scratch, and cutting execution times by up to 60%. Looking for teams where I can solve complex problems and deliver real value.',
-    summary: 'I build solutions that work and scale. Cut execution times by 60%, led backend migrations to NestJS, and shipped complete products from scratch. My approach: find the real problem and solve it right.',
+    introduction: 'Full Stack Developer specialized in backend, performance optimization, and data systems. Cut execution times by 60%, led architecture migrations (Express → NestJS), and built SaaS products from scratch. My obsession: systems that run fast and don\'t break.',
+    summary: 'I build systems that scale and don\'t break. Backend and optimization: 60% faster execution on legacy systems. Full Stack when needed: complete frontends from the first line of code.',
     location: { ...baseLocation, region: 'València, Spain' },
     profiles
   },
   ca: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer',
+    label: 'Full Stack Developer | Backend & Performance',
     image: '/profile.webp',
     email: 'ismamoreblas@gmail.com',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Desenvolupador Full Stack amb enfocament en backend i optimització de sistemes. Experiència liderant migracions tècniques, construint productes des de zero i reduint temps d\'execució fins a un 60%. Busco equips on resoldre problemes complexos i lliurar valor real.',
-    summary: 'Desenvolupe solucions que funcionen i escalen. He reduït temps d\'execució un 60%, liderat migracions de backend a NestJS i construït productes complets des de zero. El meu enfocament: trobar el problema real i resoldre\'l bé.',
+    introduction: 'Full Stack Developer especialitzat en backend, optimització de rendiment i sistemes de dades. He reduït temps d\'execució un 60%, liderat migracions d\'arquitectura (Express → NestJS) i construït productes SaaS des de zero. La meua obsessió: que els sistemes funcionen ràpid i no es trenquen.',
+    summary: 'Desenvolupe sistemes que escalen i no es trenquen. Backend i optimització: 60% menys temps d\'execució en sistemes legacy. Full Stack quan cal: frontends complets des de la primera línia de codi.',
     location: { ...baseLocation, region: 'València' },
     profiles
   },
   gl: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer',
+    label: 'Full Stack Developer | Backend & Performance',
     image: '/profile.webp',
     email: 'ismamoreblas@gmail.com',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Desenvolvedor Full Stack con enfoque en backend e optimización de sistemas. Experiencia liderando migracións técnicas, construíndo produtos desde cero e reducindo tempos de execución ata un 60%. Busco equipos onde resolver problemas complexos e entregar valor real.',
-    summary: 'Desenvolvo solucións que funcionan e escalan. Reducín tempos de execución un 60%, liderei migracións de backend a NestJS e construín produtos completos desde cero. O meu enfoque: atopar o problema real e resolvelo ben.',
+    introduction: 'Full Stack Developer especializado en backend, optimización de rendemento e sistemas de datos. Reducín tempos de execución un 60%, liderei migracións de arquitectura (Express → NestJS) e construín produtos SaaS desde cero. A miña obsesión: que os sistemas funcionen rápido e non se rompan.',
+    summary: 'Desenvolvo sistemas que escalan e non se rompen. Backend e optimización: 60% menos tempo de execución en sistemas legacy. Full Stack cando fai falta: frontends completos desde a primeira liña de código.',
     location: { ...baseLocation, region: 'València' },
     profiles
   }
@@ -208,12 +213,12 @@ const experiences: Record<Lang, Experience[]> = {
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
       endDate: null,
-      summary: 'Plataforma de inteligencia de datos para empresas. Responsable del desarrollo full stack, desde scrapers de Open Data hasta interfaces de usuario.',
+      summary: 'Plataforma de inteligencia de datos para empresas. Desarrollo full stack: desde arquitectura de scrapers hasta productos SaaS completos.',
       highlights: [
-        'Reducción del 60% en tiempos y recursos del sistema de scraping legacy, eliminando redundancias y optimizando flujos de datos',
-        'Lideré migración completa del backend de Express a NestJS con TypeScript, mejorando seguridad y mantenibilidad de la API',
-        'Diseñé y construí desde cero el frontend de Wenalyze Sync (Astro + React + ShadCN), reduciendo llamadas API significativamente',
-        'Integración directa con equipo de Analytics para diseño de APIs REST que alimentan dashboards de Business Intelligence'
+        'Optimicé sistema de scraping: 60% menos tiempo de ejecución, +30 fuentes Open Data integradas (proxy rotation, rate limiting, reintentos)',
+        'Lideré migración de arquitectura Express → NestJS (TypeScript): módulos desacoplados, tipado estricto y caching estratégico',
+        'Diseñé y desarrollé Wenalyze Sync (dashboard SaaS) desde cero: Astro + React + ShadCN, producto en producción con clientes reales',
+        'Colaboración cross-team con Analytics: APIs REST optimizadas para dashboards BI con datasets de alto volumen'
       ],
       technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
     },
@@ -225,9 +230,9 @@ const experiences: Record<Lang, Experience[]> = {
       endDate: '2023-06',
       summary: 'Agencia de desarrollo web. Especializado en automatización y extracción de datos para clientes B2B.',
       highlights: [
-        'Arquitectura de sistema de scrapers escalable con gestión automática de errores, reintentos y rotación de proxies',
-        'Diseño de esquemas de base de datos optimizados para consultas de alto rendimiento sobre millones de registros',
-        'Desarrollo de pipelines ETL para transformación y carga de datos desde múltiples fuentes heterogéneas'
+        'Arquitectura de scraping enterprise para clientes B2B: gestión de errores, reintentos exponenciales, rotación de proxies y evasión de rate limits',
+        'Esquemas de BD (MySQL, MongoDB) optimizados para +10M registros: indexación estratégica y queries sub-segundo',
+        'Pipelines ETL completos: extracción de fuentes heterogéneas, transformación y carga automatizada en BD relacionales y NoSQL'
       ],
       technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
     }
@@ -239,12 +244,12 @@ const experiences: Record<Lang, Experience[]> = {
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
       endDate: null,
-      summary: 'Data intelligence platform for businesses. Responsible for full stack development, from Open Data scrapers to user interfaces.',
+      summary: 'Data intelligence platform for businesses. Full stack development: from scraper architecture to complete SaaS products.',
       highlights: [
-        '60% reduction in legacy scraping system time and resources by eliminating redundancies and optimizing data flows',
-        'Led complete backend migration from Express to NestJS with TypeScript, improving API security and maintainability',
-        'Designed and built Wenalyze Sync frontend from scratch (Astro + React + ShadCN), significantly reducing API calls',
-        'Direct integration with Analytics team for REST API design powering Business Intelligence dashboards'
+        'Optimized scraping system: 60% faster execution, +30 Open Data sources integrated (proxy rotation, rate limiting, retries)',
+        'Led architecture migration Express → NestJS (TypeScript): decoupled modules, strict typing, and strategic caching',
+        'Designed and developed Wenalyze Sync (SaaS dashboard) from scratch: Astro + React + ShadCN, product in production with real customers',
+        'Cross-team collaboration with Analytics: optimized REST APIs for BI dashboards handling high-volume datasets'
       ],
       technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
     },
@@ -256,9 +261,9 @@ const experiences: Record<Lang, Experience[]> = {
       endDate: '2023-06',
       summary: 'Web development agency. Specialized in automation and data extraction for B2B clients.',
       highlights: [
-        'Scalable scraper system architecture with automatic error handling, retries, and proxy rotation',
-        'Database schema design optimized for high-performance queries over millions of records',
-        'ETL pipeline development for data transformation and loading from multiple heterogeneous sources'
+        'Enterprise scraping architecture for B2B clients: error handling, exponential retries, proxy rotation, and rate limit evasion',
+        'Database schemas (MySQL, MongoDB) optimized for +10M records: strategic indexing and sub-second queries',
+        'Complete ETL pipelines: extraction from heterogeneous sources, transformation, and automated loading to relational and NoSQL databases'
       ],
       technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
     }
@@ -270,12 +275,12 @@ const experiences: Record<Lang, Experience[]> = {
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
       endDate: null,
-      summary: 'Plataforma d\'intel·ligència de dades per a empreses. Responsable del desenvolupament full stack, des de scrapers d\'Open Data fins a interfícies d\'usuari.',
+      summary: 'Plataforma d\'intel·ligència de dades per a empreses. Desenvolupament full stack: des d\'arquitectura de scrapers fins a productes SaaS complets.',
       highlights: [
-        'Reducció del 60% en temps i recursos del sistema de scraping legacy, eliminant redundàncies i optimitzant fluxos de dades',
-        'Vaig liderar migració completa del backend d\'Express a NestJS amb TypeScript, millorant seguretat i mantenibilitat de l\'API',
-        'Vaig dissenyar i construir des de zero el frontend de Wenalyze Sync (Astro + React + ShadCN), reduint crides API significativament',
-        'Integració directa amb equip d\'Analytics per a disseny d\'APIs REST que alimenten dashboards de Business Intelligence'
+        'Vaig optimitzar sistema de scraping: 60% menys temps d\'execució, +30 fonts Open Data integrades (proxy rotation, rate limiting, reintents)',
+        'Vaig liderar migració d\'arquitectura Express → NestJS (TypeScript): mòduls desacoblats, tipat estricte i caching estratègic',
+        'Vaig dissenyar i desenvolupar Wenalyze Sync (dashboard SaaS) des de zero: Astro + React + ShadCN, producte en producció amb clients reals',
+        'Col·laboració cross-team amb Analytics: APIs REST optimitzades per a dashboards BI amb datasets d\'alt volum'
       ],
       technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
     },
@@ -287,9 +292,9 @@ const experiences: Record<Lang, Experience[]> = {
       endDate: '2023-06',
       summary: 'Agència de desenvolupament web. Especialitzat en automatització i extracció de dades per a clients B2B.',
       highlights: [
-        'Arquitectura de sistema de scrapers escalable amb gestió automàtica d\'errors, reintents i rotació de proxies',
-        'Disseny d\'esquemes de base de dades optimitzats per a consultes d\'alt rendiment sobre milions de registres',
-        'Desenvolupament de pipelines ETL per a transformació i càrrega de dades des de múltiples fonts heterogènies'
+        'Arquitectura de scraping enterprise per a clients B2B: gestió d\'errors, reintents exponencials, rotació de proxies i evasió de rate limits',
+        'Esquemes de BD (MySQL, MongoDB) optimitzats per a +10M registres: indexació estratègica i queries sub-segon',
+        'Pipelines ETL complets: extracció de fonts heterogènies, transformació i càrrega automatitzada en BD relacionals i NoSQL'
       ],
       technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
     }
@@ -301,12 +306,12 @@ const experiences: Record<Lang, Experience[]> = {
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
       endDate: null,
-      summary: 'Plataforma de intelixencia de datos para empresas. Responsable do desenvolvemento full stack, desde scrapers de Open Data ata interfaces de usuario.',
+      summary: 'Plataforma de intelixencia de datos para empresas. Desenvolvemento full stack: desde arquitectura de scrapers ata produtos SaaS completos.',
       highlights: [
-        'Redución do 60% en tempos e recursos do sistema de scraping legacy, eliminando redundancias e optimizando fluxos de datos',
-        'Liderei migración completa do backend de Express a NestJS con TypeScript, mellorando seguridade e mantenibilidade da API',
-        'Deseñei e construín desde cero o frontend de Wenalyze Sync (Astro + React + ShadCN), reducindo chamadas API significativamente',
-        'Integración directa con equipo de Analytics para deseño de APIs REST que alimentan dashboards de Business Intelligence'
+        'Optimicei sistema de scraping: 60% menos tempo de execución, +30 fontes Open Data integradas (proxy rotation, rate limiting, reintentos)',
+        'Liderei migración de arquitectura Express → NestJS (TypeScript): módulos desacoplados, tipado estrito e caching estratéxico',
+        'Deseñei e desenvolvín Wenalyze Sync (dashboard SaaS) desde cero: Astro + React + ShadCN, produto en produción con clientes reais',
+        'Colaboración cross-team con Analytics: APIs REST optimizadas para dashboards BI con datasets de alto volume'
       ],
       technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
     },
@@ -318,9 +323,9 @@ const experiences: Record<Lang, Experience[]> = {
       endDate: '2023-06',
       summary: 'Axencia de desenvolvemento web. Especializado en automatización e extracción de datos para clientes B2B.',
       highlights: [
-        'Arquitectura de sistema de scrapers escalable con xestión automática de erros, reintentos e rotación de proxies',
-        'Deseño de esquemas de base de datos optimizados para consultas de alto rendemento sobre millóns de rexistros',
-        'Desenvolvemento de pipelines ETL para transformación e carga de datos desde múltiples fontes heteroxéneas'
+        'Arquitectura de scraping enterprise para clientes B2B: xestión de erros, reintentos exponenciais, rotación de proxies e evasión de rate limits',
+        'Esquemas de BD (MySQL, MongoDB) optimizados para +10M rexistros: indexación estratéxica e queries sub-segundo',
+        'Pipelines ETL completos: extracción de fontes heteroxéneas, transformación e carga automatizada en BD relacionais e NoSQL'
       ],
       technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
     }

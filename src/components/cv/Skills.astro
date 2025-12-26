@@ -11,25 +11,16 @@ interface Props {
 const { categories, lang = 'es' } = Astro.props
 ---
 
-<section class="print-section mb-8 print:mb-4">
-  <h3 class="print-title text-lg print:text-sm font-semibold text-[--color-accent-violet] print:text-black mb-4 print:mb-3 uppercase tracking-wider">
+<section class="print-section mb-8">
+  <h3 class="print-title text-sm font-semibold text-[--color-accent-violet] print:text-black mb-4 uppercase tracking-wider font-mono">
     {t(lang, 'section.skills').replace('// ', '')}
   </h3>
 
-  <div class="space-y-3 print:space-y-2">
+  <div class="space-y-1">
     {categories.map(category => (
-      <div>
-        <h4 class="text-xs uppercase tracking-wide text-[--color-text-muted] print:text-gray-600 mb-1.5 print:mb-1 font-medium">
-          {category.label[lang]}
-        </h4>
-        <div class="flex flex-wrap gap-1.5 print:gap-1">
-          {category.items.map(item => (
-            <span class="px-2 py-0.5 print:px-1.5 text-xs bg-[--color-bg-surface] print:bg-gray-100 border border-[--color-border] print:border-gray-300 rounded text-[--color-text] print:text-gray-800">
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+      <p class="text-sm text-[--color-text] print:text-gray-800 font-mono">
+        <span class="text-[--color-accent-primary] print:text-gray-600">{category.label[lang]}:</span> {category.items.join(' · ')}
+      </p>
     ))}
   </div>
 </section>
