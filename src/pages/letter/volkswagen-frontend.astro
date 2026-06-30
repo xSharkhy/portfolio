@@ -1,0 +1,94 @@
+---
+import LetterLayout from '@/layouts/LetterLayout.astro'
+
+const title = 'Cover Letter — Volkswagen Digital:Hub (Frontend)'
+const description = 'Cover letter for the Frontend Developer (React.js) position at Volkswagen Digital:Hub Spain.'
+---
+
+<LetterLayout title={title} description={description}>
+  <article class="text-[--color-text]">
+    <!-- Header card -->
+    <header class="letter-header mb-8 print:mb-6">
+      <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+        <div>
+          <h1 class="text-2xl font-bold text-[--color-text-bright] print-accent print:text-[16pt] print:tracking-tight font-sans">
+            Ismael Morejón
+          </h1>
+          <p class="text-base text-[--color-accent-purple] print:text-[10.5pt] print:text-gray-700 print:font-normal font-mono">
+            Full Stack Developer
+          </p>
+        </div>
+        <div class="text-sm text-[--color-text-muted] print:text-gray-700 font-mono space-y-0.5">
+          <a href="mailto:hola@ismobla.dev" class="block hover:text-[--color-accent-primary] transition-colors">
+            hola@ismobla.dev
+          </a>
+          <a href="https://ismobla.dev" target="_blank" rel="noopener noreferrer" class="block hover:text-[--color-accent-primary] transition-colors">
+            ismobla.dev
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Subject line -->
+    <p class="print-subject text-sm font-semibold text-[--color-accent-violet] print:text-black uppercase tracking-wider font-mono mb-4 print:mb-3 border-l-2 border-[--color-accent-violet] print:border-l-0 pl-3 print:pl-0">
+      <span class="text-[--color-text-muted] print:text-gray-500">Subject:</span> Frontend Developer (React.js) — Ref: Level C
+    </p>
+
+    <!-- Letter body -->
+    <div class="space-y-4 print:space-y-3 text-sm leading-relaxed font-sans print:text-[10.5pt]">
+      <p class="text-[--color-text-bright] print:text-black">Dear Hiring Team,</p>
+
+      <p class="print:text-gray-900">
+        I will start with the elephant in the room: the role asks for four years of frontend experience and two of React. I have one of each. I am applying anyway because I believe the work I have shipped in that time speaks louder than the calendar, and I would like to make the case.
+      </p>
+
+      <p class="print:text-gray-900">
+        For the past year at Wenalyze, I have designed and built Wenalyze Sync from the first line of code: a SaaS dashboard in Astro and React with ShadCN, currently in production with paying clients. End-to-end ownership — component architecture, state, routing, integrations, accessibility, performance. Not a feature inside someone else's codebase. The whole thing.
+      </p>
+
+      <p class="print:text-gray-900">
+        What I would bring from day one:
+      </p>
+
+      <ul class="space-y-1.5 pl-0 mb-4 print:mb-3">
+        <li class="flex items-start gap-2 print:text-gray-900">
+          <span class="text-[--color-accent-purple] print:text-gray-500 shrink-0" aria-hidden="true">›</span>
+          <span>TypeScript daily, in both frontend and backend contexts. Comfortable across the modern React ecosystem (server state, client state, routing, form layers); familiar with the patterns your stack relies on, even where I have not used the exact library by name.</span>
+        </li>
+        <li class="flex items-start gap-2 print:text-gray-900">
+          <span class="text-[--color-accent-purple] print:text-gray-500 shrink-0" aria-hidden="true">›</span>
+          <span>Architectural discipline carried over from leading our backend migration from Express to NestJS — the same instincts (clear boundaries, predictable data flow, testable units) apply to frontend codebases, and I apply them.</span>
+        </li>
+        <li class="flex items-start gap-2 print:text-gray-900">
+          <span class="text-[--color-accent-purple] print:text-gray-500 shrink-0" aria-hidden="true">›</span>
+          <span>Production experience with two component frameworks (Angular and React) used in parallel. Moving fluently between them is, in my view, a stronger signal than depth in only one.</span>
+        </li>
+        <li class="flex items-start gap-2 print:text-gray-900">
+          <span class="text-[--color-accent-purple] print:text-gray-500 shrink-0" aria-hidden="true">›</span>
+          <span>Testing, code reviews and CI/CD as default practice, not as cleanup phase.</span>
+        </li>
+      </ul>
+
+      <p class="print:text-gray-900">
+        On mentorship: I have not formally mentored junior developers, but I have led code reviews, established repository conventions and documented architectural decisions for cross-team consumption. The instinct is there; the title has not been.
+      </p>
+
+      <p class="print:text-gray-900">
+        What I am looking for is the next step where the bar is higher than where I have been. The Volkswagen Digital:Hub looks like that environment.
+      </p>
+
+      <p class="print:text-gray-900">
+        I would be glad to walk through Wenalyze Sync in detail, or to discuss any of the work above.
+      </p>
+    </div>
+
+    <!-- Signature -->
+    <footer class="mt-8 print:mt-6 pt-4 print:pt-3 border-t border-[--color-border-highlight] print:border-gray-300">
+      <p class="text-sm text-[--color-text] print:text-gray-900 mb-1">Kind regards,</p>
+      <p class="text-base font-bold text-[--color-text-bright] print-accent font-sans">Ismael Morejón</p>
+      <a href="https://ismobla.dev" target="_blank" rel="noopener noreferrer" class="text-sm text-[--color-text-muted] print:text-gray-700 hover:text-[--color-accent-primary] transition-colors font-mono">
+        ismobla.dev
+      </a>
+    </footer>
+  </article>
+</LetterLayout>

@@ -2,10 +2,10 @@ import type { Lang } from './i18n';
 
 // Site metadata - Lead with value, not just title
 export const SITE_TITLE: Record<Lang, string> = {
-  es: 'Ismael Morejón - Full Stack Developer | Backend & Performance',
-  en: 'Ismael Morejón - Full Stack Developer | Backend & Performance',
-  ca: 'Ismael Morejón - Full Stack Developer | Backend & Performance',
-  gl: 'Ismael Morejón - Full Stack Developer | Backend & Performance'
+  es: 'Ismael Morejón - Full Stack Developer · Producto, performance y datos',
+  en: 'Ismael Morejón - Full Stack Developer — Product, Performance & Data',
+  ca: 'Ismael Morejón - Full Stack Developer · Producte, rendiment i dades',
+  gl: 'Ismael Morejón - Full Stack Developer · Produto, rendemento e datos'
 };
 
 export const SITE_DESCRIPTION: Record<Lang, string> = {
@@ -118,7 +118,7 @@ export interface SpokenLanguage {
 
 export const spokenLanguages: SpokenLanguage[] = [
   {
-    name: { es: 'Español', en: 'Spanish', ca: 'Espanyol', gl: 'Español' },
+    name: { es: 'Español', en: 'Spanish', ca: 'Espanyol', gl: 'Castelán' },
     level: { es: 'Nativo', en: 'Native', ca: 'Natiu', gl: 'Nativo' }
   },
   {
@@ -156,49 +156,49 @@ const baseLocation = {
 const basics: Record<Lang, Basics> = {
   es: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer | Backend & Performance',
+    label: 'Full Stack Developer · Producto, performance y datos',
     image: '/profile.webp',
-    email: 'ismamoreblas@gmail.com',
+    email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer especializado en backend, optimización de rendimiento y sistemas de datos. He reducido tiempos de ejecución un 60%, liderado migraciones de arquitectura (Express → NestJS) y construido productos SaaS desde cero. Mi obsesión: que los sistemas funcionen rápido y no se rompan.',
-    summary: 'Desarrollo sistemas que escalan y no se rompen. Backend y optimización: 60% menos tiempo de ejecución en sistemas legacy. Full Stack cuando hace falta: frontends completos desde la primera línea de código.',
+    introduction: 'Full Stack Developer. Construyo productos SaaS de punta a punta: desde el dashboard que ve el cliente hasta el sistema que mueve los datos por debajo. He diseñado Wenalyze Sync con Astro y React, liderado la migración de Express a NestJS y reducido un 60% los tiempos de ejecución de sistemas críticos. Mi obsesión: que el producto funcione rápido y no se rompa.',
+    summary: 'Construyo productos SaaS de punta a punta. Dashboards en Astro/React y backends que recortan un 60% los tiempos de ejecución. Que funcione. Que no se rompa.',
     location: { ...baseLocation, region: 'València' },
     profiles
   },
   en: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer | Backend & Performance',
+    label: 'Full Stack Developer — Product, Performance & Data',
     image: '/profile.webp',
-    email: 'ismamoreblas@gmail.com',
+    email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer specialized in backend, performance optimization, and data systems. Cut execution times by 60%, led architecture migrations (Express → NestJS), and built SaaS products from scratch. My obsession: systems that run fast and don\'t break.',
-    summary: 'I build systems that scale and don\'t break. Backend and optimization: 60% faster execution on legacy systems. Full Stack when needed: complete frontends from the first line of code.',
+    introduction: 'Full Stack Developer. I build SaaS products end to end: from the dashboard the customer sees to the system moving data underneath. I designed Wenalyze Sync with Astro and React, led the Express to NestJS migration, and cut execution time by 60% on critical systems. What I care about: shipping products that run fast and don\'t break.',
+    summary: 'I build SaaS products end to end. Dashboards in Astro/React and backends that cut execution time by 60%. Make it fast. Make it ship. Don\'t break it.',
     location: { ...baseLocation, region: 'València, Spain' },
     profiles
   },
   ca: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer | Backend & Performance',
+    label: 'Full Stack Developer · Producte, rendiment i dades',
     image: '/profile.webp',
-    email: 'ismamoreblas@gmail.com',
+    email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer especialitzat en backend, optimització de rendiment i sistemes de dades. He reduït temps d\'execució un 60%, liderat migracions d\'arquitectura (Express → NestJS) i construït productes SaaS des de zero. La meua obsessió: que els sistemes funcionen ràpid i no es trenquen.',
-    summary: 'Desenvolupe sistemes que escalen i no es trenquen. Backend i optimització: 60% menys temps d\'execució en sistemes legacy. Full Stack quan cal: frontends complets des de la primera línia de codi.',
+    introduction: 'Full Stack Developer. Construeixo productes SaaS de punta a punta: des del dashboard que veu el client fins al sistema que mou les dades per sota. He dissenyat Wenalyze Sync amb Astro i React, liderat la migració d\'Express a NestJS i reduït un 60% els temps d\'execució de sistemes crítics. La meva fixació: que el producte vagi ràpid i no es trenqui.',
+    summary: 'Construeixo productes SaaS de punta a punta. Dashboards amb Astro/React i backends que retallen un 60% els temps d\'execució. Que vagi ràpid. Que no es trenqui.',
     location: { ...baseLocation, region: 'València' },
     profiles
   },
   gl: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer | Backend & Performance',
+    label: 'Full Stack Developer · Produto, rendemento e datos',
     image: '/profile.webp',
-    email: 'ismamoreblas@gmail.com',
+    email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer especializado en backend, optimización de rendemento e sistemas de datos. Reducín tempos de execución un 60%, liderei migracións de arquitectura (Express → NestJS) e construín produtos SaaS desde cero. A miña obsesión: que os sistemas funcionen rápido e non se rompan.',
-    summary: 'Desenvolvo sistemas que escalan e non se rompen. Backend e optimización: 60% menos tempo de execución en sistemas legacy. Full Stack cando fai falta: frontends completos desde a primeira liña de código.',
+    introduction: 'Full Stack Developer. Constrúo produtos SaaS de punta a punta: desde o panel que ve o cliente ata o sistema que move os datos por debaixo. Deseñei Wenalyze Sync con Astro e React, liderei a migración de Express a NestJS e reducín un 60% os tempos de execución de sistemas críticos. O meu empeño: rematar produtos que funcionen rápido e non se rompan.',
+    summary: 'Constrúo produtos SaaS de punta a punta. Paneis en Astro/React e backends que recortan un 60% os tempos de execución. Que vaia rápido. Que non se rompa.',
     location: { ...baseLocation, region: 'València' },
     profiles
   }
@@ -216,8 +216,8 @@ const experiences: Record<Lang, Experience[]> = {
       summary: 'Plataforma de inteligencia de datos para empresas. Desarrollo full stack: desde arquitectura de scrapers hasta productos SaaS completos.',
       highlights: [
         'Optimicé sistema de scraping: 60% menos tiempo de ejecución, +30 fuentes Open Data integradas (proxy rotation, rate limiting, reintentos)',
-        'Lideré migración de arquitectura Express → NestJS (TypeScript): módulos desacoplados, tipado estricto y caching estratégico',
         'Diseñé y desarrollé Wenalyze Sync (dashboard SaaS) desde cero: Astro + React + ShadCN, producto en producción con clientes reales',
+        'Lideré migración de arquitectura Express → NestJS (TypeScript): módulos desacoplados, tipado estricto y caching estratégico',
         'Colaboración cross-team con Analytics: APIs REST optimizadas para dashboards BI con datasets de alto volumen'
       ],
       technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
@@ -247,8 +247,8 @@ const experiences: Record<Lang, Experience[]> = {
       summary: 'Data intelligence platform for businesses. Full stack development: from scraper architecture to complete SaaS products.',
       highlights: [
         'Optimized scraping system: 60% faster execution, +30 Open Data sources integrated (proxy rotation, rate limiting, retries)',
-        'Led architecture migration Express → NestJS (TypeScript): decoupled modules, strict typing, and strategic caching',
         'Designed and developed Wenalyze Sync (SaaS dashboard) from scratch: Astro + React + ShadCN, product in production with real customers',
+        'Led architecture migration Express → NestJS (TypeScript): decoupled modules, strict typing, and strategic caching',
         'Cross-team collaboration with Analytics: optimized REST APIs for BI dashboards handling high-volume datasets'
       ],
       technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
@@ -278,8 +278,8 @@ const experiences: Record<Lang, Experience[]> = {
       summary: 'Plataforma d\'intel·ligència de dades per a empreses. Desenvolupament full stack: des d\'arquitectura de scrapers fins a productes SaaS complets.',
       highlights: [
         'Vaig optimitzar sistema de scraping: 60% menys temps d\'execució, +30 fonts Open Data integrades (proxy rotation, rate limiting, reintents)',
-        'Vaig liderar migració d\'arquitectura Express → NestJS (TypeScript): mòduls desacoblats, tipat estricte i caching estratègic',
         'Vaig dissenyar i desenvolupar Wenalyze Sync (dashboard SaaS) des de zero: Astro + React + ShadCN, producte en producció amb clients reals',
+        'Vaig liderar migració d\'arquitectura Express → NestJS (TypeScript): mòduls desacoblats, tipat estricte i caching estratègic',
         'Col·laboració cross-team amb Analytics: APIs REST optimitzades per a dashboards BI amb datasets d\'alt volum'
       ],
       technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
@@ -309,8 +309,8 @@ const experiences: Record<Lang, Experience[]> = {
       summary: 'Plataforma de intelixencia de datos para empresas. Desenvolvemento full stack: desde arquitectura de scrapers ata produtos SaaS completos.',
       highlights: [
         'Optimicei sistema de scraping: 60% menos tempo de execución, +30 fontes Open Data integradas (proxy rotation, rate limiting, reintentos)',
-        'Liderei migración de arquitectura Express → NestJS (TypeScript): módulos desacoplados, tipado estrito e caching estratéxico',
         'Deseñei e desenvolvín Wenalyze Sync (dashboard SaaS) desde cero: Astro + React + ShadCN, produto en produción con clientes reais',
+        'Liderei migración de arquitectura Express → NestJS (TypeScript): módulos desacoplados, tipado estrito e caching estratéxico',
         'Colaboración cross-team con Analytics: APIs REST optimizadas para dashboards BI con datasets de alto volume'
       ],
       technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']

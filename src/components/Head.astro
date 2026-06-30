@@ -7,6 +7,7 @@ interface Props {
   image?: string
   ogType?: string
   lang?: Lang
+  noindex?: boolean
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   image = '/og_img.png',
   ogType = 'website',
   lang = 'es',
+  noindex = false,
 } = Astro.props
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -60,7 +62,7 @@ const hreflangs = languages.map(l => ({
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="author" content="Ismael Morejón" />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={ogType} />

@@ -40,7 +40,7 @@ function formatDate(dateStr: string | null): string {
           <div>
             <span class="font-semibold text-[--color-text-bright] print:text-black font-sans">{exp.position}</span>
             <span class="text-[--color-text-muted] print:text-gray-500"> @ </span>
-            <a href={exp.url} target="_blank" rel="noopener noreferrer" class="text-[--color-accent-primary] print:text-gray-700 hover:underline font-sans">
+            <a href={exp.url} target="_blank" rel="noopener noreferrer" class="text-[--color-accent-primary] print-accent print:font-medium hover:underline font-sans">
               {exp.name}
             </a>
           </div>
@@ -59,7 +59,7 @@ function formatDate(dateStr: string | null): string {
           <ul class="space-y-1.5 mb-2">
             {exp.highlights.map(highlight => (
               <li class="text-sm text-[--color-text] print:text-gray-800 flex items-start gap-2 font-sans">
-                <span class="text-[--color-accent-purple] print:text-gray-400 shrink-0" aria-hidden="true">›</span>
+                <span class="text-[--color-accent-purple] print-accent print:font-bold shrink-0" aria-hidden="true">›</span>
                 <span>{highlight}</span>
               </li>
             ))}
@@ -68,7 +68,7 @@ function formatDate(dateStr: string | null): string {
 
         <!-- Tech Stack - inline -->
         {exp.technologies && exp.technologies.length > 0 && (
-          <p class="text-xs text-[--color-text-muted] print:text-gray-500 font-mono">
+          <p class="text-xs text-[--color-text-muted] print:text-gray-700 font-mono">
             {exp.technologies.join(' · ')}
           </p>
         )}

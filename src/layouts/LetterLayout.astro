@@ -1,0 +1,124 @@
+---
+import Head from '@/components/Head.astro'
+import '@/styles/global.css'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const { title, description = '' } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Head title={title} description={description} lang="en" noindex />
+    <style is:global>
+      /* Letter print — minimalist, Vercel-like. Pure ink on paper. */
+      @media print {
+        @page {
+          margin: 2cm 2.2cm;
+          size: A4;
+        }
+
+        html, body {
+          font-size: 10.5pt;
+          line-height: 1.6;
+          background: white !important;
+          color: #111 !important;
+          font-family: 'Geist', system-ui, sans-serif;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          letter-spacing: -0.005em;
+        }
+
+        a {
+          color: inherit !important;
+          text-decoration: none;
+        }
+
+        p {
+          widows: 3;
+          orphans: 3;
+        }
+
+        h1, h2, h3 {
+          page-break-after: avoid;
+          break-after: avoid;
+        }
+
+        ul, ol {
+          margin: 0;
+        }
+
+        ul li + li {
+          margin-top: 0.45rem;
+        }
+
+        /* Strip the on-screen accent in print — pure black hierarchy */
+        .print-accent {
+          color: #111 !important;
+        }
+
+        /* Subject line: subdued, italic, no rule, no uppercase */
+        .print-subject {
+          font-size: 10.5pt !important;
+          font-weight: 400 !important;
+          font-style: italic !important;
+          text-transform: none !important;
+          letter-spacing: 0 !important;
+          color: #555 !important;
+          margin-bottom: 1.4rem !important;
+          padding-bottom: 0 !important;
+          border-bottom: none !important;
+          font-family: 'Geist', system-ui, sans-serif !important;
+        }
+
+        /* Header: no rule, just generous spacing — typography-first hierarchy */
+        .letter-header {
+          border-bottom: none !important;
+          padding-bottom: 0 !important;
+          margin-bottom: 1.6rem !important;
+        }
+
+        .font-mono {
+          font-family: 'Geist', system-ui, sans-serif !important;
+        }
+
+        .font-sans {
+          font-family: 'Geist', system-ui, sans-serif !important;
+        }
+      }
+
+      @media screen {
+        .letter-container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-[--color-bg]">
+    <div class="letter-container">
+      <!-- Print + back chrome (hidden on print) -->
+      <div class="no-print mb-6 flex justify-between items-center">
+        <a
+          href="/"
+          class="text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] transition-colors"
+        >
+          <span class="text-[--color-text-dark]">&lt;</span> back
+        </a>
+        <button
+          onclick="window.print()"
+          class="px-4 py-2 bg-[--color-bg-surface] border border-[--color-border] rounded text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] hover:border-[--color-accent-primary] transition-colors"
+        >
+          Print / PDF
+        </button>
+      </div>
+
+      <slot />
+    </div>
+  </body>
+</html>

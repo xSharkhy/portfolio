@@ -18,8 +18,8 @@ const { categories, lang = 'es' } = Astro.props
 
   <div class="space-y-1">
     {categories.map(category => (
-      <p class="text-sm text-[--color-text] print:text-gray-800 font-mono">
-        <span class="text-[--color-accent-primary] print:text-gray-600">{category.label[lang]}:</span> {category.items.join(' · ')}
+      <p class="text-sm text-[--color-text] print:text-gray-900 font-mono">
+        <span class="text-[--color-accent-primary] print:text-black print:font-semibold">{category.label[lang]}:</span> {category.items.join(' · ')}
       </p>
     ))}
   </div>

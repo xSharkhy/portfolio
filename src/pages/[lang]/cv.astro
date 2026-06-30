@@ -30,7 +30,7 @@ const description = getSiteDescription(lang)
 <CVLayout title={title} description={description} lang={lang}>
   <Header basics={basics} />
 
-  <div class="grid md:grid-cols-3 gap-8 print:gap-4">
+  <div class="cv-grid grid md:grid-cols-3 gap-8 print:gap-3">
     <!-- Main content: Experience & Education -->
     <div class="md:col-span-2">
       <Experience experiences={experiences} lang={lang} />
@@ -38,7 +38,7 @@ const description = getSiteDescription(lang)
     </div>
 
     <!-- Sidebar: Skills & Languages -->
-    <div>
+    <div class="cv-sidebar">
       <Skills categories={skillCategories} lang={lang} />
       <Languages languages={spokenLanguages} lang={lang} />
     </div>
