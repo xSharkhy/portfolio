@@ -1,11 +1,11 @@
 import { motion, useReducedMotion } from 'motion/react'
 import type { HireMeCopy } from '@/data/copy'
+import type { Lang } from '@/data/i18n'
 import {
   scrollRevealLeft,
   scrollRevealRight,
   fadeInUp,
   scaleInUp,
-  clipRevealUp,
   staggerContainerSlow,
   getScrollAnimationProps,
   getAlternatingVariant,
@@ -15,9 +15,10 @@ import {
 
 interface ProofCaseProps {
   copy: HireMeCopy['proof']
+  lang: Lang
 }
 
-export default function ProofCase({ copy }: ProofCaseProps) {
+export default function ProofCase({ copy, lang }: ProofCaseProps) {
   const prefersReducedMotion = useReducedMotion()
 
   return (
@@ -31,7 +32,7 @@ export default function ProofCase({ copy }: ProofCaseProps) {
       </motion.h2>
 
       <motion.p
-        {...getScrollAnimationProps(clipRevealUp, prefersReducedMotion, centerViewport)}
+        {...getScrollAnimationProps(fadeInUp, prefersReducedMotion, centerViewport)}
         className="text-2xl sm:text-3xl md:text-4xl font-bold text-[--color-text-bright] mb-4"
       >
         {copy.headline}
@@ -99,7 +100,7 @@ export default function ProofCase({ copy }: ProofCaseProps) {
 
       {/* Closing */}
       <motion.div
-        {...getScrollAnimationProps(clipRevealUp, prefersReducedMotion, centerViewport)}
+        {...getScrollAnimationProps(fadeInUp, prefersReducedMotion, centerViewport)}
         className="space-y-1 mb-12 max-w-2xl"
       >
         {copy.closing.map((line, index) => (
@@ -124,21 +125,29 @@ export default function ProofCase({ copy }: ProofCaseProps) {
         className="flex flex-wrap gap-4"
       >
         <a
-          href="https://impostor.ismobla.dev"
+          href={`/dossier/gestio-renda-${lang}.pdf`}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 px-6 py-3 bg-[--color-accent-primary] text-[--color-bg] font-medium rounded-lg hover:bg-[--color-accent-primary]/90 transition-colors"
         >
-          {copy.cta.play}
+          {copy.cta.dossier}
           <span aria-hidden="true">→</span>
         </a>
+      </motion.div>
+
+      {/* Secondary aside */}
+      <motion.div
+        {...getScrollAnimationProps(fadeInUp, prefersReducedMotion, centerViewport)}
+        className="mt-12 pt-6 border-t border-[--color-border] max-w-2xl"
+      >
+        <p className="text-[--color-text-muted] text-sm sm:text-base mb-3">{copy.aside.text}</p>
         <a
           href="https://github.com/xSharkhy/impostor-game"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-[--color-bg-surface] border border-[--color-border] rounded-lg text-[--color-text] hover:border-[--color-accent-primary] hover:text-[--color-accent-primary] transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] transition-colors"
         >
-          {copy.cta.code}
+          {copy.aside.code}
           <span aria-hidden="true">↗</span>
         </a>
       </motion.div>
