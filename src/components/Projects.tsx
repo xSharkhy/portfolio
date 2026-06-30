@@ -140,12 +140,12 @@ function ProjectCard({ project, prefersReducedMotion }: ProjectCardProps) {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] transition-colors group"
-            aria-label={`Visit ${project.name} live demo (opens in new tab)`}
+            aria-label={`${project.links.demoLabel || 'Demo'}: ${project.name} (opens in new tab)`}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
-            <span>Demo</span>
+            <span>{project.links.demoLabel || 'Demo'}</span>
             <span className="group-hover:translate-x-0.5 transition-transform" aria-hidden="true">↗</span>
           </a>
         )}
