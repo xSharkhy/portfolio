@@ -62,7 +62,28 @@ export interface ProjectCopy {
   links: {
     github?: string;
     demo?: string;
+    demoLabel?: string;
   };
+}
+
+export interface DossierSection {
+  heading: string;
+  body: string;
+}
+
+export interface DossierCopy {
+  subtitle: string;
+  intro: string[];
+  sections: {
+    dashboard: DossierSection;
+    rentas: DossierSection;
+    calendar: DossierSection;
+    client: DossierSection;
+    reports: DossierSection;
+    activity: DossierSection;
+    darkmode: DossierSection;
+  };
+  closing: string;
 }
 
 export interface ContactCopy {
@@ -124,7 +145,10 @@ export interface HireMeCopy {
     features: string[];
     closing: string[];
     cta: {
-      play: string;
+      dossier: string;
+    };
+    aside: {
+      text: string;
       code: string;
     };
   };
@@ -734,21 +758,45 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       }
     },
     {
-      id: 'portfolio',
-      name: 'portfolio',
-      tagline: 'El sitio donde digo que los detalles importan.',
+      id: 'gestio-renda',
+      name: 'gestió-renda',
+      tagline: 'Un ERP completo para la campaña de la renta. En producción. Con clientes reales.',
       narrative: [
-        'Multiidioma porque València no es solo España.',
-        'Accesible porque la web es para todos.',
-        '100 en Lighthouse porque los números verdes molan.',
-        'Pero sobre todo:',
-        'Porque quería un lugar para decir las cosas que no caben en un CV de una página.'
+        '"Necesitamos gestionar toda la campaña de la renta."',
+        'Una gestoría. Una temporada que estalla en abril.',
+        'Lo construí entero. Yo solo. Desde cero.',
+        'Máquina de estados por renta: reservada → revisión → cerrada.',
+        'Calendario que detecta citas en conflicto y permite arrastrar para reprogramar.',
+        'Validación de DNI/NIE/CIF e IBAN con mod-97. CRM, auditoría, facturación.',
+        '14 tablas. Bilingüe. Command palette. Todo lo que una oficina necesita un martes a las 9.',
+        'No hay demo pública. Lleva datos reales de clientes reales.',
+        'La prueba es el dossier. Y que el negocio funciona con esto cada día.'
       ],
-      punchline: 'Si el portfolio de un dev no está bien hecho, ¿por qué confiarías en su código?',
-      technologies: ['Astro', 'React', 'TypeScript', 'Tailwind', 'Motion'],
+      punchline: 'Que no haya demo no es una excusa. Es que alguien confió su operación entera a mi código.',
+      technologies: ['TypeScript', 'Next.js', 'React', 'PostgreSQL', 'Drizzle', 'NextAuth'],
       links: {
-        github: 'https://github.com/xSharkhy/portfolio',
-        demo: 'https://ismobla.dev'
+        demo: '/dossier/gestio-renda-es.pdf',
+        demoLabel: 'Dossier'
+      }
+    },
+    {
+      id: 'keku',
+      name: 'keku',
+      tagline: 'Una web de restaurante que el dueño actualiza sin llamarme.',
+      narrative: [
+        'KEKU hace hamburguesas con carne madurada 50 días.',
+        'Yo hice que su web estuviera a la altura.',
+        'Carta interactiva con sistema de alérgenos.',
+        'Reservas que aterrizan directas en el WhatsApp del dueño.',
+        'Un indicador de "abierto / cerrado" que sabe los horarios de COCINA, no los de la barra.',
+        'Pero lo importante no se ve:',
+        'El dueño cambia un plato o un precio él mismo. Sin tocar código. Sin llamarme.',
+        'Bilingüe, con SEO de verdad, de un diseño a producción.'
+      ],
+      punchline: 'El mejor producto no es el que me necesita. Es el que ya no me necesita.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Sanity', 'styled-components'],
+      links: {
+        demo: 'https://keku-cerveceria.vercel.app'
       }
     }
   ],
@@ -795,21 +843,45 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       }
     },
     {
-      id: 'portfolio',
-      name: 'portfolio',
-      tagline: 'The site where I say details matter.',
+      id: 'gestio-renda',
+      name: 'gestió-renda',
+      tagline: 'A complete ERP for tax-return season. In production. With real clients.',
       narrative: [
-        'Multilingual because València isn\'t just Spain.',
-        'Accessible because the web is for everyone.',
-        '100 on Lighthouse because green numbers are cool.',
-        'But mostly:',
-        'Because I wanted a place to say the things that don\'t fit on a one-page resume.'
+        '"We need to run the entire income-tax campaign."',
+        'An accounting firm. A season that explodes every April.',
+        'I built all of it. Solo. From scratch.',
+        'A state machine per return: reserved → review → closed.',
+        'A calendar that catches appointment conflicts and lets you drag to reschedule.',
+        'DNI/NIE/CIF and IBAN mod-97 validation. CRM, audit log, billing.',
+        '14 tables. Bilingual. Command palette. Everything an office needs at 9am on a Tuesday.',
+        'There\'s no public demo. It holds real data from real clients.',
+        'The proof is the dossier. And the fact that the business runs on this every day.'
       ],
-      punchline: 'If a dev\'s portfolio isn\'t well made, why would you trust their code?',
-      technologies: ['Astro', 'React', 'TypeScript', 'Tailwind', 'Motion'],
+      punchline: 'No demo isn\'t an excuse. It\'s that someone trusted their whole operation to my code.',
+      technologies: ['TypeScript', 'Next.js', 'React', 'PostgreSQL', 'Drizzle', 'NextAuth'],
       links: {
-        github: 'https://github.com/xSharkhy/portfolio',
-        demo: 'https://ismobla.dev'
+        demo: '/dossier/gestio-renda-en.pdf',
+        demoLabel: 'Dossier'
+      }
+    },
+    {
+      id: 'keku',
+      name: 'keku',
+      tagline: 'A restaurant site the owner updates without calling me.',
+      narrative: [
+        'KEKU makes burgers with 50-day dry-aged beef.',
+        'I made sure their site lived up to it.',
+        'Interactive menu with an allergen system.',
+        'Reservations that land straight in the owner\'s WhatsApp.',
+        'An "open / closed" indicator that knows the KITCHEN hours, not the bar\'s.',
+        'But the important part you don\'t see:',
+        'The owner changes a dish or a price himself. No code. No phone call.',
+        'Bilingual, real SEO, from a design handoff to production.'
+      ],
+      punchline: 'The best product isn\'t the one that needs me. It\'s the one that doesn\'t anymore.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Sanity', 'styled-components'],
+      links: {
+        demo: 'https://keku-cerveceria.vercel.app'
       }
     }
   ],
@@ -856,21 +928,45 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       }
     },
     {
-      id: 'portfolio',
-      name: 'portfolio',
-      tagline: 'El lloc on dic que els detalls importen.',
+      id: 'gestio-renda',
+      name: 'gestió-renda',
+      tagline: 'Un ERP complet per a la campanya de la renda. En producció. Amb clients reals.',
       narrative: [
-        'Multiidioma perquè València no és només Espanya.',
-        'Accessible perquè la web és per a tots.',
-        '100 en Lighthouse perquè els números verds molen.',
-        'Però sobretot:',
-        'Perquè volia un lloc per dir les coses que no caben en un CV d\'una pàgina.'
+        '"Necessitem gestionar tota la campanya de la renda."',
+        'Una gestoria. Una temporada que esclata a l\'abril.',
+        'El vaig construir sencer. Jo a soles. Des de zero.',
+        'Màquina d\'estats per renda: reservada → revisió → tancada.',
+        'Calendari que detecta cites en conflicte i et permet arrossegar per reprogramar.',
+        'Validació de DNI/NIE/CIF i IBAN amb mod-97. CRM, auditoria, facturació.',
+        '14 taules. Bilingüe. Command palette. Tot el que una oficina necessita un dimarts a les 9.',
+        'Ací no hi ha demo pública. Porta dades reals de clients reals.',
+        'La prova és el dossier. I que el negoci funciona amb açò cada dia.'
       ],
-      punchline: 'Si el portfolio d\'un dev no està ben fet, per què confaries en el seu codi?',
-      technologies: ['Astro', 'React', 'TypeScript', 'Tailwind', 'Motion'],
+      punchline: 'Que no hi haja demo no és una excusa. És que algú va confiar tota la seua operació al meu codi.',
+      technologies: ['TypeScript', 'Next.js', 'React', 'PostgreSQL', 'Drizzle', 'NextAuth'],
       links: {
-        github: 'https://github.com/xSharkhy/portfolio',
-        demo: 'https://ismobla.dev'
+        demo: '/dossier/gestio-renda-ca.pdf',
+        demoLabel: 'Dossier'
+      }
+    },
+    {
+      id: 'keku',
+      name: 'keku',
+      tagline: 'Una web de restaurant que l\'amo actualitza sense cridar-me.',
+      narrative: [
+        'KEKU fa hamburgueses amb carn madurada 50 dies.',
+        'Jo vaig fer que la seua web estiguera a l\'altura.',
+        'Carta interactiva amb sistema d\'al·lèrgens.',
+        'Reserves que cauen directes al WhatsApp de l\'amo.',
+        'Un indicador d\'"obert / tancat" que sap els horaris de CUINA, no els de la barra.',
+        'Però l\'important no es veu:',
+        'L\'amo canvia un plat o un preu ell mateix. Sense tocar codi. Sense cridar-me.',
+        'Bilingüe, amb SEO de veritat, d\'un disseny a producció.'
+      ],
+      punchline: 'El millor producte no és el que em necessita. És el que ja no em necessita.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Sanity', 'styled-components'],
+      links: {
+        demo: 'https://keku-cerveceria.vercel.app'
       }
     }
   ],
@@ -917,25 +1013,132 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       }
     },
     {
-      id: 'portfolio',
-      name: 'portfolio',
-      tagline: 'O sitio onde digo que os detalles importan.',
+      id: 'gestio-renda',
+      name: 'gestió-renda',
+      tagline: 'Un ERP completo para a campaña da renda. En produción. Con clientes reais.',
       narrative: [
-        'Multilingüe porque València non é só España.',
-        'Accesible porque a web é para todos.',
-        '100 en Lighthouse porque os números verdes molan.',
-        'Pero sobre todo:',
-        'Porque quería un lugar para dicir as cousas que non caben nun CV dunha páxina.'
+        '"Necesitamos xestionar toda a campaña da renda."',
+        'Unha xestoría. Unha tempada que estoupa en abril.',
+        'Construíno enteiro. Eu só. Desde cero.',
+        'Máquina de estados por renda: reservada → revisión → pechada.',
+        'Calendario que detecta citas en conflito e permite arrastrar para reprogramar.',
+        'Validación de DNI/NIE/CIF e IBAN con mod-97. CRM, auditoría, facturación.',
+        '14 táboas. Bilingüe. Command palette. Todo o que unha oficina necesita un martes ás 9.',
+        'Non hai demo pública. Leva datos reais de clientes reais.',
+        'A proba é o dossier. E que o negocio funciona con isto cada día.'
       ],
-      punchline: 'Se o portfolio dun dev non está ben feito, por que confiarías no seu código?',
-      technologies: ['Astro', 'React', 'TypeScript', 'Tailwind', 'Motion'],
+      punchline: 'Que non haxa demo non é unha escusa. É que alguén confiou toda a súa operación ao meu código.',
+      technologies: ['TypeScript', 'Next.js', 'React', 'PostgreSQL', 'Drizzle', 'NextAuth'],
       links: {
-        github: 'https://github.com/xSharkhy/portfolio',
-        demo: 'https://ismobla.dev'
+        demo: '/dossier/gestio-renda-gl.pdf',
+        demoLabel: 'Dossier'
+      }
+    },
+    {
+      id: 'keku',
+      name: 'keku',
+      tagline: 'Unha web de restaurante que o dono actualiza sen chamarme.',
+      narrative: [
+        'KEKU fai hamburguesas con carne madurada 50 días.',
+        'Eu fixen que a súa web estivese á altura.',
+        'Carta interactiva con sistema de alérxenos.',
+        'Reservas que caen directas ao WhatsApp do dono.',
+        'Un indicador de "aberto / pechado" que sabe os horarios de COCIÑA, non os da barra.',
+        'Pero o importante non se ve:',
+        'O dono cambia un prato ou un prezo el mesmo. Sen tocar código. Sen chamarme.',
+        'Bilingüe, con SEO de verdade, dun deseño a produción.'
+      ],
+      punchline: 'O mellor produto non é o que me necesita. É o que xa non me necesita.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Sanity', 'styled-components'],
+      links: {
+        demo: 'https://keku-cerveceria.vercel.app'
       }
     }
   ]
 };
+
+// ============================================================================
+// DOSSIER (gestió-renda case study)
+// ============================================================================
+
+export const dossierCopy: Record<Lang, DossierCopy> = {
+  es: {
+    subtitle: "ERP en producción para Blasco i Sanchis, una gestoría de Alcàsser que vive de la campaña de la renta.",
+    intro: [
+      "Esto no es un side project. Es software que mueve la temporada de una gestoría real, con clientes reales y declaraciones reales.",
+      "No hay demo pública. Maneja datos fiscales de personas, así que las capturas de este dossier son la única prueba que vas a ver.",
+      "De cero, en solitario. Diseño, base de datos, autenticación y la última coma del CSS. Cuando tienes ownership total, no hay donde esconderse."
+    ],
+    sections: {
+      dashboard: { heading: "El pulso de la campaña", body: "Un vistazo y sabes cómo va abril: facturación acumulada, declaraciones por estado, las próximas citas del día y las gráficas que avisan antes de que el problema sea tuyo. Lo importante arriba, sin tener que buscarlo." },
+      rentas: { heading: "Máquina de estados", body: "Cada renta vive una vida: reservada → en revisión → cerrada. No son etiquetas de colores, es una máquina de estados que no te deja saltarte pasos ni perder una declaración por el camino. Vista en tabla para trabajar y kanban para entender, con tarifas y pagos enganchados a cada caso." },
+      calendar: { heading: "Agenda sin choques", body: "Una temporada entera de citas en un calendario que detecta los conflictos antes de que dos clientes se sienten en la misma silla. ¿Hay que reprogramar? Arrastras la cita y listo. La agenda se defiende sola." },
+      client: { heading: "Ficha que valida", body: "DNI, NIE, CIF e IBAN comprobados de verdad (sí, el dígito de control mod-97 del IBAN también), no un campo de texto que se cree todo. Datos fiscales y consentimiento RGPD donde tienen que estar, porque aquí el dato equivocado tiene consecuencias." },
+      reports: { heading: "Informes y facturación", body: "Informes que cuentan cómo va el negocio y facturación atada a las tarifas de cada renta. Los números salen del sistema, no de una hoja de cálculo paralela rezando por que cuadre." },
+      activity: { heading: "Todo queda escrito", body: "Un log de auditoría que registra quién hizo qué y cuándo. Cuando trabajas con datos fiscales, 'no sé qué pasó' no es una respuesta. Aquí siempre lo sabes." },
+      darkmode: { heading: "El oficio se ve", body: "Modo claro y oscuro, bilingüe CA/ES de verdad, y una command palette (Cmd+K) para moverte sin tocar el ratón. Detalles que no se piden en el brief, pero que separan una herramienta que se usa de una que se aguanta." }
+    },
+    closing: "Backend, base de datos, auth, UI y producto. Cualquiera escribe un CRUD; lo difícil es que una gestoría te confíe su temporada entera. Esto es eso."
+  },
+  en: {
+    subtitle: "Production ERP for Blasco i Sanchis, a tax firm in Alcàsser that lives and dies by tax season.",
+    intro: [
+      "This isn't a side project. It's software running the busiest season of a real firm, with real clients and real tax filings.",
+      "There's no public demo. It handles people's tax data, so the screenshots in this dossier are the only proof you'll get.",
+      "From scratch, solo. Schema, auth, database and the last comma of the CSS. When you own the whole thing, there's nowhere to hide."
+    ],
+    sections: {
+      dashboard: { heading: "The season's pulse", body: "One glance and you know how April is going: revenue to date, filings by status, the day's upcoming appointments and charts that warn you before the problem becomes yours. What matters, on top, no digging required." },
+      rentas: { heading: "State machine", body: "Every filing lives a life: booked → in review → closed. These aren't colored labels, it's a state machine that won't let you skip steps or lose a return along the way. Table view to work, kanban to understand, with rates and payments wired to each case." },
+      calendar: { heading: "No double-booking", body: "A whole season of appointments in a calendar that catches conflicts before two clients land in the same chair. Need to reschedule? Drag the appointment and done. The agenda defends itself." },
+      client: { heading: "Records that validate", body: "DNI, NIE, CIF and IBAN actually checked (yes, the IBAN mod-97 control digit too), not a text field that believes whatever you type. Tax data and GDPR consent where they belong, because here the wrong value has consequences." },
+      reports: { heading: "Reports and billing", body: "Reports that tell you how the business is doing, and billing tied to each filing's rates. The numbers come from the system, not from a parallel spreadsheet praying it all adds up." },
+      activity: { heading: "Everything's on record", body: "An audit log tracking who did what and when. When you work with tax data, 'no idea what happened' isn't an answer. Here you always know." },
+      darkmode: { heading: "Craft shows", body: "Light and dark mode, genuinely bilingual CA/ES, and a command palette (Cmd+K) to move without touching the mouse. Details nobody asks for in the brief, but they separate a tool people use from one they tolerate." }
+    },
+    closing: "Backend, database, auth, UI and product. Anyone can write a CRUD; the hard part is getting a tax firm to trust you with their entire season. This is that."
+  },
+  ca: {
+    subtitle: "ERP en producció per a Blasco i Sanchis, una gestoria d'Alcàsser que viu de la campanya de la renda.",
+    intro: [
+      "Açò no és un projecte de cap de setmana. És programari que mou la temporada d'una gestoria real, amb clients reals i declaracions reals.",
+      "No hi ha demo pública. Maneja dades fiscals de persones, així que les captures d'aquest dossier són l'única prova que veuràs.",
+      "De zero i en solitari. Disseny, base de dades, autenticació i l'última coma del CSS. Quan tens l'ownership total, no hi ha on amagar-se."
+    ],
+    sections: {
+      dashboard: { heading: "El pols de la campanya", body: "Una ullada i saps com va l'abril: facturació acumulada, declaracions per estat, les pròximes cites del dia i les gràfiques que t'avisen abans que el problema siga teu. El que importa a dalt, sense haver de buscar-ho." },
+      rentas: { heading: "Màquina d'estats", body: "Cada renda viu una vida: reservada → en revisió → tancada. No són etiquetes de colors, és una màquina d'estats que no et deixa saltar-te passos ni perdre una declaració pel camí. Vista en taula per a treballar i kanban per a entendre, amb tarifes i pagaments enganxats a cada cas." },
+      calendar: { heading: "Agenda sense xocs", body: "Una temporada sencera de cites en un calendari que detecta els conflictes abans que dos clients se senten a la mateixa cadira. Cal reprogramar? Arrossegues la cita i llest. L'agenda es defensa tota sola." },
+      client: { heading: "Fitxa que valida", body: "DNI, NIE, CIF i IBAN comprovats de veritat (sí, el dígit de control mod-97 de l'IBAN també), no un camp de text que s'ho creu tot. Dades fiscals i consentiment RGPD on han d'estar, perquè ací la dada equivocada té conseqüències." },
+      reports: { heading: "Informes i facturació", body: "Informes que conten com va el negoci i facturació lligada a les tarifes de cada renda. Els números ixen del sistema, no d'un full de càlcul paral·lel pregant que quadre." },
+      activity: { heading: "Tot queda escrit", body: "Un registre d'auditoria que apunta qui va fer què i quan. Quan treballes amb dades fiscals, 'no sé què va passar' no és una resposta. Ací sempre ho saps." },
+      darkmode: { heading: "L'ofici es veu", body: "Mode clar i fosc, bilingüe CA/ES de veritat, i una command palette (Cmd+K) per a moure't sense tocar el ratolí. Detalls que no es demanen al brief, però que separen una eina que s'usa d'una que s'aguanta." }
+    },
+    closing: "Backend, base de dades, auth, UI i producte. Qualsevol escriu un CRUD; el difícil és que una gestoria et confie la seua temporada sencera. Açò és això."
+  },
+  gl: {
+    subtitle: "ERP en produción para Blasco i Sanchis, unha xestoría de Alcàsser que vive da campaña da renda.",
+    intro: [
+      "Isto non é un proxecto de fin de semana. É software que move a temporada dunha xestoría real, con clientes reais e declaracións reais.",
+      "Non hai demo pública. Manexa datos fiscais de persoas, así que as capturas deste dossier son a única proba que vas ver.",
+      "Desde cero e en solitario. Deseño, base de datos, autenticación e a última coma do CSS. Cando tes o ownership total, non hai onde agocharse."
+    ],
+    sections: {
+      dashboard: { heading: "O pulso da campaña", body: "Unha ollada e sabes como vai abril: facturación acumulada, declaracións por estado, as próximas citas do día e as gráficas que avisan antes de que o problema sexa teu. O importante arriba, sen ter que buscalo." },
+      rentas: { heading: "Máquina de estados", body: "Cada renda vive unha vida: reservada → en revisión → pechada. Non son etiquetas de cores, é unha máquina de estados que non te deixa saltar pasos nin perder unha declaración polo camiño. Vista en táboa para traballar e kanban para entender, con tarifas e pagamentos enganchados a cada caso." },
+      calendar: { heading: "Axenda sen choques", body: "Unha temporada enteira de citas nun calendario que detecta os conflitos antes de que dous clientes se senten na mesma cadeira. Hai que reprogramar? Arrastras a cita e listo. A axenda deféndese soa." },
+      client: { heading: "Ficha que valida", body: "DNI, NIE, CIF e IBAN comprobados de verdade (si, o díxito de control mod-97 do IBAN tamén), non un campo de texto que se cre todo. Datos fiscais e consentimento RGPD onde teñen que estar, porque aquí o dato equivocado ten consecuencias." },
+      reports: { heading: "Informes e facturación", body: "Informes que contan como vai o negocio e facturación atada ás tarifas de cada renda. Os números saen do sistema, non dunha folla de cálculo paralela rezando por que cadre." },
+      activity: { heading: "Todo queda escrito", body: "Un rexistro de auditoría que apunta quen fixo qué e cando. Cando traballas con datos fiscais, 'non sei qué pasou' non é unha resposta. Aquí sempre o sabes." },
+      darkmode: { heading: "O oficio vese", body: "Modo claro e escuro, bilingüe CA/ES de verdade, e unha command palette (Cmd+K) para moverte sen tocar o rato. Detalles que non se piden no brief, pero que separan unha ferramenta que se usa dunha que se aguanta." }
+    },
+    closing: "Backend, base de datos, auth, UI e produto. Calquera escribe un CRUD; o difícil é que unha xestoría che confíe a súa temporada enteira. Isto é iso."
+  }
+};
+
+export function getDossierCopy (lang: Lang): DossierCopy {
+  return dossierCopy[lang];
+}
 
 // ============================================================================
 // CONTACT SECTION
@@ -954,7 +1157,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     ],
     options: {
       email: {
-        value: 'ismamoreblas@gmail.com',
+        value: 'hola@ismobla.dev',
         label: 'Email',
         description: 'El email de toda la vida. Respondo en menos de 24h (normalmente).'
       },
@@ -988,7 +1191,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     ],
     options: {
       email: {
-        value: 'ismamoreblas@gmail.com',
+        value: 'hola@ismobla.dev',
         label: 'Email',
         description: 'Good old email. I reply within 24h (usually).'
       },
@@ -1022,7 +1225,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     ],
     options: {
       email: {
-        value: 'ismamoreblas@gmail.com',
+        value: 'hola@ismobla.dev',
         label: 'Email',
         description: 'L\'email de tota la vida. Respong en menys de 24h (normalment).'
       },
@@ -1056,7 +1259,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     ],
     options: {
       email: {
-        value: 'ismamoreblas@gmail.com',
+        value: 'hola@ismobla.dev',
         label: 'Email',
         description: 'O email de toda a vida. Respondo en menos de 24h (normalmente).'
       },
@@ -1102,36 +1305,37 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
     },
     proof: {
       headline: 'Un ejemplo vale más que mil bullets en un CV.',
-      subheadline: 'El Impostor — Juego multijugador de deducción social',
+      subheadline: 'gestió-renda — ERP en producción para una gestoría real',
       intro: [
-        'Un jugador es el impostor. No conoce la palabra secreta.',
-        'Los demás tienen que descubrirlo. En tiempo real. Sin piedad.',
-        'No heredé este código. No "colaboré" en un equipo de 20.',
-        'Lo diseñé, lo desarrollé y lo desplegué. Solo.'
+        'Una gestoría valenciana gestiona su campaña de la renta con esto.',
+        'Lo construí solo, de cero.',
+        'No hay demo pública: maneja datos fiscales reales de sus clientes.',
+        'Por eso la prueba es un dossier con capturas de dentro.'
       ],
-      timeline: 'Una semana. Diciembre de 2025.\nFrontend, backend, WebSockets, OAuth, 5 idiomas, producción.\nSiete días.',
+      timeline: 'En producción. Datos fiscales reales.\nUna gestoría confía su campaña entera a este código.',
       stack: {
-        frontend: ['React 19', 'TypeScript', 'Tailwind 4', 'Zustand', 'Socket.io', 'Motion'],
-        backend: ['Node.js', 'Express', 'Clean Architecture', 'Supabase', 'PostgreSQL'],
-        infra: ['Vercel', 'Raspberry Pi 5', 'nginx', 'SSL', 'GitHub webhooks']
+        frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propio'],
+        backend: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'Zod'],
+        infra: ['Vercel', 'Neon']
       },
       features: [
-        '4 modos de juego, hasta 6 impostores simultáneos',
-        'OAuth con Google y GitHub',
-        'Votación en tiempo real con mayoría 2/3',
-        'Auto-reconexión sin perder el estado de partida',
-        'Mobile-first y accesible (WCAG AA)',
-        '5 idiomas: ES, EN, CA, EU, GL'
+        'Máquina de estados por renta: reservada → revisión → cerrada',
+        'Calendario con detección de conflictos y arrastrar para reprogramar',
+        'Validación de DNI/NIE/CIF e IBAN (mod-97)',
+        'CRM con consentimiento RGPD',
+        'Informes, facturación y log de auditoría',
+        'Command palette, bilingüe CA/ES, modo claro/oscuro'
       ],
       closing: [
-        '¿Por qué importa esto?',
-        'Porque cuando digo que puedo construir un producto de cero',
-        '—frontend, backend, infraestructura, el paquete completo—',
-        'no es una promesa.',
-        'Es un hecho con URL.'
+        'Esto no es una demo. Está en producción, con gente usándolo cada día.',
+        'Es lo que pasa cuando contratas a alguien que entrega producto, no promesas: lo serio se queda en sus manos y duerme tranquilo.',
+        'Si buscas a ese dev para tu equipo, ya sabes dónde escribir.'
       ],
       cta: {
-        play: 'Jugar a El Impostor',
+        dossier: 'Ver el dossier'
+      },
+      aside: {
+        text: 'Y cuando nadie me lo pide, construyo cosas como El Impostor: un juego de deducción social multijugador en tiempo real, hecho solo en una semana. No hay demo jugable, pero el código está ahí.',
         code: 'Ver código en GitHub'
       }
     },
@@ -1206,36 +1410,37 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
     },
     proof: {
       headline: 'One example beats a hundred CV bullet points.',
-      subheadline: 'El Impostor — Real-time multiplayer social deduction game',
+      subheadline: 'gestió-renda — an ERP running in production for a real accounting firm',
       intro: [
-        'One player is the impostor. They don\'t know the secret word.',
-        'Everyone else has to find them. In real time. No mercy.',
-        'I didn\'t inherit this code. I didn\'t "collaborate" in a team of 20.',
-        'I designed it, built it, and deployed it. Solo.'
+        'A Valencian accounting firm runs its entire tax season on this.',
+        'I built it alone, from scratch.',
+        'There\'s no public demo: it handles real tax data from their clients.',
+        'That\'s why the proof is a dossier with screenshots from the inside.'
       ],
-      timeline: 'One week. December 2025.\nFrontend, backend, WebSockets, OAuth, 5 languages, production.\nSeven days.',
+      timeline: 'In production. Real tax data.\nAn accounting firm trusts its whole season to this code.',
       stack: {
-        frontend: ['React 19', 'TypeScript', 'Tailwind 4', 'Zustand', 'Socket.io', 'Motion'],
-        backend: ['Node.js', 'Express', 'Clean Architecture', 'Supabase', 'PostgreSQL'],
-        infra: ['Vercel', 'Raspberry Pi 5', 'nginx', 'SSL', 'GitHub webhooks']
+        frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propio'],
+        backend: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'Zod'],
+        infra: ['Vercel', 'Neon']
       },
       features: [
-        '4 game modes, up to 6 simultaneous impostors',
-        'OAuth with Google and GitHub',
-        'Real-time voting with 2/3 majority',
-        'Auto-reconnection without losing game state',
-        'Mobile-first and accessible (WCAG AA)',
-        '5 languages: ES, EN, CA, EU, GL'
+        'State machine per filing: reserved → review → closed',
+        'Calendar with conflict detection and drag to reschedule',
+        'DNI/NIE/CIF and IBAN validation (mod-97)',
+        'CRM with GDPR consent',
+        'Reports, invoicing and audit log',
+        'Command palette, bilingual CA/ES, light/dark mode'
       ],
       closing: [
-        'Why does this matter?',
-        'Because when I say I can build a product from scratch',
-        '—frontend, backend, infrastructure, the whole package—',
-        'it\'s not a promise.',
-        'It\'s a fact with a URL.'
+        'This isn\'t a demo. It\'s in production, with real people using it every day.',
+        'That\'s what happens when you hire someone who ships product, not promises: you hand over the serious stuff and sleep fine.',
+        'If that\'s the dev you want on your team, you already know where to write.'
       ],
       cta: {
-        play: 'Play El Impostor',
+        dossier: 'View the dossier'
+      },
+      aside: {
+        text: 'And when nobody asks me to, I build things like El Impostor: a real-time multiplayer social-deduction game, made alone in a week. There\'s no playable demo, but the code is right there.',
         code: 'View code on GitHub'
       }
     },
@@ -1310,36 +1515,37 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
     },
     proof: {
       headline: 'Un exemple val més que mil punts en un CV.',
-      subheadline: 'El Impostor — Joc multijugador de deducció social en temps real',
+      subheadline: 'gestió-renda — ERP en producció per a una gestoria real',
       intro: [
-        'Un jugador és l\'impostor. No coneix la paraula secreta.',
-        'Els altres l\'han de descobrir. En temps real. Sense pietat.',
-        'No vaig heretar aquest codi. No vaig "col·laborar" en un equip de 20.',
-        'El vaig dissenyar, desenvolupar i desplegar. Sol.'
+        'Una gestoria valenciana gestiona la seua campanya de la renda amb açò.',
+        'El vaig construir a soles, de zero.',
+        'No hi ha demo pública: maneja dades fiscals reals dels seus clients.',
+        'Per això la prova és un dossier amb captures de dins.'
       ],
-      timeline: 'Una setmana. Desembre de 2025.\nFrontend, backend, WebSockets, OAuth, 5 idiomes, producció.\nSet dies.',
+      timeline: 'En producció. Dades fiscals reals.\nUna gestoria confia la seua campanya sencera a este codi.',
       stack: {
-        frontend: ['React 19', 'TypeScript', 'Tailwind 4', 'Zustand', 'Socket.io', 'Motion'],
-        backend: ['Node.js', 'Express', 'Clean Architecture', 'Supabase', 'PostgreSQL'],
-        infra: ['Vercel', 'Raspberry Pi 5', 'nginx', 'SSL', 'GitHub webhooks']
+        frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propio'],
+        backend: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'Zod'],
+        infra: ['Vercel', 'Neon']
       },
       features: [
-        '4 modes de joc, fins a 6 impostors simultanis',
-        'OAuth amb Google i GitHub',
-        'Votació en temps real amb majoria 2/3',
-        'Auto-reconnexió sense perdre l\'estat de partida',
-        'Mobile-first i accessible (WCAG AA)',
-        '5 idiomes: ES, EN, CA, EU, GL'
+        'Màquina d\'estats per renda: reservada → revisió → tancada',
+        'Calendari amb detecció de conflictes i arrossegar per reprogramar',
+        'Validació de DNI/NIE/CIF i IBAN (mod-97)',
+        'CRM amb consentiment RGPD',
+        'Informes, facturació i log d\'auditoria',
+        'Command palette, bilingüe CA/ES, mode clar/fosc'
       ],
       closing: [
-        'Per què importa això?',
-        'Perquè quan dic que puc construir un producte de zero',
-        '—frontend, backend, infraestructura, el paquet complet—',
-        'no és una promesa.',
-        'És un fet amb URL.'
+        'Açò no és una demo. Està en producció, amb gent fent-la servir cada dia.',
+        'És el que passa quan contractes algú que entrega producte, no promeses: li deixes la part seriosa a les seues mans i dorms tranquil.',
+        'Si busques eixe dev per al teu equip, ja saps on escriure\'m.'
       ],
       cta: {
-        play: 'Jugar a El Impostor',
+        dossier: 'Veure el dossier'
+      },
+      aside: {
+        text: 'I quan ningú m\'ho demana, construïsc coses com El Impostor: un joc de deducció social multijugador en temps real, fet a soles en una setmana. No hi ha demo jugable, però el codi està ahí.',
         code: 'Veure codi a GitHub'
       }
     },
@@ -1414,36 +1620,37 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
     },
     proof: {
       headline: 'Un exemplo vale máis que mil puntos nun CV.',
-      subheadline: 'El Impostor — Xogo multixogador de dedución social en tempo real',
+      subheadline: 'gestió-renda — ERP en produción para unha xestoría real',
       intro: [
-        'Un xogador é o impostor. Non coñece a palabra secreta.',
-        'Os demais teñen que descubrilo. En tempo real. Sen piedade.',
-        'Non herdei este código. Non "colaborei" nun equipo de 20.',
-        'Deseñeino, desenvolvino e despregueino. So.'
+        'Unha xestoría valenciana xestiona a súa campaña da renda con isto.',
+        'Construíno só, desde cero.',
+        'Non hai demo pública: manexa datos fiscais reais dos seus clientes.',
+        'Por iso a proba é un dossier con capturas de dentro.'
       ],
-      timeline: 'Unha semana. Decembro de 2025.\nFrontend, backend, WebSockets, OAuth, 5 idiomas, produción.\nSete días.',
+      timeline: 'En produción. Datos fiscais reais.\nUnha xestoría confía a súa campaña enteira a este código.',
       stack: {
-        frontend: ['React 19', 'TypeScript', 'Tailwind 4', 'Zustand', 'Socket.io', 'Motion'],
-        backend: ['Node.js', 'Express', 'Clean Architecture', 'Supabase', 'PostgreSQL'],
-        infra: ['Vercel', 'Raspberry Pi 5', 'nginx', 'SSL', 'GitHub webhooks']
+        frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propio'],
+        backend: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'Zod'],
+        infra: ['Vercel', 'Neon']
       },
       features: [
-        '4 modos de xogo, ata 6 impostores simultáneos',
-        'OAuth con Google e GitHub',
-        'Votación en tempo real con maioría 2/3',
-        'Auto-reconexión sen perder o estado de partida',
-        'Mobile-first e accesible (WCAG AA)',
-        '5 idiomas: ES, EN, CA, EU, GL'
+        'Máquina de estados por renda: reservada → revisión → pechada',
+        'Calendario con detección de conflitos e arrastrar para reprogramar',
+        'Validación de DNI/NIE/CIF e IBAN (mod-97)',
+        'CRM con consentimento RGPD',
+        'Informes, facturación e rexistro de auditoría',
+        'Command palette, bilingüe CA/ES, modo claro/escuro'
       ],
       closing: [
-        'Por que importa isto?',
-        'Porque cando digo que podo construír un produto de cero',
-        '—frontend, backend, infraestrutura, o paquete completo—',
-        'non é unha promesa.',
-        'É un feito con URL.'
+        'Isto non é unha demo. Está en produción, con xente usándoa cada día.',
+        'É o que pasa cando contratas a alguén que entrega produto, non promesas: déixaslle o serio nas súas mans e dormes tranquilo.',
+        'Se buscas ese dev para o teu equipo, xa sabes onde escribirme.'
       ],
       cta: {
-        play: 'Xogar a El Impostor',
+        dossier: 'Ver o dossier'
+      },
+      aside: {
+        text: 'E cando ninguén mo pide, constrúo cousas como El Impostor: un xogo de dedución social multixogador en tempo real, feito só nunha semana. Non hai demo xogable, pero o código está aí.',
         code: 'Ver código en GitHub'
       }
     },
