@@ -156,16 +156,20 @@ export const blurInUp: Variants = {
 // CLIP/REVEAL VARIANTS
 // ============================================================================
 
+// NOTE: these were clip-path reveals, but Motion doesn't animate `clip-path:
+// inset()` reliably here — elements got stuck in the hidden state (opacity 0,
+// clipped) and never revealed. Rebuilt as opacity+transform reveals, which are
+// reliable. Names/directions kept so existing usages are unaffected.
 export const clipRevealUp: Variants = {
   hidden: {
-    clipPath: 'inset(100% 0% 0% 0%)',
-    opacity: 0
+    opacity: 0,
+    y: 24
   },
   visible: {
-    clipPath: 'inset(0% 0% 0% 0%)',
     opacity: 1,
+    y: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.7,
       ease: [0.16, 1, 0.3, 1]
     }
   }
@@ -173,14 +177,14 @@ export const clipRevealUp: Variants = {
 
 export const clipRevealLeft: Variants = {
   hidden: {
-    clipPath: 'inset(0% 100% 0% 0%)',
-    opacity: 0
+    opacity: 0,
+    x: -24
   },
   visible: {
-    clipPath: 'inset(0% 0% 0% 0%)',
     opacity: 1,
+    x: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.7,
       ease: [0.16, 1, 0.3, 1]
     }
   }
