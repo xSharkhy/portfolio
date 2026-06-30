@@ -1,0 +1,86 @@
+---
+import DossierLayout from '@/layouts/DossierLayout.astro'
+import { languages } from '@/data/i18n'
+import type { Lang } from '@/data/i18n'
+import { getDossierCopy } from '@/data/copy'
+
+// Dev-only: never built/served in production (same gate as the CV print page).
+export function getStaticPaths() {
+  if (import.meta.env.PROD) return []
+  return languages.map((lang) => ({ params: { lang } }))
+}
+
+const { lang } = Astro.params as { lang: Lang }
+const d = getDossierCopy(lang)
+
+const STACK = ['Next.js', 'React 19', 'TypeScript', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'CSS']
+
+type Shot = { src: string; label: string }
+const SECTIONS: { key: keyof typeof d.sections; shots: Shot[] }[] = [
+  { key: 'dashboard', shots: [{ src: '/dossier/img/dashboard.webp', label: 'gestió-renda — resumen' }] },
+  {
+    key: 'rentas',
+    shots: [
+      { src: '/dossier/img/rentas-table.webp', label: 'rentas — tabla' },
+      { src: '/dossier/img/rentas-kanban.webp', label: 'rentas — kanban' },
+    ],
+  },
+  { key: 'calendar', shots: [{ src: '/dossier/img/calendar.webp', label: 'agenda' }] },
+  { key: 'client', shots: [{ src: '/dossier/img/client.webp', label: 'ficha de cliente' }] },
+  {
+    key: 'reports',
+    shots: [
+      { src: '/dossier/img/reports.webp', label: 'informes' },
+      { src: '/dossier/img/billing.webp', label: 'facturación' },
+    ],
+  },
+  { key: 'activity', shots: [{ src: '/dossier/img/activity.webp', label: 'auditoría' }] },
+  { key: 'darkmode', shots: [{ src: '/dossier/img/dashboard-dark.webp', label: 'modo oscuro' }] },
+]
+---
+
+<DossierLayout title="gestió-renda — caso de estudio" description={d.subtitle} lang={lang}>
+  <header class="doss-head reveal">
+    <div class="doss-eyebrow">// caso_de_estudio</div>
+    <h1 class="doss-title">gestió-renda</h1>
+    <div class="doss-rule"></div>
+    <p class="doss-sub">{d.subtitle}</p>
+    <div class="doss-intro">
+      {d.intro.map((line) => <p>{line}</p>)}
+    </div>
+    <div class="doss-meta"><b>Blasco i Sanchis</b> · Alcàsser, València · 2026</div>
+    <ul class="doss-stack">
+      {STACK.map((s) => <li>{s}</li>)}
+    </ul>
+  </header>
+
+  {
+    SECTIONS.map((sec) => {
+      const c = d.sections[sec.key]
+      return (
+        <section class="doss-section reveal">
+          <div class="doss-section-head">
+            <h2>{c.heading}</h2>
+          </div>
+          <p class="doss-body">{c.body}</p>
+          <div class={sec.shots.length > 1 ? 'doss-grid' : ''}>
+            {sec.shots.map((shot) => (
+              <figure class="shot">
+                <div class="shot-bar">
+                  <div class="shot-dots">
+                    <span /><span /><span />
+                  </div>
+                  <span class="shot-label">{shot.label}</span>
+                </div>
+                <img src={shot.src} alt={c.heading} loading="eager" decoding="sync" width="1600" />
+              </figure>
+            ))}
+          </div>
+        </section>
+      )
+    })
+  }
+
+  <p class="doss-closing reveal">{d.closing}</p>
+  <div class="doss-foot reveal">// gestió-renda · Blasco i Sanchis · ismobla.dev</div>
+</DossierLayout>
