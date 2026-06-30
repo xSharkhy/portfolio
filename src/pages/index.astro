@@ -1,17 +1,20 @@
 ---
-import { languages, defaultLang } from '@/data/i18n'
+import { languages } from '@/data/i18n'
+
+// Entry-router fallback: when the browser language isn't one we support
+// (es / en / ca / gl), default to English as the international fallback.
+const fallback = 'en'
 ---
 
 <!doctype html>
-<html lang={defaultLang}>
+<html lang={fallback}>
   <head>
     <meta charset="utf-8" />
     <title>Ismael Morejón</title>
-    <link rel="canonical" href={`/${defaultLang}/`} />
-    <!-- Entry router: send visitors to their browser language if supported,
-         otherwise the default. Client-side because the site is static (no
-         server to read Accept-Language). -->
-    <script is:inline define:vars={{ supported: languages, fallback: defaultLang }}>
+    <link rel="canonical" href={`/${fallback}/`} />
+    <!-- Send visitors to their browser language if supported, else English.
+         Client-side because the site is static (no server to read Accept-Language). -->
+    <script is:inline define:vars={{ supported: languages, fallback }}>
       (function () {
         var pick = fallback
         try {
@@ -33,7 +36,7 @@ import { languages, defaultLang } from '@/data/i18n'
       })()
     </script>
     <noscript>
-      <meta http-equiv="refresh" content={`0;url=/${defaultLang}/`} />
+      <meta http-equiv="refresh" content={`0;url=/${fallback}/`} />
     </noscript>
   </head>
   <body></body>
