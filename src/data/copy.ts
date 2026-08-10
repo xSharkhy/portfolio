@@ -754,7 +754,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       punchline: 'Cuando tienes ownership total, no hay donde esconderse. Y eso está bien.',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
-        demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
+        demo: 'https://dashboard.sync.wenalyze.com/'
       }
     },
     {
