@@ -1,0 +1,18 @@
+name: Keep Supabase active
+
+on:
+  schedule:
+    # Run once a day. GitHub may delay scheduled jobs slightly.
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Query Supabase database
+        run: >-
+          curl --fail --silent --show-error --retry 3 --retry-delay 5
+          --max-time 20
+          https://qbzhmrfaehunqdlcmhrd.supabase.co/functions/v1/contact

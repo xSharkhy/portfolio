@@ -1,0 +1,24 @@
+---
+import VolkswagenBackend from '@/letters/volkswagen.astro'
+import VolkswagenFrontend from '@/letters/volkswagen-frontend.astro'
+
+const letters = {
+  volkswagen: VolkswagenBackend,
+  'volkswagen-frontend': VolkswagenFrontend,
+}
+
+// Cover letters are private, print-oriented materials. Keep their stable URLs
+// available while developing, but never emit them in the production site.
+export function getStaticPaths() {
+  if (import.meta.env.PROD) return []
+
+  return Object.keys(letters).map((letter) => ({
+    params: { letter },
+  }))
+}
+
+const { letter } = Astro.params
+const Letter = letters[letter as keyof typeof letters]
+---
+
+<Letter />

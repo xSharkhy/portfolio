@@ -168,6 +168,33 @@ Deno.serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
 
+    // Lightweight health check used by the scheduled keep-alive. The query
+    // counts as real database activity, which prevents a Free Plan project
+    // from being paused for inactivity, without sending any email.
+    if (req.method === 'GET') {
+      const { error } = await supabase.from('contacts').select('id').limit(1)
+
+      if (error) {
+        console.error('Health check failed:', error)
+        return new Response(
+          JSON.stringify({ ok: false }),
+          { status: 503, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+        )
+      }
+
+      return new Response(
+        JSON.stringify({ ok: true }),
+        { headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if (req.method !== 'POST') {
+      return new Response(
+        JSON.stringify({ error: 'method_not_allowed' }),
+        { status: 405, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
     const resend = new Resend(Deno.env.get('RESEND_API_KEY'))
     const personalEmail = Deno.env.get('PERSONAL_EMAIL') ?? ''
 
