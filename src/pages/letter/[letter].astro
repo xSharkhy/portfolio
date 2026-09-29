@@ -1,14 +1,9 @@
 ---
-import VolkswagenBackend from '@/letters/volkswagen.astro'
-import VolkswagenFrontend from '@/letters/volkswagen-frontend.astro'
-
-const letters = {
-  volkswagen: VolkswagenBackend,
-  'volkswagen-frontend': VolkswagenFrontend,
-}
+import { letters } from '@/lib/private-letters'
 
 // Cover letters are private, print-oriented materials. Keep their stable URLs
 // available while developing, but never emit them in the production site.
+// getStaticPaths runs in its own scope, so it can only use imports (not frontmatter consts).
 export function getStaticPaths() {
   if (import.meta.env.PROD) return []
 
@@ -18,7 +13,7 @@ export function getStaticPaths() {
 }
 
 const { letter } = Astro.params
-const Letter = letters[letter as keyof typeof letters]
+const Letter = letters[letter as string]
 ---
 
 <Letter />

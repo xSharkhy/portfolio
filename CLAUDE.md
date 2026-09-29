@@ -54,3 +54,9 @@ Use Astro client directives for React components:
 
 ## CV/Resume
 The `/cv` page is print-optimized. Use `pnpm preview` and print to PDF for best results.
+
+## Private documents (cover letters & tailored CVs)
+- `src/letters/<name>.astro` is served at `/letter/<name>`; `src/cvs/<name>.ts` (default export: `CVVariant` from `src/lib/cv-variant.ts`) at `/cv/<name>`.
+- Both folders are **gitignored**: `src/lib/private-letters.ts` and `src/lib/private-cvs.ts` discover them with `import.meta.glob`, so a clean clone builds with none. The routes are dev-only (`getStaticPaths` returns `[]` in production).
+- `getStaticPaths` runs in its own scope: it can only use imports, never consts declared in the page frontmatter.
+- CV and letter layouts use static Geist (`src/styles/document-fonts.css`, `public/fonts/static/`): variable fonts end up as Type 3 fonts in Chrome PDFs, which ATS parsers can't read reliably.

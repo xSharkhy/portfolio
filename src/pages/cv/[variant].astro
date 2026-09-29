@@ -1,0 +1,39 @@
+---
+import CVLayout from '@/layouts/CVLayout.astro'
+import Header from '@/components/cv/Header.astro'
+import Experience from '@/components/cv/Experience.astro'
+import Education from '@/components/cv/Education.astro'
+import Skills from '@/components/cv/Skills.astro'
+import Languages from '@/components/cv/Languages.astro'
+
+import { cvVariants } from '@/lib/private-cvs'
+
+// Tailored CVs are private, print-oriented materials: dev only, never in the production build.
+// getStaticPaths runs in its own scope, so it can only use imports (not frontmatter consts).
+export function getStaticPaths() {
+  if (import.meta.env.PROD) return []
+
+  return Object.keys(cvVariants).map((variant) => ({
+    params: { variant },
+  }))
+}
+
+const { variant } = Astro.params
+const cv = cvVariants[variant as string]
+---
+
+<CVLayout title={cv.title} description={cv.description} lang={cv.lang} compact={cv.compact}>
+  <Header basics={cv.basics} />
+
+  <div class="cv-grid grid md:grid-cols-3 gap-8 print:gap-3">
+    <div class="md:col-span-2">
+      <Experience experiences={cv.experiences} lang={cv.lang} />
+      <Education education={cv.education} lang={cv.lang} />
+    </div>
+
+    <div class="cv-sidebar">
+      <Skills categories={cv.skillCategories} lang={cv.lang} />
+      <Languages languages={cv.languages} lang={cv.lang} />
+    </div>
+  </div>
+</CVLayout>

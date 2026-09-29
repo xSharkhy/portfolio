@@ -1,6 +1,7 @@
 ---
 import Head from '@/components/Head.astro'
 import '@/styles/global.css'
+import '@/styles/document-fonts.css'
 
 interface Props {
   title: string
@@ -14,6 +15,14 @@ const { title, description = '' } = Astro.props
 <html lang="en">
   <head>
     <Head title={title} description={description} lang="en" noindex />
+    <script is:inline>
+      // Load every static weight up front: some are only used by print styles, and the
+      // browser would otherwise fetch them lazily and could print before they arrive.
+      for (const w of [400, 500, 600, 700]) {
+        document.fonts.load(`${w} 1em "Geist Doc"`)
+        document.fonts.load(`${w} 1em "Geist Mono Doc"`)
+      }
+    </script>
     <style is:global>
       /* Letter print — minimalist, Vercel-like. Pure ink on paper. */
       @media print {
@@ -27,7 +36,7 @@ const { title, description = '' } = Astro.props
           line-height: 1.6;
           background: white !important;
           color: #111 !important;
-          font-family: 'Geist', system-ui, sans-serif;
+          font-family: var(--font-sans);
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
           letter-spacing: -0.005em;
@@ -48,9 +57,6 @@ const { title, description = '' } = Astro.props
           break-after: avoid;
         }
 
-        ul, ol {
-          margin: 0;
-        }
 
         ul li + li {
           margin-top: 0.45rem;
@@ -72,7 +78,7 @@ const { title, description = '' } = Astro.props
           margin-bottom: 1.4rem !important;
           padding-bottom: 0 !important;
           border-bottom: none !important;
-          font-family: 'Geist', system-ui, sans-serif !important;
+          font-family: var(--font-sans) !important;
         }
 
         /* Header: no rule, just generous spacing — typography-first hierarchy */
@@ -83,11 +89,11 @@ const { title, description = '' } = Astro.props
         }
 
         .font-mono {
-          font-family: 'Geist', system-ui, sans-serif !important;
+          font-family: var(--font-sans) !important;
         }
 
         .font-sans {
-          font-family: 'Geist', system-ui, sans-serif !important;
+          font-family: var(--font-sans) !important;
         }
       }
 
@@ -111,7 +117,7 @@ const { title, description = '' } = Astro.props
           <span class="text-[--color-text-dark]">&lt;</span> back
         </a>
         <button
-          onclick="window.print()"
+          onclick="document.fonts.ready.then(() => window.print())"
           class="px-4 py-2 bg-[--color-bg-surface] border border-[--color-border] rounded text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] hover:border-[--color-accent-primary] transition-colors"
         >
           Print / PDF

@@ -228,7 +228,7 @@ export const heroCopy: Record<Lang, HeroCopy> = {
     ],
     solution: 'Yo arreglo eso.',
     title: 'Full Stack Developer que optimiza sistemas y entrega resultados.',
-    location: 'València, ES — Remoto donde haga falta.',
+    location: 'València, ES — En remoto, o me muevo donde haga falta.',
     cta: {
       primary: { text: 'Ver cómo lo hago', hover: '$ cd ./experience' },
       secondary: { text: 'Hablemos', hover: '$ open ./contact' }
@@ -244,7 +244,7 @@ export const heroCopy: Record<Lang, HeroCopy> = {
     ],
     solution: 'I fix that.',
     title: 'Full Stack Developer who optimizes systems and delivers results.',
-    location: 'València, ES — Remote wherever needed.',
+    location: 'València, ES — Remote, or I\'ll relocate wherever needed.',
     cta: {
       primary: { text: 'See how I do it', hover: '$ cd ./experience' },
       secondary: { text: "Let's talk", hover: '$ open ./contact' }
@@ -260,7 +260,7 @@ export const heroCopy: Record<Lang, HeroCopy> = {
     ],
     solution: 'Jo arregle això.',
     title: 'Full Stack Developer que optimitza sistemes i lliura resultats.',
-    location: 'València, ES — Remot on faça falta.',
+    location: 'València, ES — En remot, o em trasllade on faça falta.',
     cta: {
       primary: { text: 'Veure com ho faig', hover: '$ cd ./experience' },
       secondary: { text: 'Parlem', hover: '$ open ./contact' }
@@ -276,7 +276,7 @@ export const heroCopy: Record<Lang, HeroCopy> = {
     ],
     solution: 'Eu arranxo iso.',
     title: 'Full Stack Developer que optimiza sistemas e entrega resultados.',
-    location: 'València, ES — Remoto onde faga falta.',
+    location: 'València, ES — En remoto, ou múdome onde faga falta.',
     cta: {
       primary: { text: 'Ver como o fago', hover: '$ cd ./experience' },
       secondary: { text: 'Falemos', hover: '$ open ./contact' }
@@ -347,41 +347,40 @@ export const problemCopy: Record<Lang, ProblemCopy> = {
 export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
   es: [
     {
-      id: 'wenalyze-optimization',
-      company: 'Wenalyze',
-      period: '2024 - Presente',
-      headline: '> Optimización significativa',
-      narrative: [
-        'El sistema de scraping llevaba años funcionando.',
-        '"Funciona" era el único requisito.',
-        'El problema: lento, caro, frágil.',
-        'Nadie lo tocaba porque "si funciona, no lo toques".',
-        'Yo lo toqué.',
-        'No añadiendo código. Quitando.',
-        'Eliminando redundancias que nadie veía.',
-        'Optimizando flujos que "siempre se habían hecho así".',
-        'Resultado: reducción significativa en tiempo de ejecución.',
-        'Mismos datos. Menos recursos. Menos facturas de AWS.'
-      ],
-      punchline: 'A veces el mejor código es el que eliminas.',
-      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS'],
-      featured: true
-    },
-    {
       id: 'wenalyze-migration',
       company: 'Wenalyze',
-      period: '2024',
-      headline: '> De Express a NestJS',
+      period: '2024 - 2026',
+      headline: '> Dos migraciones. -70% de latencia.',
       narrative: [
         '"Tenemos que migrar el backend."',
         '"Pero no podemos parar producción."',
         '"Y tiene que estar para ayer."',
-        'Lideré la migración completa.',
-        'Sin downtime. Sin features rotas.',
-        'Sin el clásico "ya lo arreglaremos después".'
+        'Express se había quedado pequeño. Firestore, caro y lento para lo que le pedíamos.',
+        'Antes de tocar nada, evalué alternativas: Express actualizado, FastAPI, NestJS.',
+        'Preparé plantillas de arquitectura, prototipé los módulos clave y lo llevé a consenso con el equipo.',
+        'Primero, la API a NestJS. Después, la base de datos de Firestore a PostgreSQL.',
+        'Sin downtime. Sin features rotas. Sin el clásico "ya lo arreglaremos después".',
+        'Resultado: más de un 70% menos de tiempo de respuesta en la API.'
       ],
       punchline: 'El código legacy no da miedo. Lo que da miedo es dejarlo crecer.',
-      technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL']
+      technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL', 'Firestore'],
+      featured: true
+    },
+    {
+      id: 'wenalyze-optimization',
+      company: 'Wenalyze',
+      period: '2024',
+      headline: '> -60% en tiempo de ejecución',
+      narrative: [
+        'El sistema de scraping llevaba años funcionando. Lento, caro, frágil.',
+        'Nadie lo tocaba porque "si funciona, no lo toques".',
+        'Yo lo toqué. No añadiendo código: quitando.',
+        'Redundancias que nadie veía. Flujos que "siempre se habían hecho así".',
+        'Resultado: 60% menos tiempo de ejecución y +30 fuentes Open Data integradas.',
+        'Mismos datos. Menos recursos. Menos facturas de AWS.'
+      ],
+      punchline: 'A veces el mejor código es el que eliminas.',
+      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS']
     },
     {
       id: 'wenalyze-sync',
@@ -390,51 +389,67 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       headline: '> Producto completo',
       narrative: [
         'Wenalyze Sync: de idea en una pizarra a SaaS en producción.',
-        'Arquitectura. Frontend. API. Despliegue.',
+        'Gestión de gastos para empresas: reportar un gasto sin guardar tickets ni facturas.',
+        'Arquitectura. Frontend. API. Despliegue en Google Cloud.',
         'Todo, desde la primera línea hasta el primer usuario.'
       ],
       punchline: 'Cuando alguien dice "desde cero", yo escucho "sin excusas si algo falla".',
-      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
+      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind', 'Google Cloud'],
       cta: { text: 'Ver proyecto', url: '#projects' }
+    },
+    {
+      id: 'wenalyze-process',
+      company: 'Wenalyze',
+      period: '2024 - 2026',
+      headline: '> Procesos, no parches',
+      narrative: [
+        'Un equipo de cinco no necesita burocracia.',
+        'Necesita que nada dependa de la memoria de nadie.',
+        'Monté los pipelines de CI/CD con GitHub Actions.',
+        'Estandaricé el entorno de desarrollo cuando se renovaron los equipos.',
+        'Definí cómo usamos los LLMs para desarrollar, y lo fui iterando.',
+        'Y hice de puente con Analytics y Marketing: APIs pensadas para sus dashboards.'
+      ],
+      punchline: 'Un buen proceso no se nota. Se nota cuando falta.',
+      technologies: ['GitHub Actions', 'CI/CD', 'Code reviews', 'Kanban']
     }
   ],
   en: [
     {
-      id: 'wenalyze-optimization',
-      company: 'Wenalyze',
-      period: '2024 - Present',
-      headline: '> Significant optimization',
-      narrative: [
-        'The scraping system had been running for years.',
-        '"It works" was the only requirement.',
-        'The problem: slow, expensive, fragile.',
-        'Nobody touched it because "if it ain\'t broke..."',
-        'I touched it.',
-        'Not by adding code. By removing it.',
-        'Eliminating redundancies nobody saw.',
-        'Optimizing flows that "had always been done this way".',
-        'Result: significant reduction in execution time.',
-        'Same data. Fewer resources. Lower AWS bills.'
-      ],
-      punchline: 'Sometimes the best code is the code you delete.',
-      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS'],
-      featured: true
-    },
-    {
       id: 'wenalyze-migration',
       company: 'Wenalyze',
-      period: '2024',
-      headline: '> Express to NestJS',
+      period: '2024 - 2026',
+      headline: '> Two migrations. -70% latency.',
       narrative: [
         '"We need to migrate the backend."',
         '"But we can\'t stop production."',
         '"And it needs to be done yesterday."',
-        'I led the complete migration.',
-        'Zero downtime. Zero broken features.',
-        'No "we\'ll fix it later" moments.'
+        'We had outgrown Express. Firestore was slow and expensive for what we asked of it.',
+        'Before touching anything, I evaluated the options: an updated Express, FastAPI, NestJS.',
+        'I prepared architecture templates, prototyped the key modules and got the team on board.',
+        'First, the API to NestJS. Then, the database from Firestore to PostgreSQL.',
+        'Zero downtime. Zero broken features. No "we\'ll fix it later" moments.',
+        'Result: over 70% lower API response times.'
       ],
       punchline: 'Legacy code isn\'t scary. Letting it grow is.',
-      technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL']
+      technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL', 'Firestore'],
+      featured: true
+    },
+    {
+      id: 'wenalyze-optimization',
+      company: 'Wenalyze',
+      period: '2024',
+      headline: '> -60% execution time',
+      narrative: [
+        'The scraping system had been running for years. Slow, expensive, fragile.',
+        'Nobody touched it because "if it ain\'t broke..."',
+        'I touched it. Not by adding code: by removing it.',
+        'Redundancies nobody saw. Flows that "had always been done this way".',
+        'Result: 60% less execution time and 30+ Open Data sources integrated.',
+        'Same data. Fewer resources. Lower AWS bills.'
+      ],
+      punchline: 'Sometimes the best code is the code you delete.',
+      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS']
     },
     {
       id: 'wenalyze-sync',
@@ -443,51 +458,67 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       headline: '> Full product',
       narrative: [
         'Wenalyze Sync: from whiteboard idea to SaaS in production.',
-        'Architecture. Frontend. API. Deployment.',
+        'Expense management for companies: report an expense without keeping a single receipt.',
+        'Architecture. Frontend. API. Deployment on Google Cloud.',
         'Everything, from first line to first user.'
       ],
       punchline: 'When someone says "from scratch", I hear "no excuses if something breaks".',
-      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
+      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind', 'Google Cloud'],
       cta: { text: 'View project', url: '#projects' }
+    },
+    {
+      id: 'wenalyze-process',
+      company: 'Wenalyze',
+      period: '2024 - 2026',
+      headline: '> Processes, not patches',
+      narrative: [
+        'A team of five doesn\'t need bureaucracy.',
+        'It just can\'t depend on anyone\'s memory.',
+        'I built the CI/CD pipelines with GitHub Actions.',
+        'I standardized the team\'s dev environment, removing friction before the migration.',
+        'I defined how we use LLMs for development, and kept iterating on it.',
+        'And I bridged the gap with Analytics and Marketing: APIs designed for their dashboards.'
+      ],
+      punchline: 'A good process goes unnoticed. You notice when it\'s missing.',
+      technologies: ['GitHub Actions', 'CI/CD', 'Code reviews', 'Kanban']
     }
   ],
   ca: [
     {
-      id: 'wenalyze-optimization',
-      company: 'Wenalyze',
-      period: '2024 - Present',
-      headline: '> Optimització significativa',
-      narrative: [
-        'El sistema de scraping portava anys funcionant.',
-        '"Funciona" era l\'únic requisit.',
-        'El problema: lent, car, fràgil.',
-        'Ningú el tocava perquè "si funciona, no el toques".',
-        'Jo el vaig tocar.',
-        'No afegint codi. Llevant.',
-        'Eliminant redundàncies que ningú veia.',
-        'Optimitzant fluxos que "sempre s\'havien fet així".',
-        'Resultat: reducció significativa en temps d\'execució.',
-        'Mateixes dades. Menys recursos. Menys factures d\'AWS.'
-      ],
-      punchline: 'De vegades el millor codi és el que elimines.',
-      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS'],
-      featured: true
-    },
-    {
       id: 'wenalyze-migration',
       company: 'Wenalyze',
-      period: '2024',
-      headline: '> D\'Express a NestJS',
+      period: '2024 - 2026',
+      headline: '> Dues migracions. -70% de latència.',
       narrative: [
         '"Hem de migrar el backend."',
         '"Però no podem parar producció."',
         '"I ha d\'estar per a ahir."',
-        'Vaig liderar la migració completa.',
-        'Sense downtime. Sense features trencades.',
-        'Sense el clàssic "ja ho arreglarem després".'
+        'Express s\'havia quedat curt. Firestore, car i lent per al que li demanàvem.',
+        'Abans de tocar res, vaig avaluar alternatives: Express actualitzat, FastAPI, NestJS.',
+        'Vaig preparar plantilles d\'arquitectura, vaig prototipar els mòduls clau i ho vaig portar a consens amb l\'equip.',
+        'Primer, l\'API a NestJS. Després, la base de dades de Firestore a PostgreSQL.',
+        'Sense downtime. Sense features trencades. Sense el clàssic "ja ho arreglarem després".',
+        'Resultat: més d\'un 70% menys de temps de resposta a l\'API.'
       ],
       punchline: 'El codi legacy no fa por. El que fa por és deixar-lo créixer.',
-      technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL']
+      technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL', 'Firestore'],
+      featured: true
+    },
+    {
+      id: 'wenalyze-optimization',
+      company: 'Wenalyze',
+      period: '2024',
+      headline: '> -60% en temps d\'execució',
+      narrative: [
+        'El sistema de scraping portava anys funcionant. Lent, car, fràgil.',
+        'Ningú el tocava perquè "si funciona, no el toques".',
+        'Jo el vaig tocar. No afegint codi: llevant-ne.',
+        'Redundàncies que ningú veia. Fluxos que "sempre s\'havien fet així".',
+        'Resultat: 60% menys de temps d\'execució i +30 fonts Open Data integrades.',
+        'Mateixes dades. Menys recursos. Menys factures d\'AWS.'
+      ],
+      punchline: 'De vegades el millor codi és el que elimines.',
+      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS']
     },
     {
       id: 'wenalyze-sync',
@@ -496,51 +527,67 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       headline: '> Producte complet',
       narrative: [
         'Wenalyze Sync: d\'idea en una pissarra a SaaS en producció.',
-        'Arquitectura. Frontend. API. Desplegament.',
+        'Gestió de despeses per a empreses: reportar una despesa sense guardar tiquets ni factures.',
+        'Arquitectura. Frontend. API. Desplegament a Google Cloud.',
         'Tot, des de la primera línia fins al primer usuari.'
       ],
       punchline: 'Quan algú diu "des de zero", jo escolte "sense excuses si algo falla".',
-      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
+      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind', 'Google Cloud'],
       cta: { text: 'Veure projecte', url: '#projects' }
+    },
+    {
+      id: 'wenalyze-process',
+      company: 'Wenalyze',
+      period: '2024 - 2026',
+      headline: '> Processos, no pedaços',
+      narrative: [
+        'Un equip de cinc no necessita burocràcia.',
+        'Necessita que res no depenga de la memòria de ningú.',
+        'Vaig muntar els pipelines de CI/CD amb GitHub Actions.',
+        'Vaig estandarditzar l\'entorn de desenvolupament quan es van renovar els equips.',
+        'Vaig definir com usem els LLMs per a desenvolupar, i ho vaig anar iterant.',
+        'I vaig fer de pont amb Analytics i Marketing: APIs pensades per als seus dashboards.'
+      ],
+      punchline: 'Un bon procés no es nota. Es nota quan falta.',
+      technologies: ['GitHub Actions', 'CI/CD', 'Code reviews', 'Kanban']
     }
   ],
   gl: [
     {
-      id: 'wenalyze-optimization',
-      company: 'Wenalyze',
-      period: '2024 - Presente',
-      headline: '> Optimización significativa',
-      narrative: [
-        'O sistema de scraping levaba anos funcionando.',
-        '"Funciona" era o único requisito.',
-        'O problema: lento, caro, fráxil.',
-        'Ninguén o tocaba porque "se funciona, non o toques".',
-        'Eu toquei.',
-        'Non engadindo código. Quitando.',
-        'Eliminando redundancias que ninguén vía.',
-        'Optimizando fluxos que "sempre se fixeran así".',
-        'Resultado: redución significativa en tempo de execución.',
-        'Mesmos datos. Menos recursos. Menos facturas de AWS.'
-      ],
-      punchline: 'Ás veces o mellor código é o que eliminas.',
-      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS'],
-      featured: true
-    },
-    {
       id: 'wenalyze-migration',
       company: 'Wenalyze',
-      period: '2024',
-      headline: '> De Express a NestJS',
+      period: '2024 - 2026',
+      headline: '> Dúas migracións. -70% de latencia.',
       narrative: [
         '"Temos que migrar o backend."',
         '"Pero non podemos parar produción."',
         '"E ten que estar para onte."',
-        'Liderei a migración completa.',
-        'Sen downtime. Sen features rotas.',
-        'Sen o clásico "xa o arranxaremos despois".'
+        'Express quedara pequeno. Firestore, caro e lento para o que lle pediamos.',
+        'Antes de tocar nada, avaliei alternativas: Express actualizado, FastAPI, NestJS.',
+        'Preparei modelos de arquitectura, prototipei os módulos clave e leveino a consenso co equipo.',
+        'Primeiro, a API a NestJS. Despois, a base de datos de Firestore a PostgreSQL.',
+        'Sen downtime. Sen features rotas. Sen o clásico "xa o arranxaremos despois".',
+        'Resultado: máis dun 70% menos de tempo de resposta na API.'
       ],
       punchline: 'O código legacy non dá medo. O que dá medo é deixalo crecer.',
-      technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL']
+      technologies: ['TypeScript', 'NestJS', 'Express', 'PostgreSQL', 'Firestore'],
+      featured: true
+    },
+    {
+      id: 'wenalyze-optimization',
+      company: 'Wenalyze',
+      period: '2024',
+      headline: '> -60% en tempo de execución',
+      narrative: [
+        'O sistema de scraping levaba anos funcionando. Lento, caro, fráxil.',
+        'Ninguén o tocaba porque "se funciona, non o toques".',
+        'Eu toqueino. Non engadindo código: quitando.',
+        'Redundancias que ninguén vía. Fluxos que "sempre se fixeran así".',
+        'Resultado: 60% menos tempo de execución e +30 fontes Open Data integradas.',
+        'Mesmos datos. Menos recursos. Menos facturas de AWS.'
+      ],
+      punchline: 'Ás veces o mellor código é o que eliminas.',
+      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'Puppeteer', 'AWS']
     },
     {
       id: 'wenalyze-sync',
@@ -549,12 +596,29 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       headline: '> Produto completo',
       narrative: [
         'Wenalyze Sync: de idea nunha pizarra a SaaS en produción.',
-        'Arquitectura. Frontend. API. Despregue.',
+        'Xestión de gastos para empresas: reportar un gasto sen gardar tiques nin facturas.',
+        'Arquitectura. Frontend. API. Despregue en Google Cloud.',
         'Todo, desde a primeira liña ata o primeiro usuario.'
       ],
       punchline: 'Cando alguén di "desde cero", eu escoito "sen escusas se algo falla".',
-      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
+      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind', 'Google Cloud'],
       cta: { text: 'Ver proxecto', url: '#projects' }
+    },
+    {
+      id: 'wenalyze-process',
+      company: 'Wenalyze',
+      period: '2024 - 2026',
+      headline: '> Procesos, non parches',
+      narrative: [
+        'Un equipo de cinco non precisa burocracia.',
+        'Precisa que nada dependa da memoria de ninguén.',
+        'Montei os pipelines de CI/CD con GitHub Actions.',
+        'Estandaricei o contorno de desenvolvemento cando se renovaron os equipos.',
+        'Definín como usamos os LLMs para desenvolver, e fun iterándoo.',
+        'E fixen de ponte con Analytics e Marketing: APIs pensadas para os seus dashboards.'
+      ],
+      punchline: 'Un bo proceso non se nota. Nótase cando falta.',
+      technologies: ['GitHub Actions', 'CI/CD', 'Code reviews', 'Kanban']
     }
   ]
 };
@@ -576,7 +640,7 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
       {
         key: 'frontend',
         label: 'frontend',
-        items: ['React', 'Angular', 'Astro', 'Tailwind'],
+        items: ['React', 'Next.js', 'Angular', 'Astro', 'Tailwind'],
         comment: 'React para apps complejas. Astro cuando el rendimiento manda.'
       },
       {
@@ -594,8 +658,14 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
       {
         key: 'devops',
         label: 'devops',
-        items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP'],
+        items: ['Git', 'Docker', 'GitHub Actions', 'GCP', 'AWS'],
         comment: 'Si no se despliega fácil, no está terminado.'
+      },
+      {
+        key: 'workflow',
+        label: 'método',
+        items: ['Kanban', 'Code reviews', 'CI/CD', 'Documentación técnica'],
+        comment: 'El proceso justo para que el equipo avance. Ni una reunión de más.'
       }
     ],
     outro: '¿Falta algo? Probablemente lo aprenda antes de que termines de escribir el email.'
@@ -612,7 +682,7 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
       {
         key: 'frontend',
         label: 'frontend',
-        items: ['React', 'Angular', 'Astro', 'Tailwind'],
+        items: ['React', 'Next.js', 'Angular', 'Astro', 'Tailwind'],
         comment: 'React for complex apps. Astro when performance matters.'
       },
       {
@@ -630,8 +700,14 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
       {
         key: 'devops',
         label: 'devops',
-        items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP'],
+        items: ['Git', 'Docker', 'GitHub Actions', 'GCP', 'AWS'],
         comment: 'If it\'s not easy to deploy, it\'s not done.'
+      },
+      {
+        key: 'workflow',
+        label: 'workflow',
+        items: ['Kanban', 'Code reviews', 'CI/CD', 'Technical docs'],
+        comment: 'Just enough process to keep the team moving. Not one meeting more.'
       }
     ],
     outro: 'Missing something? I\'ll probably learn it before you finish typing the email.'
@@ -648,7 +724,7 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
       {
         key: 'frontend',
         label: 'frontend',
-        items: ['React', 'Angular', 'Astro', 'Tailwind'],
+        items: ['React', 'Next.js', 'Angular', 'Astro', 'Tailwind'],
         comment: 'React per apps complexes. Astro quan el rendiment mana.'
       },
       {
@@ -666,8 +742,14 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
       {
         key: 'devops',
         label: 'devops',
-        items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP'],
+        items: ['Git', 'Docker', 'GitHub Actions', 'GCP', 'AWS'],
         comment: 'Si no es desplega fàcil, no està acabat.'
+      },
+      {
+        key: 'workflow',
+        label: 'mètode',
+        items: ['Kanban', 'Code reviews', 'CI/CD', 'Documentació tècnica'],
+        comment: 'El procés just perquè l\'equip avance. Ni una reunió de més.'
       }
     ],
     outro: 'Falta algo? Probablement ho aprenga abans que acabes d\'escriure l\'email.'
@@ -684,7 +766,7 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
       {
         key: 'frontend',
         label: 'frontend',
-        items: ['React', 'Angular', 'Astro', 'Tailwind'],
+        items: ['React', 'Next.js', 'Angular', 'Astro', 'Tailwind'],
         comment: 'React para apps complexas. Astro cando o rendemento manda.'
       },
       {
@@ -702,8 +784,14 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
       {
         key: 'devops',
         label: 'devops',
-        items: ['Git', 'Docker', 'GitHub Actions', 'AWS', 'GCP'],
+        items: ['Git', 'Docker', 'GitHub Actions', 'GCP', 'AWS'],
         comment: 'Se non se desprega fácil, non está rematado.'
+      },
+      {
+        key: 'workflow',
+        label: 'método',
+        items: ['Kanban', 'Code reviews', 'CI/CD', 'Documentación técnica'],
+        comment: 'O proceso xusto para que o equipo avance. Nin unha reunión de máis.'
       }
     ],
     outro: 'Falta algo? Probablemente o aprenda antes de que remates de escribir o email.'
@@ -742,7 +830,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       name: 'wenalyze-sync',
       tagline: 'De "necesitamos un dashboard" a SaaS en producción.',
       narrative: [
-        'Un producto para sincronizar datos empresariales.',
+        'Gestión de gastos para empresas: reportar un gasto sin guardar tickets ni facturas.',
         'Suena corporativo. Suena aburrido.',
         'Lo interesante está en los detalles:',
         '- Arquitectura que optimiza llamadas API',
@@ -827,7 +915,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       name: 'wenalyze-sync',
       tagline: 'From "we need a dashboard" to SaaS in production.',
       narrative: [
-        'A product for syncing enterprise data.',
+        'Expense management for companies: report an expense without keeping a single receipt.',
         'Sounds corporate. Sounds boring.',
         'The interesting part is in the details:',
         '- Architecture that optimizes API calls',
@@ -839,7 +927,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       punchline: 'When you have total ownership, there\'s nowhere to hide. And that\'s fine.',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
-        demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
+        demo: 'https://dashboard.sync.wenalyze.com/'
       }
     },
     {
@@ -912,7 +1000,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       name: 'wenalyze-sync',
       tagline: 'De "necessitem un dashboard" a SaaS en producció.',
       narrative: [
-        'Un producte per sincronitzar dades empresarials.',
+        'Gestió de despeses per a empreses: reportar una despesa sense guardar tiquets ni factures.',
         'Sona corporatiu. Sona avorrit.',
         'L\'interessant està en els detalls:',
         '- Arquitectura que optimitza crides API',
@@ -924,7 +1012,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       punchline: 'Quan tens ownership total, no hi ha on amagar-se. I això està bé.',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
-        demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
+        demo: 'https://dashboard.sync.wenalyze.com/'
       }
     },
     {
@@ -997,7 +1085,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       name: 'wenalyze-sync',
       tagline: 'De "necesitamos un dashboard" a SaaS en produción.',
       narrative: [
-        'Un produto para sincronizar datos empresariais.',
+        'Xestión de gastos para empresas: reportar un gasto sen gardar tiques nin facturas.',
         'Soa corporativo. Soa aburrido.',
         'O interesante está nos detalles:',
         '- Arquitectura que optimiza chamadas API',
@@ -1009,7 +1097,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       punchline: 'Cando tes ownership total, non hai onde esconderse. E iso está ben.',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
-        demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
+        demo: 'https://dashboard.sync.wenalyze.com/'
       }
     },
     {
@@ -1174,7 +1262,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     },
     footer: [
       '// Alcàsser, València',
-      '// Remoto o presencial, lo que tenga más sentido.',
+      '// Remoto, presencial o mudándome: lo que tenga más sentido.',
       '// Zona horaria: CET (pero flexible si el proyecto lo vale).'
     ],
     exitCode: '$ exit 0  // Gracias por scrollear hasta aquí.'
@@ -1208,7 +1296,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     },
     footer: [
       '// Alcasser, València',
-      '// Remote or on-site, whatever makes more sense.',
+      '// Remote, on-site or relocating: whatever makes more sense.',
       '// Timezone: CET (but flexible if the project\'s worth it).'
     ],
     exitCode: '$ exit 0  // Thanks for scrolling this far.'
@@ -1242,7 +1330,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     },
     footer: [
       '// Alcàsser, València',
-      '// Remot o presencial, el que tinga més sentit.',
+      '// Remot, presencial o traslladant-me: el que tinga més sentit.',
       '// Zona horària: CET (però flexible si el projecte ho val).'
     ],
     exitCode: '$ exit 0  // Gràcies per fer scroll fins ací.'
@@ -1276,7 +1364,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     },
     footer: [
       '// Alcàsser, València',
-      '// Remoto ou presencial, o que teña máis sentido.',
+      '// Remoto, presencial ou mudándome: o que teña máis sentido.',
       '// Zona horaria: CET (pero flexible se o proxecto o vale).'
     ],
     exitCode: '$ exit 0  // Grazas por scrollear ata aquí.'

@@ -23,3 +23,11 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 supabase/.temp/
+
+# Private, application-specific documents: cover letters and tailored CVs.
+# The dev-only routes (/letter/*, /cv/*) pick them up when present; see src/lib/private-letters.ts and private-cvs.ts.
+src/letters/
+src/cvs/
+
+# Files the Claude desktop app saves into the project (CV and cover letter PDFs)
+Claude outputs/

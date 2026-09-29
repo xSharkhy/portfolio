@@ -62,6 +62,12 @@ export default function Experience({ lang }: ExperienceProps) {
                   prefersReducedMotion,
                   strictViewport
                 )}
+                // An odd card out spans both columns instead of leaving a hole in the grid
+                className={
+                  secondaryExps.length % 2 === 1 && index === secondaryExps.length - 1
+                    ? 'md:col-span-2'
+                    : undefined
+                }
               >
                 <ExperienceCard
                   experience={exp}

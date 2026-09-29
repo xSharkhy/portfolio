@@ -157,6 +157,26 @@ function bodyToHtml(body: string[]): string {
 </html>`.trim()
 }
 
+// Escape user input before interpolating it into HTML emails.
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+const MAX_EMAIL_LENGTH = 254
+const MAX_MESSAGE_LENGTH = 2000
+// Each address gets the CV at most once a day, and the form sends at most this many
+// emails per hour overall. Together they stop the form being used to mail the CV to
+// lists of strangers from this domain (the per-IP limit alone relies on a spoofable header).
+const EMAIL_WINDOW_HOURS = 24
+const GLOBAL_HOURLY_LIMIT = Number(Deno.env.get('CONTACT_GLOBAL_HOURLY_LIMIT') ?? '20')
+
+const hoursAgo = (hours: number) => new Date(Date.now() - hours * 60 * 60 * 1000).toISOString()
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -199,7 +219,11 @@ Deno.serve(async (req) => {
     const personalEmail = Deno.env.get('PERSONAL_EMAIL') ?? ''
 
     const body: ContactRequest = await req.json()
-    const { email, message, lang, honeypot } = body
+    const { lang, honeypot } = body
+    const email = typeof body.email === 'string' ? body.email.trim().toLowerCase() : ''
+    const message = typeof body.message === 'string'
+      ? body.message.slice(0, MAX_MESSAGE_LENGTH)
+      : undefined
 
     // Anti-bot: honeypot should be empty
     if (honeypot) {
@@ -211,7 +235,7 @@ Deno.serve(async (req) => {
 
     // Validate
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!email || !emailRegex.test(email)) {
+    if (!email || email.length > MAX_EMAIL_LENGTH || !emailRegex.test(email)) {
       return new Response(
         JSON.stringify({ error: 'invalid_email' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -243,6 +267,30 @@ Deno.serve(async (req) => {
     })
 
     if (!withinLimit) {
+      return new Response(
+        JSON.stringify({ error: 'rate_limit' }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Same address once a day + global hourly cap (see constants above)
+    const [recentForEmail, recentOverall] = await Promise.all([
+      supabase.from('contacts').select('id', { count: 'exact', head: true })
+        .eq('email', email)
+        .gte('created_at', hoursAgo(EMAIL_WINDOW_HOURS)),
+      supabase.from('contacts').select('id', { count: 'exact', head: true })
+        .gte('created_at', hoursAgo(1)),
+    ])
+
+    if (recentForEmail.error || recentOverall.error) {
+      console.error('Rate limit query failed:', recentForEmail.error ?? recentOverall.error)
+      return new Response(
+        JSON.stringify({ error: 'db_error' }),
+        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    if ((recentForEmail.count ?? 0) >= 1 || (recentOverall.count ?? 0) >= GLOBAL_HOURLY_LIMIT) {
       return new Response(
         JSON.stringify({ error: 'rate_limit' }),
         { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
@@ -284,8 +332,8 @@ Deno.serve(async (req) => {
       gl: 'CV_Ismael_Morejon_GL.pdf',
     }
 
-    // Send email to user with CV attached
-    await resend.emails.send({
+    // Send email to user with CV attached. Resend reports failures in `error`, it doesn't throw.
+    const { error: sendError } = await resend.emails.send({
       from: 'Ismael Morejón <hola@ismobla.dev>',
       to: email,
       subject: template.subject,
@@ -298,18 +346,31 @@ Deno.serve(async (req) => {
       ] : [],
     })
 
-    // Notify me
-    await resend.emails.send({
+    if (sendError) {
+      console.error('Resend error (CV email):', sendError)
+      return new Response(
+        JSON.stringify({ error: 'email_error' }),
+        { status: 502, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Notify me (user input is escaped: it's interpolated into HTML)
+    const { error: notifyError } = await resend.emails.send({
       from: 'Portfolio <hola@ismobla.dev>',
       to: personalEmail,
       subject: `🔔 Nuevo contacto: ${email}`,
       html: `
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
         <p><strong>Idioma:</strong> ${lang.toUpperCase()}</p>
-        ${message ? `<p><strong>Mensaje:</strong> ${message}</p>` : ''}
+        ${message ? `<p><strong>Mensaje:</strong> ${escapeHtml(message)}</p>` : ''}
         <p><small>${new Date().toISOString()}</small></p>
       `,
     })
+
+    if (notifyError) {
+      // The visitor already got their email; don't fail the request over the notification
+      console.error('Resend error (notification):', notifyError)
+    }
 
     return new Response(
       JSON.stringify({ success: true }),

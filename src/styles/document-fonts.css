@@ -1,0 +1,35 @@
+/*
+ * Static (non-variable) Geist for print-oriented pages: CV and cover letters.
+ *
+ * Chromium embeds variable fonts in PDFs as Type 3 fonts, which many ATS parsers
+ * can't read reliably. Static weights are embedded as regular TrueType fonts, so
+ * the exported PDF keeps clean, extractable text. Same typeface, same look.
+ * Geist is licensed under the SIL Open Font License (see /fonts/static/OFL.txt).
+ */
+@font-face { font-family: 'Geist Doc'; src: url('/fonts/static/Geist-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Doc'; src: url('/fonts/static/Geist-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Doc'; src: url('/fonts/static/Geist-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Doc'; src: url('/fonts/static/Geist-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Geist Mono Doc'; src: url('/fonts/static/GeistMono-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Mono Doc'; src: url('/fonts/static/GeistMono-Medium.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Mono Doc'; src: url('/fonts/static/GeistMono-SemiBold.woff2') format('woff2'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Geist Mono Doc'; src: url('/fonts/static/GeistMono-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+
+/* Point the theme's font tokens at the static families on these pages (screen and print). */
+html:root {
+  --font-sans: 'Geist Doc', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono Doc', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+@media print {
+  /* Ligatures (fi, fl…) can come out of PDFs as single glyphs that parsers misread. */
+  html, body, * {
+    font-variant-ligatures: none;
+    font-feature-settings: 'liga' 0, 'clig' 0;
+    /* Kerning makes Chromium split runs ("W enalyze") that some parsers read as spaces */
+    font-kerning: none;
+    /* Unhinted glyph placement: avoids pixel-snapped gaps parsers read as spaces */
+    text-rendering: geometricPrecision;
+  }
+}

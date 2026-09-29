@@ -24,14 +24,15 @@ function formatPeriod(start: string, end: string | null): string {
   <div class="space-y-3">
     {education.map(edu => (
       <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-x-4 border-l-2 border-[--color-border-highlight] print:border-gray-300 pl-3 py-0.5">
-        <div class="flex items-baseline gap-2 flex-wrap">
+        <div class="flex items-baseline gap-2 print:gap-1 flex-wrap">
           <span class="font-medium text-[--color-text-bright] print:text-black font-sans">{edu.area}</span>
+          <span class="hidden print:inline text-gray-400" aria-hidden="true">&nbsp;·&nbsp;</span>
           <span class="text-sm text-[--color-text-muted] print:text-gray-600">
             {edu.studyType} · {edu.institution}
           </span>
         </div>
         <span class="text-xs text-[--color-text-muted] print:text-gray-500 font-mono shrink-0">
-          {formatPeriod(edu.startDate, edu.endDate)}
+          {edu.status ?? formatPeriod(edu.startDate, edu.endDate)}
         </span>
       </div>
     ))}

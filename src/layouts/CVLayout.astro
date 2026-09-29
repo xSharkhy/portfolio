@@ -1,6 +1,7 @@
 ---
 import Head from '@/components/Head.astro'
 import '@/styles/global.css'
+import '@/styles/document-fonts.css'
 
 import type { Lang } from '@/data/i18n'
 import { t } from '@/data/i18n'
@@ -9,15 +10,25 @@ interface Props {
   title: string
   description?: string
   lang?: Lang
+  /** Tighter print rhythm so denser, application-specific CVs fit on one A4 page */
+  compact?: boolean
 }
 
-const { title, description = '', lang = 'es' } = Astro.props
+const { title, description = '', lang = 'es', compact = false } = Astro.props
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} class:list={[{ 'cv-compact': compact }]}>
   <head>
     <Head title={title} description={description} />
+    <script is:inline>
+      // Load every static weight up front: some are only used by print styles, and the
+      // browser would otherwise fetch them lazily and could print before they arrive.
+      for (const w of [400, 500, 600, 700]) {
+        document.fonts.load(`${w} 1em "Geist Doc"`)
+        document.fonts.load(`${w} 1em "Geist Mono Doc"`)
+      }
+    </script>
     <style is:global>
       /* CV-specific styles — Editorial Terminal print aesthetic */
       @media print {
@@ -36,7 +47,7 @@ const { title, description = '', lang = 'es' } = Astro.props
           line-height: 1.5;
           background: white !important;
           color: #1a1a1a !important;
-          font-family: 'Geist', system-ui, sans-serif;
+          font-family: var(--font-sans);
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
         }
@@ -58,10 +69,6 @@ const { title, description = '', lang = 'es' } = Astro.props
           break-after: avoid;
         }
 
-        /* Tighter list rhythm */
-        ul, ol {
-          margin: 0;
-        }
 
         ul li + li {
           margin-top: 0.3rem;
@@ -101,12 +108,13 @@ const { title, description = '', lang = 'es' } = Astro.props
           font-size: 10.5pt !important;
           font-weight: 700 !important;
           text-transform: uppercase;
-          letter-spacing: 0.12em;
+          /* No tracking: spaced-out capitals get extracted as broken words ("EXPER IEN C IA") */
+          letter-spacing: 0 !important;
           color: #1a1a1a !important;
           margin-bottom: 0.65rem !important;
           padding-bottom: 0.25rem;
           border-bottom: 1px solid var(--print-rule);
-          font-family: 'Geist Mono', ui-monospace, monospace !important;
+          font-family: var(--font-mono) !important;
         }
 
         /* Accent helpers used by cv components in print only */
@@ -114,13 +122,33 @@ const { title, description = '', lang = 'es' } = Astro.props
           color: var(--print-accent) !important;
         }
 
+        /* Compact variant: same look, tighter rhythm (html font-size drives every rem) */
+        html.cv-compact,
+        html.cv-compact body {
+          font-size: 9.4pt;
+          line-height: 1.4;
+        }
+
+        html.cv-compact .print-header {
+          padding-bottom: 0.5rem;
+          margin-bottom: 0.8rem;
+        }
+
+        html.cv-compact .print-section {
+          margin-bottom: 0.9rem;
+        }
+
+        html.cv-compact ul li + li {
+          margin-top: 0.15rem;
+        }
+
         /* Font utilities */
         .font-mono {
-          font-family: 'Geist Mono', ui-monospace, monospace !important;
+          font-family: var(--font-mono) !important;
         }
 
         .font-sans {
-          font-family: 'Geist', system-ui, sans-serif !important;
+          font-family: var(--font-sans) !important;
         }
       }
 
@@ -144,7 +172,7 @@ const { title, description = '', lang = 'es' } = Astro.props
           <span class="text-[--color-text-dark]">&lt;</span> {t(lang, 'cv.back')}
         </a>
         <button
-          onclick="window.print()"
+          onclick="document.fonts.ready.then(() => window.print())"
           class="px-4 py-2 bg-[--color-bg-surface] border border-[--color-border] rounded text-sm text-[--color-text-muted] hover:text-[--color-accent-primary] hover:border-[--color-accent-primary] transition-colors"
         >
           {t(lang, 'cv.print')}

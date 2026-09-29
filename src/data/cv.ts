@@ -39,6 +39,7 @@ export interface Basics {
   url: string;
   summary: string;
   introduction: string; // NEW: Short intro for CV
+  availability?: string; // Optional line shown next to location (e.g. geographic mobility)
   location: Location;
   profiles: Profile[];
 }
@@ -60,6 +61,7 @@ export interface Education {
   studyType: string;
   startDate: string;
   endDate: string | null;
+  status?: string; // Optional label that replaces the period (e.g. "En preparación")
 }
 
 export interface Project {
@@ -86,7 +88,7 @@ export const skillCategories: SkillCategory[] = [
   {
     key: 'frontend',
     label: { es: 'frontend', en: 'frontend', ca: 'frontend', gl: 'frontend' },
-    items: ['React', 'Angular', 'Astro', 'Tailwind CSS']
+    items: ['React', 'Next.js', 'Angular', 'Astro', 'Tailwind CSS']
   },
   {
     key: 'backend',
@@ -106,7 +108,7 @@ export const skillCategories: SkillCategory[] = [
   {
     key: 'devops',
     label: { es: 'devops & workflow', en: 'devops & workflow', ca: 'devops & workflow', gl: 'devops & workflow' },
-    items: ['Git', 'Docker', 'CI/CD', 'AWS', 'GCP', 'Agile']
+    items: ['Git', 'Docker', 'GitHub Actions', 'CI/CD', 'GCP', 'AWS', 'Agile']
   }
 ];
 
@@ -161,8 +163,9 @@ const basics: Record<Lang, Basics> = {
     email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer. Construyo productos SaaS de punta a punta: desde el dashboard que ve el cliente hasta el sistema que mueve los datos por debajo. He diseñado Wenalyze Sync con Astro y React, liderado la migración de Express a NestJS y reducido un 60% los tiempos de ejecución de sistemas críticos. Mi obsesión: que el producto funcione rápido y no se rompa.',
+    introduction: 'Full Stack Developer. Construyo productos SaaS de punta a punta: desde el dashboard que ve el cliente hasta el sistema que mueve los datos por debajo. En Wenalyze diseñé Wenalyze Sync desde cero, lideré la migración a NestJS y PostgreSQL (más de un 70% menos de tiempo de respuesta en la API) y reduje un 60% el tiempo de ejecución del scraping. Mi obsesión: que el producto funcione rápido y no se rompa.',
     summary: 'Construyo productos SaaS de punta a punta. Dashboards en Astro/React y backends que recortan un 60% los tiempos de ejecución. Que funcione. Que no se rompa.',
+    availability: 'Abierto a movilidad geográfica',
     location: { ...baseLocation, region: 'València' },
     profiles
   },
@@ -173,8 +176,9 @@ const basics: Record<Lang, Basics> = {
     email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer. I build SaaS products end to end: from the dashboard the customer sees to the system moving data underneath. I designed Wenalyze Sync with Astro and React, led the Express to NestJS migration, and cut execution time by 60% on critical systems. What I care about: shipping products that run fast and don\'t break.',
+    introduction: 'Full Stack Developer. I build SaaS products end to end: from the dashboard the customer sees to the system moving data underneath. At Wenalyze I designed Wenalyze Sync from scratch, led the migration to NestJS and PostgreSQL (over 70% lower API response times) and cut scraping execution time by 60%. What I care about: shipping products that run fast and don\'t break.',
     summary: 'I build SaaS products end to end. Dashboards in Astro/React and backends that cut execution time by 60%. Make it fast. Make it ship. Don\'t break it.',
+    availability: 'Open to relocation',
     location: { ...baseLocation, region: 'València, Spain' },
     profiles
   },
@@ -185,8 +189,9 @@ const basics: Record<Lang, Basics> = {
     email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer. Construeixo productes SaaS de punta a punta: des del dashboard que veu el client fins al sistema que mou les dades per sota. He dissenyat Wenalyze Sync amb Astro i React, liderat la migració d\'Express a NestJS i reduït un 60% els temps d\'execució de sistemes crítics. La meva fixació: que el producte vagi ràpid i no es trenqui.',
+    introduction: 'Full Stack Developer. Construeixo productes SaaS de punta a punta: des del dashboard que veu el client fins al sistema que mou les dades per sota. A Wenalyze vaig dissenyar Wenalyze Sync des de zero, vaig liderar la migració a NestJS i PostgreSQL (més d\'un 70% menys de temps de resposta a l\'API) i vaig reduir un 60% el temps d\'execució del scraping. La meva fixació: que el producte vagi ràpid i no es trenqui.',
     summary: 'Construeixo productes SaaS de punta a punta. Dashboards amb Astro/React i backends que retallen un 60% els temps d\'execució. Que vagi ràpid. Que no es trenqui.',
+    availability: 'Obert a mobilitat geogràfica',
     location: { ...baseLocation, region: 'València' },
     profiles
   },
@@ -197,8 +202,9 @@ const basics: Record<Lang, Basics> = {
     email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer. Constrúo produtos SaaS de punta a punta: desde o panel que ve o cliente ata o sistema que move os datos por debaixo. Deseñei Wenalyze Sync con Astro e React, liderei a migración de Express a NestJS e reducín un 60% os tempos de execución de sistemas críticos. O meu empeño: rematar produtos que funcionen rápido e non se rompan.',
+    introduction: 'Full Stack Developer. Constrúo produtos SaaS de punta a punta: desde o panel que ve o cliente ata o sistema que move os datos por debaixo. En Wenalyze deseñei Wenalyze Sync desde cero, liderei a migración a NestJS e PostgreSQL (máis dun 70% menos de tempo de resposta na API) e reducín un 60% o tempo de execución do scraping. O meu empeño: rematar produtos que funcionen rápido e non se rompan.',
     summary: 'Constrúo produtos SaaS de punta a punta. Paneis en Astro/React e backends que recortan un 60% os tempos de execución. Que vaia rápido. Que non se rompa.',
+    availability: 'Aberto a mobilidade xeográfica',
     location: { ...baseLocation, region: 'València' },
     profiles
   }
@@ -212,15 +218,16 @@ const experiences: Record<Lang, Experience[]> = {
       position: 'Full Stack Developer',
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
-      endDate: null,
+      endDate: '2026-08',
       summary: 'Plataforma de inteligencia de datos para empresas. Desarrollo full stack: desde arquitectura de scrapers hasta productos SaaS completos.',
       highlights: [
-        'Optimicé sistema de scraping: 60% menos tiempo de ejecución, +30 fuentes Open Data integradas (proxy rotation, rate limiting, reintentos)',
-        'Diseñé y desarrollé Wenalyze Sync (dashboard SaaS) desde cero: Astro + React + ShadCN, producto en producción con clientes reales',
-        'Lideré migración de arquitectura Express → NestJS (TypeScript): módulos desacoplados, tipado estricto y caching estratégico',
-        'Colaboración cross-team con Analytics: APIs REST optimizadas para dashboards BI con datasets de alto volumen'
+        'Lideré la migración de la API de Express a NestJS y de la base de datos de Firestore a PostgreSQL: más de un 70% menos de tiempo de respuesta en la API',
+        'Diseñé y desarrollé Wenalyze Sync desde cero: SaaS de gestión de gastos empresariales (Astro + React + ShadCN) desplegado en Google Cloud, en producción con clientes reales',
+        'Optimicé el sistema de scraping: 60% menos tiempo de ejecución y +30 fuentes Open Data integradas (proxy rotation, rate limiting, reintentos)',
+        'Construí los pipelines de CI/CD con GitHub Actions, estandaricé el entorno de desarrollo y definí las pautas de uso de LLMs del equipo',
+        'Colaboración cross-team con Analytics y Marketing: APIs REST optimizadas para dashboards BI con datasets de alto volumen'
       ],
-      technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
+      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'React', 'Astro', 'Next.js', 'Angular', 'Google Cloud', 'GitHub Actions', 'Puppeteer', 'AWS']
     },
     {
       name: 'La Mina Estudio',
@@ -243,15 +250,16 @@ const experiences: Record<Lang, Experience[]> = {
       position: 'Full Stack Developer',
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
-      endDate: null,
+      endDate: '2026-08',
       summary: 'Data intelligence platform for businesses. Full stack development: from scraper architecture to complete SaaS products.',
       highlights: [
-        'Optimized scraping system: 60% faster execution, +30 Open Data sources integrated (proxy rotation, rate limiting, retries)',
-        'Designed and developed Wenalyze Sync (SaaS dashboard) from scratch: Astro + React + ShadCN, product in production with real customers',
-        'Led architecture migration Express → NestJS (TypeScript): decoupled modules, strict typing, and strategic caching',
-        'Cross-team collaboration with Analytics: optimized REST APIs for BI dashboards handling high-volume datasets'
+        'Led the API migration from Express to NestJS and the database migration from Firestore to PostgreSQL: over 70% lower API response times',
+        'Designed and built Wenalyze Sync from scratch: expense management SaaS (Astro + React + ShadCN) deployed on Google Cloud, in production with real customers',
+        'Optimized the scraping system: 60% less execution time and 30+ Open Data sources integrated (proxy rotation, rate limiting, retries)',
+        'Built the CI/CD pipelines with GitHub Actions, standardized the dev environment and defined the team\'s LLM usage guidelines',
+        'Cross-team collaboration with Analytics and Marketing: optimized REST APIs for BI dashboards handling high-volume datasets'
       ],
-      technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
+      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'React', 'Astro', 'Next.js', 'Angular', 'Google Cloud', 'GitHub Actions', 'Puppeteer', 'AWS']
     },
     {
       name: 'La Mina Estudio',
@@ -274,15 +282,16 @@ const experiences: Record<Lang, Experience[]> = {
       position: 'Full Stack Developer',
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
-      endDate: null,
+      endDate: '2026-08',
       summary: 'Plataforma d\'intel·ligència de dades per a empreses. Desenvolupament full stack: des d\'arquitectura de scrapers fins a productes SaaS complets.',
       highlights: [
-        'Vaig optimitzar sistema de scraping: 60% menys temps d\'execució, +30 fonts Open Data integrades (proxy rotation, rate limiting, reintents)',
-        'Vaig dissenyar i desenvolupar Wenalyze Sync (dashboard SaaS) des de zero: Astro + React + ShadCN, producte en producció amb clients reals',
-        'Vaig liderar migració d\'arquitectura Express → NestJS (TypeScript): mòduls desacoblats, tipat estricte i caching estratègic',
-        'Col·laboració cross-team amb Analytics: APIs REST optimitzades per a dashboards BI amb datasets d\'alt volum'
+        'Vaig liderar la migració de l\'API d\'Express a NestJS i de la base de dades de Firestore a PostgreSQL: més d\'un 70% menys de temps de resposta a l\'API',
+        'Vaig dissenyar i desenvolupar Wenalyze Sync des de zero: SaaS de gestió de despeses empresarials (Astro + React + ShadCN) desplegat a Google Cloud, en producció amb clients reals',
+        'Vaig optimitzar el sistema de scraping: 60% menys de temps d\'execució i +30 fonts Open Data integrades (proxy rotation, rate limiting, reintents)',
+        'Vaig construir els pipelines de CI/CD amb GitHub Actions, vaig estandarditzar l\'entorn de desenvolupament i vaig definir les pautes d\'ús de LLMs de l\'equip',
+        'Col·laboració cross-team amb Analytics i Marketing: APIs REST optimitzades per a dashboards BI amb datasets d\'alt volum'
       ],
-      technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
+      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'React', 'Astro', 'Next.js', 'Angular', 'Google Cloud', 'GitHub Actions', 'Puppeteer', 'AWS']
     },
     {
       name: 'La Mina Estudio',
@@ -305,15 +314,16 @@ const experiences: Record<Lang, Experience[]> = {
       position: 'Full Stack Developer',
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
-      endDate: null,
+      endDate: '2026-08',
       summary: 'Plataforma de intelixencia de datos para empresas. Desenvolvemento full stack: desde arquitectura de scrapers ata produtos SaaS completos.',
       highlights: [
-        'Optimicei sistema de scraping: 60% menos tempo de execución, +30 fontes Open Data integradas (proxy rotation, rate limiting, reintentos)',
-        'Deseñei e desenvolvín Wenalyze Sync (dashboard SaaS) desde cero: Astro + React + ShadCN, produto en produción con clientes reais',
-        'Liderei migración de arquitectura Express → NestJS (TypeScript): módulos desacoplados, tipado estrito e caching estratéxico',
-        'Colaboración cross-team con Analytics: APIs REST optimizadas para dashboards BI con datasets de alto volume'
+        'Liderei a migración da API de Express a NestJS e da base de datos de Firestore a PostgreSQL: máis dun 70% menos de tempo de resposta na API',
+        'Deseñei e desenvolvín Wenalyze Sync desde cero: SaaS de xestión de gastos empresariais (Astro + React + ShadCN) despregado en Google Cloud, en produción con clientes reais',
+        'Optimicei o sistema de scraping: 60% menos tempo de execución e +30 fontes Open Data integradas (proxy rotation, rate limiting, reintentos)',
+        'Construín os pipelines de CI/CD con GitHub Actions, estandaricei o contorno de desenvolvemento e definín as pautas de uso de LLMs do equipo',
+        'Colaboración cross-team con Analytics e Marketing: APIs REST optimizadas para dashboards BI con datasets de alto volume'
       ],
-      technologies: ['TypeScript', 'NestJS', 'Angular', 'React', 'Astro', 'PostgreSQL', 'Puppeteer', 'AWS']
+      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'React', 'Astro', 'Next.js', 'Angular', 'Google Cloud', 'GitHub Actions', 'Puppeteer', 'AWS']
     },
     {
       name: 'La Mina Estudio',
@@ -335,13 +345,6 @@ const experiences: Record<Lang, Experience[]> = {
 const education: Record<Lang, Education[]> = {
   es: [
     {
-      institution: 'IES Serpis',
-      area: 'Desarrollo de Aplicaciones Multiplataforma',
-      studyType: 'CFGS',
-      startDate: '2024',
-      endDate: null
-    },
-    {
       institution: 'IES Abastos',
       area: 'Videojuegos y Realidad Virtual',
       studyType: 'Especialización',
@@ -357,13 +360,6 @@ const education: Record<Lang, Education[]> = {
     }
   ],
   en: [
-    {
-      institution: 'IES Serpis',
-      area: 'Cross-Platform App Development',
-      studyType: 'Higher Degree',
-      startDate: '2024',
-      endDate: null
-    },
     {
       institution: 'IES Abastos',
       area: 'Game Dev & Virtual Reality',
@@ -381,13 +377,6 @@ const education: Record<Lang, Education[]> = {
   ],
   ca: [
     {
-      institution: 'IES Serpis',
-      area: 'Desenvolupament d\'Aplicacions Multiplataforma',
-      studyType: 'CFGS',
-      startDate: '2024',
-      endDate: null
-    },
-    {
       institution: 'IES Abastos',
       area: 'Videojocs i Realitat Virtual',
       studyType: 'Especialització',
@@ -403,13 +392,6 @@ const education: Record<Lang, Education[]> = {
     }
   ],
   gl: [
-    {
-      institution: 'IES Serpis',
-      area: 'Desenvolvemento de Aplicacións Multiplataforma',
-      studyType: 'CFGS',
-      startDate: '2024',
-      endDate: null
-    },
     {
       institution: 'IES Abastos',
       area: 'Videoxogos e Realidade Virtual',
@@ -444,13 +426,13 @@ export const projects: Project[] = [
   {
     name: 'wenalyze-sync',
     description: {
-      es: 'Producto SaaS para sincronización de datos empresariales. Dashboard que diseñé y desarrollé desde cero con arquitectura optimizada.',
-      en: 'SaaS product for enterprise data synchronization. Dashboard I designed and built from scratch with optimized architecture.',
-      ca: 'Producte SaaS per a sincronització de dades empresarials. Dashboard que vaig dissenyar i desenvolupar des de zero amb arquitectura optimitzada.',
-      gl: 'Produto SaaS para sincronización de datos empresariais. Dashboard que deseñei e desenvolvín desde cero con arquitectura optimizada.'
+      es: 'SaaS de gestión de gastos empresariales: reportar gastos sin guardar tickets ni facturas. Lo diseñé y desarrollé desde cero.',
+      en: 'Expense management SaaS: report business expenses without keeping receipts or invoices. Designed and built from scratch.',
+      ca: 'SaaS de gestió de despeses empresarials: reportar despeses sense guardar tiquets ni factures. El vaig dissenyar i desenvolupar des de zero.',
+      gl: 'SaaS de xestión de gastos empresariais: reportar gastos sen gardar tiques nin facturas. Deseñeino e desenvolvino desde cero.'
     },
     technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
-    demo: 'https://dashboard-sync-alpha-265753872230.europe-west1.run.app/es/'
+    demo: 'https://dashboard.sync.wenalyze.com/'
   },
   {
     name: 'portfolio',
