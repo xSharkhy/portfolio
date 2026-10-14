@@ -83,32 +83,32 @@ export const skillCategories: SkillCategory[] = [
   {
     key: 'code',
     label: { es: 'lenguajes', en: 'languages', ca: 'llenguatges', gl: 'linguaxes' },
-    items: ['TypeScript', 'JavaScript', 'Python', 'PHP']
+    items: ['TypeScript', 'JavaScript', 'SQL']
   },
   {
     key: 'frontend',
     label: { es: 'frontend', en: 'frontend', ca: 'frontend', gl: 'frontend' },
-    items: ['React', 'Next.js', 'Angular', 'Astro', 'Tailwind CSS']
+    items: ['React', 'Next.js', 'Astro', 'Angular', 'Tailwind CSS']
   },
   {
     key: 'backend',
     label: { es: 'backend', en: 'backend', ca: 'backend', gl: 'backend' },
-    items: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'WebSockets']
+    items: ['Node.js', 'NestJS', 'Express', 'REST APIs', 'NextAuth', 'Puppeteer', 'Playwright']
   },
   {
     key: 'data',
     label: { es: 'datos', en: 'data', ca: 'dades', gl: 'datos' },
-    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Firestore']
-  },
-  {
-    key: 'scraping',
-    label: { es: 'scraping & ETL', en: 'scraping & ETL', ca: 'scraping & ETL', gl: 'scraping & ETL' },
-    items: ['Puppeteer', 'Playwright', 'Data Extraction', 'ETL Pipelines']
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Firestore', 'Drizzle ORM', 'ETL']
   },
   {
     key: 'devops',
     label: { es: 'devops & workflow', en: 'devops & workflow', ca: 'devops & workflow', gl: 'devops & workflow' },
-    items: ['Git', 'Docker', 'GitHub Actions', 'CI/CD', 'GCP', 'AWS', 'Agile']
+    items: ['Docker', 'Git', 'GitHub Actions', 'CI/CD', 'Google Cloud', 'AWS', 'Agile', 'AI-assisted development (Claude)']
+  },
+  {
+    key: 'training',
+    label: { es: 'formación', en: 'training', ca: 'formació', gl: 'formación' },
+    items: ['PHP', 'Laravel', 'Java', 'Python', 'Unreal Engine 5', 'Blender', 'Photoshop', 'Illustrator']
   }
 ];
 
@@ -158,12 +158,12 @@ const baseLocation = {
 const basics: Record<Lang, Basics> = {
   es: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer · Producto, performance y datos',
+    label: 'Full Stack Developer · TypeScript, NestJS, Next.js y PostgreSQL',
     image: '/profile.webp',
     email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer. Construyo productos SaaS de punta a punta: desde el dashboard que ve el cliente hasta el sistema que mueve los datos por debajo. En Wenalyze diseñé Wenalyze Sync desde cero, lideré la migración a NestJS y PostgreSQL (más de un 70% menos de tiempo de respuesta en la API) y reduje un 60% el tiempo de ejecución del scraping. Mi obsesión: que el producto funcione rápido y no se rompa.',
+    introduction: 'Full Stack Developer con más de 2 años construyendo producto SaaS de punta a punta, del diseño de la interfaz al modelo de datos. Me gusta entender el problema antes de escribir código, y que lo que lanzo funcione rápido y no se rompa.',
     summary: 'Construyo productos SaaS de punta a punta. Dashboards en Astro/React y backends que recortan un 60% los tiempos de ejecución. Que funcione. Que no se rompa.',
     availability: 'Abierto a movilidad geográfica',
     location: { ...baseLocation, region: 'València' },
@@ -171,12 +171,12 @@ const basics: Record<Lang, Basics> = {
   },
   en: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer — Product, Performance & Data',
+    label: 'Full Stack Developer · TypeScript, NestJS, Next.js & PostgreSQL',
     image: '/profile.webp',
     email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer. I build SaaS products end to end: from the dashboard the customer sees to the system moving data underneath. At Wenalyze I designed Wenalyze Sync from scratch, led the migration to NestJS and PostgreSQL (over 70% lower API response times) and cut scraping execution time by 60%. What I care about: shipping products that run fast and don\'t break.',
+    introduction: 'Full Stack Developer with over 2 years building SaaS products end to end, from interface design to data model. I like to understand the problem before writing code, and to ship things that run fast and don\'t break.',
     summary: 'I build SaaS products end to end. Dashboards in Astro/React and backends that cut execution time by 60%. Make it fast. Make it ship. Don\'t break it.',
     availability: 'Open to relocation',
     location: { ...baseLocation, region: 'València, Spain' },
@@ -184,12 +184,12 @@ const basics: Record<Lang, Basics> = {
   },
   ca: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer · Producte, rendiment i dades',
+    label: 'Full Stack Developer · TypeScript, NestJS, Next.js i PostgreSQL',
     image: '/profile.webp',
     email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer. Construeixo productes SaaS de punta a punta: des del dashboard que veu el client fins al sistema que mou les dades per sota. A Wenalyze vaig dissenyar Wenalyze Sync des de zero, vaig liderar la migració a NestJS i PostgreSQL (més d\'un 70% menys de temps de resposta a l\'API) i vaig reduir un 60% el temps d\'execució del scraping. La meva fixació: que el producte vagi ràpid i no es trenqui.',
+    introduction: 'Full Stack Developer amb més de 2 anys construint producte SaaS de punta a punta, del disseny de la interfície al model de dades. M\'agrada entendre el problema abans d\'escriure codi, i que el que llance vaja ràpid i no es trenque.',
     summary: 'Construeixo productes SaaS de punta a punta. Dashboards amb Astro/React i backends que retallen un 60% els temps d\'execució. Que vagi ràpid. Que no es trenqui.',
     availability: 'Obert a mobilitat geogràfica',
     location: { ...baseLocation, region: 'València' },
@@ -197,12 +197,12 @@ const basics: Record<Lang, Basics> = {
   },
   gl: {
     name: 'Ismael Morejón',
-    label: 'Full Stack Developer · Produto, rendemento e datos',
+    label: 'Full Stack Developer · TypeScript, NestJS, Next.js e PostgreSQL',
     image: '/profile.webp',
     email: 'hola@ismobla.dev',
     phone: '+34 627108409',
     url: 'https://ismobla.dev',
-    introduction: 'Full Stack Developer. Constrúo produtos SaaS de punta a punta: desde o panel que ve o cliente ata o sistema que move os datos por debaixo. En Wenalyze deseñei Wenalyze Sync desde cero, liderei a migración a NestJS e PostgreSQL (máis dun 70% menos de tempo de resposta na API) e reducín un 60% o tempo de execución do scraping. O meu empeño: rematar produtos que funcionen rápido e non se rompan.',
+    introduction: 'Full Stack Developer con máis de 2 anos construíndo produto SaaS de punta a punta, do deseño da interface ao modelo de datos. Gústame entender o problema antes de escribir código, e que o que lanzo vaia rápido e non se rompa.',
     summary: 'Constrúo produtos SaaS de punta a punta. Paneis en Astro/React e backends que recortan un 60% os tempos de execución. Que vaia rápido. Que non se rompa.',
     availability: 'Aberto a mobilidade xeográfica',
     location: { ...baseLocation, region: 'València' },
@@ -214,52 +214,79 @@ const basics: Record<Lang, Basics> = {
 const experiences: Record<Lang, Experience[]> = {
   es: [
     {
+      name: 'gestió-renda',
+      position: 'Desarrollador (proyecto propio)',
+      url: 'https://ismobla.dev/dossier/gestio-renda-es.pdf',
+      startDate: '2026-05',
+      endDate: null,
+      summary: 'ERP en producción para un cliente real, una correduría de seguros que gestiona con él su campaña de la renta. Lo desarrollo de cero y en solitario; empezó como side project en paralelo a Wenalyze.',
+      highlights: [
+        'Flujo de estados de cada declaración (reservada → en revisión → cerrada), agenda de citas y facturación por tarifas',
+        'Datos fiscales protegidos: validación de DNI, NIE, CIF e IBAN, consentimiento RGPD y registro de auditoría'
+      ],
+      technologies: ['Next.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth']
+    },
+    {
       name: 'Wenalyze',
-      position: 'Full Stack Developer',
+      position: 'Desarrollador Full Stack',
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
       endDate: '2026-08',
-      summary: 'Plataforma de inteligencia de datos para empresas. Desarrollo full stack: desde arquitectura de scrapers hasta productos SaaS completos.',
+      summary: 'Plataforma de inteligencia de datos para empresas. Equipo técnico de 5 personas, en Kanban.',
       highlights: [
-        'Lideré la migración de la API de Express a NestJS y de la base de datos de Firestore a PostgreSQL: más de un 70% menos de tiempo de respuesta en la API',
-        'Diseñé y desarrollé Wenalyze Sync desde cero: SaaS de gestión de gastos empresariales (Astro + React + ShadCN) desplegado en Google Cloud, en producción con clientes reales',
-        'Optimicé el sistema de scraping: 60% menos tiempo de ejecución y +30 fuentes Open Data integradas (proxy rotation, rate limiting, reintentos)',
-        'Construí los pipelines de CI/CD con GitHub Actions, estandaricé el entorno de desarrollo y definí las pautas de uso de LLMs del equipo',
-        'Colaboración cross-team con Analytics y Marketing: APIs REST optimizadas para dashboards BI con datasets de alto volumen'
+        'Propuse la migración de la API de Express a NestJS tras evaluar alternativas y prototipar los módulos principales, y la llevé a consenso con el equipo',
+        'Coordiné la migración de Firestore a PostgreSQL: junto con la de NestJS, más de un 70% de mejora en los tiempos de respuesta de la API',
+        'Lideré el diseño y el frontend de Wenalyze Sync, un SaaS de gestión de gastos, y trabajé en su API: de la v1 (Astro + React) a la v2 (Next.js) con varias organizaciones',
+        'Coordinación diaria con Analytics y Marketing: APIs REST optimizadas para dashboards BI con datasets de alto volumen',
+        'Construí los pipelines de CI/CD con GitHub Actions, participé en las code reviews y definí las pautas de uso de IA del equipo',
+        'Optimicé el sistema de scraping desplegado en AWS: 60% menos tiempo de ejecución y +30 fuentes Open Data integradas'
       ],
-      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'React', 'Astro', 'Next.js', 'Angular', 'Google Cloud', 'GitHub Actions', 'Puppeteer', 'AWS']
+      technologies: ['NestJS', 'PostgreSQL', 'Next.js', 'Angular', 'Tailwind CSS', 'GitHub Actions', 'Google Cloud']
     },
     {
       name: 'La Mina Estudio',
-      position: 'Web Developer',
+      position: 'Desarrollador Web',
       url: 'https://www.laminaestudio.com',
       startDate: '2023-03',
       endDate: '2023-06',
-      summary: 'Agencia de desarrollo web. Especializado en automatización y extracción de datos para clientes B2B.',
+      summary: 'Agencia de desarrollo web. Trabajé principalmente en Sierra Retail, un ERP en la nube para joyerías y relojerías multimarca.',
       highlights: [
-        'Arquitectura de scraping enterprise para clientes B2B: gestión de errores, reintentos exponenciales, rotación de proxies y evasión de rate limits',
-        'Esquemas de BD (MySQL, MongoDB) optimizados para +10M registros: indexación estratégica y queries sub-segundo',
-        'Pipelines ETL completos: extracción de fuentes heterogéneas, transformación y carga automatizada en BD relacionales y NoSQL'
+        'Esquemas de BD en MySQL y MongoDB optimizados para +10M registros: indexación estratégica y consultas por debajo del segundo',
+        'Scraping continuo de las webs de marcas de joyería y relojería con Puppeteer y Playwright, con evasión de bloqueos (rotación de proxies, reintentos y gestión de rate limits), para mantener actualizado el catálogo de productos del ERP'
       ],
-      technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
+      technologies: ['Puppeteer', 'Playwright', 'MongoDB', 'MySQL']
     }
   ],
   en: [
     {
+      name: 'gestió-renda',
+      position: 'Developer (own project)',
+      url: 'https://ismobla.dev/dossier/gestio-renda-en.pdf',
+      startDate: '2026-05',
+      endDate: null,
+      summary: 'ERP in production for a real client, an insurance brokerage that runs its tax-return season on it. I build it from scratch on my own; it started as a side project alongside Wenalyze.',
+      highlights: [
+        'State flow for each tax return (booked → review → closed), appointment calendar and rate-based billing',
+        'Protected tax data: real validation of Spanish tax IDs (DNI, NIE, CIF) and IBAN, GDPR consent and an audit log'
+      ],
+      technologies: ['Next.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth']
+    },
+    {
       name: 'Wenalyze',
       position: 'Full Stack Developer',
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
       endDate: '2026-08',
-      summary: 'Data intelligence platform for businesses. Full stack development: from scraper architecture to complete SaaS products.',
+      summary: 'Data intelligence platform for businesses. 5-person tech team working in Kanban.',
       highlights: [
-        'Led the API migration from Express to NestJS and the database migration from Firestore to PostgreSQL: over 70% lower API response times',
-        'Designed and built Wenalyze Sync from scratch: expense management SaaS (Astro + React + ShadCN) deployed on Google Cloud, in production with real customers',
-        'Optimized the scraping system: 60% less execution time and 30+ Open Data sources integrated (proxy rotation, rate limiting, retries)',
-        'Built the CI/CD pipelines with GitHub Actions, standardized the dev environment and defined the team\'s LLM usage guidelines',
-        'Cross-team collaboration with Analytics and Marketing: optimized REST APIs for BI dashboards handling high-volume datasets'
+        'Proposed the API migration from Express to NestJS after evaluating alternatives and prototyping the core modules, and reached consensus with the team',
+        'Coordinated the database migration from Firestore to PostgreSQL: together with the NestJS migration, over 70% lower API response times',
+        'Led the design and front end of Wenalyze Sync, an expense management SaaS, and worked on its API: from v1 (Astro + React) to v2 (Next.js) with multiple organizations',
+        'Worked daily with Analytics and Marketing: optimized REST APIs for BI dashboards with high-volume datasets',
+        'Built the CI/CD pipelines with GitHub Actions, took part in code reviews and defined the team\'s AI usage guidelines',
+        'Optimized the scraping system running on AWS: 60% less execution time and 30+ Open Data sources integrated'
       ],
-      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'React', 'Astro', 'Next.js', 'Angular', 'Google Cloud', 'GitHub Actions', 'Puppeteer', 'AWS']
+      technologies: ['NestJS', 'PostgreSQL', 'Next.js', 'Angular', 'Tailwind CSS', 'GitHub Actions', 'Google Cloud']
     },
     {
       name: 'La Mina Estudio',
@@ -267,31 +294,44 @@ const experiences: Record<Lang, Experience[]> = {
       url: 'https://www.laminaestudio.com',
       startDate: '2023-03',
       endDate: '2023-06',
-      summary: 'Web development agency. Specialized in automation and data extraction for B2B clients.',
+      summary: 'Web development agency. I worked mainly on Sierra Retail, a cloud ERP for multi-brand jewelry and watch stores.',
       highlights: [
-        'Enterprise scraping architecture for B2B clients: error handling, exponential retries, proxy rotation, and rate limit evasion',
-        'Database schemas (MySQL, MongoDB) optimized for +10M records: strategic indexing and sub-second queries',
-        'Complete ETL pipelines: extraction from heterogeneous sources, transformation, and automated loading to relational and NoSQL databases'
+        'MySQL and MongoDB schemas optimized for 10M+ records: strategic indexing and sub-second queries',
+        'Continuous scraping of jewelry and watch brand websites with Puppeteer and Playwright, working around blocking (proxy rotation, retries and rate-limit handling), to keep the ERP product catalog up to date'
       ],
-      technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
+      technologies: ['Puppeteer', 'Playwright', 'MongoDB', 'MySQL']
     }
   ],
   ca: [
     {
+      name: 'gestió-renda',
+      position: 'Desenvolupador (projecte propi)',
+      url: 'https://ismobla.dev/dossier/gestio-renda-ca.pdf',
+      startDate: '2026-05',
+      endDate: null,
+      summary: 'ERP en producció per a un client real, una corredoria d\'assegurances que hi gestiona la campanya de la renda. El desenvolupe de zero i en solitari; va començar com a side project en paral·lel a Wenalyze.',
+      highlights: [
+        'Flux d\'estats de cada declaració (reservada → en revisió → tancada), agenda de cites i facturació per tarifes',
+        'Dades fiscals protegides: validació de DNI, NIE, CIF i IBAN, consentiment RGPD i registre d\'auditoria'
+      ],
+      technologies: ['Next.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth']
+    },
+    {
       name: 'Wenalyze',
-      position: 'Full Stack Developer',
+      position: 'Desenvolupador Full Stack',
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
       endDate: '2026-08',
-      summary: 'Plataforma d\'intel·ligència de dades per a empreses. Desenvolupament full stack: des d\'arquitectura de scrapers fins a productes SaaS complets.',
+      summary: 'Plataforma d\'intel·ligència de dades per a empreses. Equip tècnic de 5 persones, en Kanban.',
       highlights: [
-        'Vaig liderar la migració de l\'API d\'Express a NestJS i de la base de dades de Firestore a PostgreSQL: més d\'un 70% menys de temps de resposta a l\'API',
-        'Vaig dissenyar i desenvolupar Wenalyze Sync des de zero: SaaS de gestió de despeses empresarials (Astro + React + ShadCN) desplegat a Google Cloud, en producció amb clients reals',
-        'Vaig optimitzar el sistema de scraping: 60% menys de temps d\'execució i +30 fonts Open Data integrades (proxy rotation, rate limiting, reintents)',
-        'Vaig construir els pipelines de CI/CD amb GitHub Actions, vaig estandarditzar l\'entorn de desenvolupament i vaig definir les pautes d\'ús de LLMs de l\'equip',
-        'Col·laboració cross-team amb Analytics i Marketing: APIs REST optimitzades per a dashboards BI amb datasets d\'alt volum'
+        'Vaig proposar la migració de l\'API d\'Express a NestJS després d\'avaluar alternatives i prototipar els mòduls principals, i la vaig portar a consens amb l\'equip',
+        'Vaig coordinar la migració de Firestore a PostgreSQL: juntament amb la de NestJS, més d\'un 70% de millora en els temps de resposta de l\'API',
+        'Vaig liderar el disseny i el frontend de Wenalyze Sync, un SaaS de gestió de despeses, i vaig treballar en la seua API: de la v1 (Astro + React) a la v2 (Next.js) amb diverses organitzacions',
+        'Coordinació diària amb Analytics i Marketing: APIs REST optimitzades per a dashboards BI amb datasets d\'alt volum',
+        'Vaig construir els pipelines de CI/CD amb GitHub Actions, vaig participar en les code reviews i vaig definir les pautes d\'ús d\'IA de l\'equip',
+        'Vaig optimitzar el sistema de scraping desplegat a AWS: un 60% menys de temps d\'execució i +30 fonts Open Data integrades'
       ],
-      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'React', 'Astro', 'Next.js', 'Angular', 'Google Cloud', 'GitHub Actions', 'Puppeteer', 'AWS']
+      technologies: ['NestJS', 'PostgreSQL', 'Next.js', 'Angular', 'Tailwind CSS', 'GitHub Actions', 'Google Cloud']
     },
     {
       name: 'La Mina Estudio',
@@ -299,31 +339,44 @@ const experiences: Record<Lang, Experience[]> = {
       url: 'https://www.laminaestudio.com',
       startDate: '2023-03',
       endDate: '2023-06',
-      summary: 'Agència de desenvolupament web. Especialitzat en automatització i extracció de dades per a clients B2B.',
+      summary: 'Agència de desenvolupament web. Vaig treballar principalment en Sierra Retail, un ERP al núvol per a joieries i rellotgeries multimarca.',
       highlights: [
-        'Arquitectura de scraping enterprise per a clients B2B: gestió d\'errors, reintents exponencials, rotació de proxies i evasió de rate limits',
-        'Esquemes de BD (MySQL, MongoDB) optimitzats per a +10M registres: indexació estratègica i queries sub-segon',
-        'Pipelines ETL complets: extracció de fonts heterogènies, transformació i càrrega automatitzada en BD relacionals i NoSQL'
+        'Esquemes de BD en MySQL i MongoDB optimitzats per a +10M registres: indexació estratègica i consultes per davall del segon',
+        'Scraping continu de les webs de marques de joieria i rellotgeria amb Puppeteer i Playwright, amb evasió de bloquejos (rotació de proxies, reintents i gestió de rate limits), per a mantindre actualitzat el catàleg de productes de l\'ERP'
       ],
-      technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
+      technologies: ['Puppeteer', 'Playwright', 'MongoDB', 'MySQL']
     }
   ],
   gl: [
     {
+      name: 'gestió-renda',
+      position: 'Desenvolvedor (proxecto propio)',
+      url: 'https://ismobla.dev/dossier/gestio-renda-gl.pdf',
+      startDate: '2026-05',
+      endDate: null,
+      summary: 'ERP en produción para un cliente real, unha corredoría de seguros que xestiona con el a súa campaña da renda. Desenvólvoo de cero e en solitario; comezou como side project en paralelo a Wenalyze.',
+      highlights: [
+        'Fluxo de estados de cada declaración (reservada → en revisión → pechada), axenda de citas e facturación por tarifas',
+        'Datos fiscais protexidos: validación de DNI, NIE, CIF e IBAN, consentimento RGPD e rexistro de auditoría'
+      ],
+      technologies: ['Next.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth']
+    },
+    {
       name: 'Wenalyze',
-      position: 'Full Stack Developer',
+      position: 'Desenvolvedor Full Stack',
       url: 'https://www.wenalyze.com',
       startDate: '2024-04',
       endDate: '2026-08',
-      summary: 'Plataforma de intelixencia de datos para empresas. Desenvolvemento full stack: desde arquitectura de scrapers ata produtos SaaS completos.',
+      summary: 'Plataforma de intelixencia de datos para empresas. Equipo técnico de 5 persoas, en Kanban.',
       highlights: [
-        'Liderei a migración da API de Express a NestJS e da base de datos de Firestore a PostgreSQL: máis dun 70% menos de tempo de resposta na API',
-        'Deseñei e desenvolvín Wenalyze Sync desde cero: SaaS de xestión de gastos empresariais (Astro + React + ShadCN) despregado en Google Cloud, en produción con clientes reais',
-        'Optimicei o sistema de scraping: 60% menos tempo de execución e +30 fontes Open Data integradas (proxy rotation, rate limiting, reintentos)',
-        'Construín os pipelines de CI/CD con GitHub Actions, estandaricei o contorno de desenvolvemento e definín as pautas de uso de LLMs do equipo',
-        'Colaboración cross-team con Analytics e Marketing: APIs REST optimizadas para dashboards BI con datasets de alto volume'
+        'Propuxen a migración da API de Express a NestJS tras avaliar alternativas e prototipar os módulos principais, e leveina a consenso co equipo',
+        'Coordinei a migración de Firestore a PostgreSQL: xunto coa de NestJS, máis dun 70% de mellora nos tempos de resposta da API',
+        'Liderei o deseño e o frontend de Wenalyze Sync, un SaaS de xestión de gastos, e traballei na súa API: da v1 (Astro + React) á v2 (Next.js) con varias organizacións',
+        'Coordinación diaria con Analytics e Marketing: APIs REST optimizadas para paneis BI con datasets de alto volume',
+        'Construín os pipelines de CI/CD con GitHub Actions, participei nas code reviews e definín as pautas de uso de IA do equipo',
+        'Optimicei o sistema de scraping despregado en AWS: un 60% menos de tempo de execución e +30 fontes Open Data integradas'
       ],
-      technologies: ['TypeScript', 'NestJS', 'PostgreSQL', 'React', 'Astro', 'Next.js', 'Angular', 'Google Cloud', 'GitHub Actions', 'Puppeteer', 'AWS']
+      technologies: ['NestJS', 'PostgreSQL', 'Next.js', 'Angular', 'Tailwind CSS', 'GitHub Actions', 'Google Cloud']
     },
     {
       name: 'La Mina Estudio',
@@ -331,13 +384,12 @@ const experiences: Record<Lang, Experience[]> = {
       url: 'https://www.laminaestudio.com',
       startDate: '2023-03',
       endDate: '2023-06',
-      summary: 'Axencia de desenvolvemento web. Especializado en automatización e extracción de datos para clientes B2B.',
+      summary: 'Axencia de desenvolvemento web. Traballei principalmente en Sierra Retail, un ERP na nube para xoierías e reloxerías multimarca.',
       highlights: [
-        'Arquitectura de scraping enterprise para clientes B2B: xestión de erros, reintentos exponenciais, rotación de proxies e evasión de rate limits',
-        'Esquemas de BD (MySQL, MongoDB) optimizados para +10M rexistros: indexación estratéxica e queries sub-segundo',
-        'Pipelines ETL completos: extracción de fontes heteroxéneas, transformación e carga automatizada en BD relacionais e NoSQL'
+        'Esquemas de BD en MySQL e MongoDB optimizados para +10M rexistros: indexación estratéxica e consultas por debaixo do segundo',
+        'Scraping continuo das webs de marcas de xoiería e reloxería con Puppeteer e Playwright, con evasión de bloqueos (rotación de proxies, reintentos e xestión de rate limits), para manter actualizado o catálogo de produtos do ERP'
       ],
-      technologies: ['JavaScript', 'Node.js', 'Puppeteer', 'Playwright', 'MySQL', 'MongoDB']
+      technologies: ['Puppeteer', 'Playwright', 'MongoDB', 'MySQL']
     }
   ]
 };
@@ -353,7 +405,7 @@ const education: Record<Lang, Education[]> = {
     },
     {
       institution: 'IES Serpis',
-      area: 'Desarrollo de Aplicaciones Web',
+      area: 'Desarrollo de Aplicaciones Web (PHP, Laravel, JavaScript, Java)',
       studyType: 'CFGS',
       startDate: '2021',
       endDate: '2023'
@@ -362,15 +414,15 @@ const education: Record<Lang, Education[]> = {
   en: [
     {
       institution: 'IES Abastos',
-      area: 'Game Dev & Virtual Reality',
+      area: 'Game Development & Virtual Reality',
       studyType: 'Specialization',
       startDate: '2023',
       endDate: '2024'
     },
     {
       institution: 'IES Serpis',
-      area: 'Web Application Development',
-      studyType: 'Higher Degree',
+      area: 'Web Application Development (PHP, Laravel, JavaScript, Java)',
+      studyType: 'Higher Vocational Degree',
       startDate: '2021',
       endDate: '2023'
     }
@@ -385,7 +437,7 @@ const education: Record<Lang, Education[]> = {
     },
     {
       institution: 'IES Serpis',
-      area: 'Desenvolupament d\'Aplicacions Web',
+      area: 'Desenvolupament d\'Aplicacions Web (PHP, Laravel, JavaScript, Java)',
       studyType: 'CFGS',
       startDate: '2021',
       endDate: '2023'
@@ -401,7 +453,7 @@ const education: Record<Lang, Education[]> = {
     },
     {
       institution: 'IES Serpis',
-      area: 'Desenvolvemento de Aplicacións Web',
+      area: 'Desenvolvemento de Aplicacións Web (PHP, Laravel, JavaScript, Java)',
       studyType: 'CFGS',
       startDate: '2021',
       endDate: '2023'

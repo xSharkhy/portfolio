@@ -17,6 +17,8 @@ const months: Record<Lang, string[]> = {
   gl: ['xan', 'feb', 'mar', 'abr', 'mai', 'xuñ', 'xul', 'ago', 'set', 'out', 'nov', 'dec']
 }
 
+const techLabel: Record<Lang, string> = { es: 'Tecnologías', en: 'Tech', ca: 'Tecnologies', gl: 'Tecnoloxías' }
+
 function formatDate(dateStr: string | null): string {
   if (!dateStr) return t(lang, 'cv.current')
   const [year, month] = dateStr.split('-')
@@ -45,7 +47,7 @@ function formatDate(dateStr: string | null): string {
             </a>
           </div>
           <span class="text-xs text-[--color-text-muted] print:text-gray-500 font-mono shrink-0">
-            {formatDate(exp.startDate)} — {formatDate(exp.endDate)}
+            <span class="text-[--color-border-highlight] print:text-gray-300" aria-hidden="true">&nbsp;|&nbsp;</span>{formatDate(exp.startDate)} – {formatDate(exp.endDate)}
           </span>
         </div>
 
@@ -59,7 +61,7 @@ function formatDate(dateStr: string | null): string {
           <ul class="space-y-1.5 mb-2">
             {exp.highlights.map(highlight => (
               <li class="text-sm text-[--color-text] print:text-gray-800 flex items-start gap-2 font-sans">
-                <span class="text-[--color-accent-purple] print-accent print:font-bold shrink-0" aria-hidden="true">›</span>
+                <span class="text-[--color-accent-purple] print-accent print:font-bold shrink-0" aria-hidden="true">•</span>
                 <span>{highlight}</span>
               </li>
             ))}
@@ -69,7 +71,7 @@ function formatDate(dateStr: string | null): string {
         <!-- Tech Stack - inline -->
         {exp.technologies && exp.technologies.length > 0 && (
           <p class="text-xs text-[--color-text-muted] print:text-gray-700 font-mono">
-            {exp.technologies.join(' · ')}
+            <span class="text-[--color-text-muted] print:text-gray-500">{techLabel[lang]}: </span>{exp.technologies.join(' · ')}
           </p>
         )}
       </article>

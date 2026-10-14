@@ -40,7 +40,7 @@ export const ui = {
     'skills.intermediateLabel': 'Intermedio',
 
     // CTA
-    'cta.seeHow': 'Ver como lo hago',
+    'cta.seeHow': 'Ver cómo lo hago',
     'cta.letsTalk': 'Hablemos',
     'cta.viewProject': 'Ver proyecto',
     'cta.viewCV': 'Ver CV completo',
@@ -117,7 +117,7 @@ export const ui = {
     'section.results': '// resultats > curriculums',
     'section.tools': '// eines',
     'section.built': '// coses_que_he_construit',
-    'section.contact': '// seguent_comanda',
+    'section.contact': '// següent_comanda',
 
     // Skills levels
     'skills.advanced': '> avançat',

@@ -11,8 +11,8 @@ interface Props {
 const { education, lang = 'es' } = Astro.props
 
 function formatPeriod(start: string, end: string | null): string {
-  if (!end) return `${start} - ${t(lang, 'cv.current')}`
-  return `${start} - ${end}`
+  if (!end) return `${start} – ${t(lang, 'cv.current')}`
+  return `${start} – ${end}`
 }
 ---
 
@@ -32,7 +32,7 @@ function formatPeriod(start: string, end: string | null): string {
           </span>
         </div>
         <span class="text-xs text-[--color-text-muted] print:text-gray-500 font-mono shrink-0">
-          {edu.status ?? formatPeriod(edu.startDate, edu.endDate)}
+          <span class="text-[--color-border-highlight] print:text-gray-300" aria-hidden="true">&nbsp;|&nbsp;</span>{edu.status ?? formatPeriod(edu.startDate, edu.endDate)}
         </span>
       </div>
     ))}

@@ -203,7 +203,7 @@ export const headlines: Record<Lang, SectionHeadlines> = {
     experience: '// resultats > curriculums',
     skills: '// eines',
     projects: '// coses_que_he_construit',
-    contact: '// seguent_comanda'
+    contact: '// següent_comanda'
   },
   gl: {
     problem: '// o_problema_real',
@@ -299,7 +299,7 @@ export const problemCopy: Record<Lang, ProblemCopy> = {
       { text: 'Menos aún saben CUÁNDO NO debería existir ese código.' },
       { text: 'Yo no soy el dev que añade features.' },
       { text: 'Soy el que pregunta si esa feature debería existir.' },
-      { text: 'Y después la construye en la mitad de tiempo.', highlight: true }
+      { text: 'Y después la construye en la mitad del tiempo.', highlight: true }
     ]
   },
   en: {
@@ -323,7 +323,7 @@ export const problemCopy: Record<Lang, ProblemCopy> = {
       { text: 'Menys encara saben QUAN NO hauria d\'existir eixe codi.' },
       { text: 'Jo no sóc el dev que afig features.' },
       { text: 'Sóc el que pregunta si eixa feature hauria d\'existir.' },
-      { text: 'I després la construeix en la meitat de temps.', highlight: true }
+      { text: 'I després la construeix en la meitat del temps.', highlight: true }
     ]
   },
   gl: {
@@ -390,7 +390,7 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       narrative: [
         'Wenalyze Sync: de idea en una pizarra a SaaS en producción.',
         'Gestión de gastos para empresas: reportar un gasto sin guardar tickets ni facturas.',
-        'Arquitectura. Frontend. API. Despliegue en Google Cloud.',
+        'Diseño, frontend y API, de la v1 a la v2.',
         'Todo, desde la primera línea hasta el primer usuario.'
       ],
       punchline: 'Cuando alguien dice "desde cero", yo escucho "sin excusas si algo falla".',
@@ -459,7 +459,7 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       narrative: [
         'Wenalyze Sync: from whiteboard idea to SaaS in production.',
         'Expense management for companies: report an expense without keeping a single receipt.',
-        'Architecture. Frontend. API. Deployment on Google Cloud.',
+        'Design, front end and API, from v1 to v2.',
         'Everything, from first line to first user.'
       ],
       punchline: 'When someone says "from scratch", I hear "no excuses if something breaks".',
@@ -528,10 +528,10 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       narrative: [
         'Wenalyze Sync: d\'idea en una pissarra a SaaS en producció.',
         'Gestió de despeses per a empreses: reportar una despesa sense guardar tiquets ni factures.',
-        'Arquitectura. Frontend. API. Desplegament a Google Cloud.',
+        'Disseny, frontend i API, de la v1 a la v2.',
         'Tot, des de la primera línia fins al primer usuari.'
       ],
-      punchline: 'Quan algú diu "des de zero", jo escolte "sense excuses si algo falla".',
+      punchline: 'Quan algú diu "des de zero", jo escolte "sense excuses si alguna cosa falla".',
       technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind', 'Google Cloud'],
       cta: { text: 'Veure projecte', url: '#projects' }
     },
@@ -597,7 +597,7 @@ export const experienceCopy: Record<Lang, ExperienceCardCopy[]> = {
       narrative: [
         'Wenalyze Sync: de idea nunha pizarra a SaaS en produción.',
         'Xestión de gastos para empresas: reportar un gasto sen gardar tiques nin facturas.',
-        'Arquitectura. Frontend. API. Despregue en Google Cloud.',
+        'Deseño, frontend e API, da v1 á v2.',
         'Todo, desde a primeira liña ata o primeiro usuario.'
       ],
       punchline: 'Cando alguén di "desde cero", eu escoito "sen escusas se algo falla".',
@@ -725,13 +725,13 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
         key: 'frontend',
         label: 'frontend',
         items: ['React', 'Next.js', 'Angular', 'Astro', 'Tailwind'],
-        comment: 'React per apps complexes. Astro quan el rendiment mana.'
+        comment: 'React per a apps complexes. Astro quan el rendiment mana.'
       },
       {
         key: 'backend',
         label: 'backend',
         items: ['Node.js', 'NestJS', 'Express', 'REST APIs'],
-        comment: 'NestJS per arquitectures sèries. Express quan cal eixir ja.'
+        comment: 'NestJS per a arquitectures serioses. Express quan cal eixir ja.'
       },
       {
         key: 'data',
@@ -752,7 +752,7 @@ export const skillsCopy: Record<Lang, { intro: string; categories: SkillCategory
         comment: 'El procés just perquè l\'equip avance. Ni una reunió de més.'
       }
     ],
-    outro: 'Falta algo? Probablement ho aprenga abans que acabes d\'escriure l\'email.'
+    outro: 'Falta alguna cosa? Probablement ho aprenga abans que acabes d\'escriure l\'email.'
   },
   gl: {
     intro: 'As ferramentas son iso: ferramentas. Un martelo non te fai carpinteiro. Saber cando NON usalo, sí.',
@@ -812,7 +812,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
         '"Hagamos un juego social tipo Among Us."',
         '"Multijugador."',
         '"En tiempo real."',
-        '"Y desplegalo en una Raspberry Pi que tengo en casa."',
+        '"Y despliégalo en una Raspberry Pi que tengo en casa."',
         'Eso no es un proyecto. Es un reto personal.',
         'WebSockets para que todo pase al instante.',
         'Clean Architecture porque el caos no escala (ni cuando son 4 amigos jugando a las 2am).',
@@ -836,11 +836,11 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
         '- Arquitectura que optimiza llamadas API',
         '- UI que no necesita manual de instrucciones',
         '- Rendimiento que no te hace esperar',
-        'Diseñado y desarrollado desde cero.',
-        'Cada decisión, mía. Cada bug a las 3am, también mío.'
+        'Diseño y frontend de punta a punta; la arquitectura, decidida en equipo.',
+        'Cada pantalla, mía. Cada bug a las 3am, también.'
       ],
-      punchline: 'Cuando tienes ownership total, no hay donde esconderse. Y eso está bien.',
-      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
+      punchline: 'Cuando el producto lleva tu firma, no hay donde esconderse. Y eso está bien.',
+      technologies: ['Astro', 'React', 'Next.js', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
         demo: 'https://dashboard.sync.wenalyze.com/'
       }
@@ -851,7 +851,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       tagline: 'Un ERP completo para la campaña de la renta. En producción. Con clientes reales.',
       narrative: [
         '"Necesitamos gestionar toda la campaña de la renta."',
-        'Una gestoría. Una temporada que estalla en abril.',
+        'Una correduría de seguros. Una temporada que estalla en abril.',
         'Lo construí entero. Yo solo. Desde cero.',
         'Máquina de estados por renta: reservada → revisión → cerrada.',
         'Calendario que detecta citas en conflicto y permite arrastrar para reprogramar.',
@@ -921,11 +921,11 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
         '- Architecture that optimizes API calls',
         '- UI that doesn\'t need a manual',
         '- Performance that doesn\'t make you wait',
-        'Designed and developed from scratch.',
-        'Every decision, mine. Every 3am bug, also mine.'
+        'Design and front end, end to end; architecture, decided as a team.',
+        'Every screen, mine. Every 3am bug, too.'
       ],
-      punchline: 'When you have total ownership, there\'s nowhere to hide. And that\'s fine.',
-      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
+      punchline: 'When the product has your name on it, there\'s nowhere to hide. And that\'s fine.',
+      technologies: ['Astro', 'React', 'Next.js', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
         demo: 'https://dashboard.sync.wenalyze.com/'
       }
@@ -936,9 +936,9 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       tagline: 'A complete ERP for tax-return season. In production. With real clients.',
       narrative: [
         '"We need to run the entire income-tax campaign."',
-        'An accounting firm. A season that explodes every April.',
+        'An insurance brokerage. A season that explodes every April.',
         'I built all of it. Solo. From scratch.',
-        'A state machine per return: reserved → review → closed.',
+        'A state machine per return: booked → review → closed.',
         'A calendar that catches appointment conflicts and lets you drag to reschedule.',
         'DNI/NIE/CIF and IBAN mod-97 validation. CRM, audit log, billing.',
         '14 tables. Bilingual. Command palette. Everything an office needs at 9am on a Tuesday.',
@@ -988,7 +988,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
         'Clean Architecture perquè el caos no escala (ni quan són 4 amics jugant a les 2am).',
         'SSL perquè la seguretat no és opcional, ni tan sols en una Pi.'
       ],
-      punchline: 'La millor forma d\'aprendre algo és construir-ho quan ningú t\'ho demana.',
+      punchline: 'La millor forma d\'aprendre alguna cosa és construir-la quan ningú t\'ho demana.',
       technologies: ['React', 'TypeScript', 'Socket.io', 'Node.js', 'Supabase', 'Tailwind'],
       links: {
         github: 'https://github.com/xSharkhy/impostor-game',
@@ -1006,11 +1006,11 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
         '- Arquitectura que optimitza crides API',
         '- UI que no necessita manual d\'instruccions',
         '- Rendiment que no et fa esperar',
-        'Dissenyat i desenvolupat des de zero.',
-        'Cada decisió, meua. Cada bug a les 3am, també meu.'
+        'Disseny i frontend de punta a punta; l\'arquitectura, decidida en equip.',
+        'Cada pantalla, meua. Cada bug a les 3am, també.'
       ],
-      punchline: 'Quan tens ownership total, no hi ha on amagar-se. I això està bé.',
-      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
+      punchline: 'Quan el producte porta la teua firma, no hi ha on amagar-se. I això està bé.',
+      technologies: ['Astro', 'React', 'Next.js', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
         demo: 'https://dashboard.sync.wenalyze.com/'
       }
@@ -1021,7 +1021,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       tagline: 'Un ERP complet per a la campanya de la renda. En producció. Amb clients reals.',
       narrative: [
         '"Necessitem gestionar tota la campanya de la renda."',
-        'Una gestoria. Una temporada que esclata a l\'abril.',
+        'Una corredoria d\'assegurances. Una temporada que esclata a l\'abril.',
         'El vaig construir sencer. Jo a soles. Des de zero.',
         'Màquina d\'estats per renda: reservada → revisió → tancada.',
         'Calendari que detecta cites en conflicte i et permet arrossegar per reprogramar.',
@@ -1067,7 +1067,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
         '"Fagamos un xogo social tipo Among Us."',
         '"Multixogador."',
         '"En tempo real."',
-        '"E despregao nunha Raspberry Pi que teño na casa."',
+        '"E desprégao nunha Raspberry Pi que teño na casa."',
         'Iso non é un proxecto. É un reto persoal.',
         'WebSockets para que todo pase ao instante.',
         'Clean Architecture porque o caos non escala (nin cando son 4 amigos xogando ás 2am).',
@@ -1091,11 +1091,11 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
         '- Arquitectura que optimiza chamadas API',
         '- UI que non necesita manual de instrucións',
         '- Rendemento que non te fai esperar',
-        'Deseñado e desenvolvido desde cero.',
-        'Cada decisión, miña. Cada bug ás 3am, tamén meu.'
+        'Deseño e frontend de punta a punta; a arquitectura, decidida en equipo.',
+        'Cada pantalla, miña. Cada bug ás 3am, tamén.'
       ],
-      punchline: 'Cando tes ownership total, non hai onde esconderse. E iso está ben.',
-      technologies: ['Astro', 'React', 'TypeScript', 'ShadCN', 'Tailwind'],
+      punchline: 'Cando o produto leva a túa sinatura, non hai onde esconderse. E iso está ben.',
+      technologies: ['Astro', 'React', 'Next.js', 'TypeScript', 'ShadCN', 'Tailwind'],
       links: {
         demo: 'https://dashboard.sync.wenalyze.com/'
       }
@@ -1106,7 +1106,7 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
       tagline: 'Un ERP completo para a campaña da renda. En produción. Con clientes reais.',
       narrative: [
         '"Necesitamos xestionar toda a campaña da renda."',
-        'Unha xestoría. Unha tempada que estoupa en abril.',
+        'Unha corredoría de seguros. Unha tempada que estoupa en abril.',
         'Construíno enteiro. Eu só. Desde cero.',
         'Máquina de estados por renda: reservada → revisión → pechada.',
         'Calendario que detecta citas en conflito e permite arrastrar para reprogramar.',
@@ -1151,9 +1151,9 @@ export const projectsCopy: Record<Lang, ProjectCopy[]> = {
 
 export const dossierCopy: Record<Lang, DossierCopy> = {
   es: {
-    subtitle: "ERP en producción para Blasco i Sanchis, una gestoría de Alcàsser que vive de la campaña de la renta.",
+    subtitle: "ERP en producción para Blasco i Sanchis, una correduría de seguros de Alcàsser que también gestiona la campaña de la renta de sus clientes.",
     intro: [
-      "Esto no es un side project. Es software que mueve la temporada de una gestoría real, con clientes reales y declaraciones reales.",
+      "Esto no es un side project. Es software que mueve la temporada de una correduría real, con clientes reales y declaraciones reales.",
       "No hay demo pública. Maneja datos fiscales de personas, así que las capturas de este dossier son la única prueba que vas a ver.",
       "De cero, en solitario. Diseño, base de datos, autenticación y la última coma del CSS. Cuando tienes ownership total, no hay donde esconderse."
     ],
@@ -1166,10 +1166,10 @@ export const dossierCopy: Record<Lang, DossierCopy> = {
       activity: { heading: "Todo queda escrito", body: "Un log de auditoría que registra quién hizo qué y cuándo. Cuando trabajas con datos fiscales, 'no sé qué pasó' no es una respuesta. Aquí siempre lo sabes." },
       darkmode: { heading: "El oficio se ve", body: "Modo claro y oscuro, bilingüe CA/ES de verdad, y una command palette (Cmd+K) para moverte sin tocar el ratón. Detalles que no se piden en el brief, pero que separan una herramienta que se usa de una que se aguanta." }
     },
-    closing: "Backend, base de datos, auth, UI y producto. Cualquiera escribe un CRUD; lo difícil es que una gestoría te confíe su temporada entera. Esto es eso."
+    closing: "Backend, base de datos, auth, UI y producto. Cualquiera escribe un CRUD; lo difícil es que una correduría te confíe su temporada entera. Esto es eso."
   },
   en: {
-    subtitle: "Production ERP for Blasco i Sanchis, a tax firm in Alcàsser that lives and dies by tax season.",
+    subtitle: "Production ERP for Blasco i Sanchis, an insurance brokerage in Alcàsser that also runs its clients' tax-return season.",
     intro: [
       "This isn't a side project. It's software running the busiest season of a real firm, with real clients and real tax filings.",
       "There's no public demo. It handles people's tax data, so the screenshots in this dossier are the only proof you'll get.",
@@ -1184,12 +1184,12 @@ export const dossierCopy: Record<Lang, DossierCopy> = {
       activity: { heading: "Everything's on record", body: "An audit log tracking who did what and when. When you work with tax data, 'no idea what happened' isn't an answer. Here you always know." },
       darkmode: { heading: "Craft shows", body: "Light and dark mode, genuinely bilingual CA/ES, and a command palette (Cmd+K) to move without touching the mouse. Details nobody asks for in the brief, but they separate a tool people use from one they tolerate." }
     },
-    closing: "Backend, database, auth, UI and product. Anyone can write a CRUD; the hard part is getting a tax firm to trust you with their entire season. This is that."
+    closing: "Backend, database, auth, UI and product. Anyone can write a CRUD; the hard part is getting a brokerage to trust you with their entire season. This is that."
   },
   ca: {
-    subtitle: "ERP en producció per a Blasco i Sanchis, una gestoria d'Alcàsser que viu de la campanya de la renda.",
+    subtitle: "ERP en producció per a Blasco i Sanchis, una corredoria d'assegurances d'Alcàsser que també gestiona la campanya de la renda dels seus clients.",
     intro: [
-      "Açò no és un projecte de cap de setmana. És programari que mou la temporada d'una gestoria real, amb clients reals i declaracions reals.",
+      "Açò no és un projecte de cap de setmana. És programari que mou la temporada d'una corredoria real, amb clients reals i declaracions reals.",
       "No hi ha demo pública. Maneja dades fiscals de persones, així que les captures d'aquest dossier són l'única prova que veuràs.",
       "De zero i en solitari. Disseny, base de dades, autenticació i l'última coma del CSS. Quan tens l'ownership total, no hi ha on amagar-se."
     ],
@@ -1202,12 +1202,12 @@ export const dossierCopy: Record<Lang, DossierCopy> = {
       activity: { heading: "Tot queda escrit", body: "Un registre d'auditoria que apunta qui va fer què i quan. Quan treballes amb dades fiscals, 'no sé què va passar' no és una resposta. Ací sempre ho saps." },
       darkmode: { heading: "L'ofici es veu", body: "Mode clar i fosc, bilingüe CA/ES de veritat, i una command palette (Cmd+K) per a moure't sense tocar el ratolí. Detalls que no es demanen al brief, però que separen una eina que s'usa d'una que s'aguanta." }
     },
-    closing: "Backend, base de dades, auth, UI i producte. Qualsevol escriu un CRUD; el difícil és que una gestoria et confie la seua temporada sencera. Açò és això."
+    closing: "Backend, base de dades, auth, UI i producte. Qualsevol escriu un CRUD; el difícil és que una corredoria et confie la seua temporada sencera. Açò és això."
   },
   gl: {
-    subtitle: "ERP en produción para Blasco i Sanchis, unha xestoría de Alcàsser que vive da campaña da renda.",
+    subtitle: "ERP en produción para Blasco i Sanchis, unha corredoría de seguros de Alcàsser que tamén xestiona a campaña da renda dos seus clientes.",
     intro: [
-      "Isto non é un proxecto de fin de semana. É software que move a temporada dunha xestoría real, con clientes reais e declaracións reais.",
+      "Isto non é un proxecto de fin de semana. É software que move a temporada dunha corredoría real, con clientes reais e declaracións reais.",
       "Non hai demo pública. Manexa datos fiscais de persoas, así que as capturas deste dossier son a única proba que vas ver.",
       "Desde cero e en solitario. Deseño, base de datos, autenticación e a última coma do CSS. Cando tes o ownership total, non hai onde agocharse."
     ],
@@ -1220,7 +1220,7 @@ export const dossierCopy: Record<Lang, DossierCopy> = {
       activity: { heading: "Todo queda escrito", body: "Un rexistro de auditoría que apunta quen fixo qué e cando. Cando traballas con datos fiscais, 'non sei qué pasou' non é unha resposta. Aquí sempre o sabes." },
       darkmode: { heading: "O oficio vese", body: "Modo claro e escuro, bilingüe CA/ES de verdade, e unha command palette (Cmd+K) para moverte sen tocar o rato. Detalles que non se piden no brief, pero que separan unha ferramenta que se usa dunha que se aguanta." }
     },
-    closing: "Backend, base de datos, auth, UI e produto. Calquera escribe un CRUD; o difícil é que unha xestoría che confíe a súa temporada enteira. Isto é iso."
+    closing: "Backend, base de datos, auth, UI e produto. Calquera escribe un CRUD; o difícil é que unha corredoría che confíe a súa temporada enteira. Isto é iso."
   }
 };
 
@@ -1295,7 +1295,7 @@ export const contactCopy: Record<Lang, ContactCopy> = {
       }
     },
     footer: [
-      '// Alcasser, València',
+      '// Alcàsser, València',
       '// Remote, on-site or relocating: whatever makes more sense.',
       '// Timezone: CET (but flexible if the project\'s worth it).'
     ],
@@ -1305,8 +1305,8 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     headline: '// següent_comanda',
     command: '$ echo "parlem"',
     narrative: [
-      'Si has arribat fins ací, una de dos:',
-      '1. Tens un projecte que necessita a algú que l\'entenga de veritat.',
+      'Si has arribat fins ací, una de dues:',
+      '1. Tens un projecte que necessita algú que l\'entenga de veritat.',
       '2. T\'avorries i això era més entretingut que fer scroll a LinkedIn.',
       'Si és la primera, parlem.',
       'Si és la segona... gràcies per llegir, supose.'
@@ -1340,8 +1340,8 @@ export const contactCopy: Record<Lang, ContactCopy> = {
     command: '$ echo "falemos"',
     narrative: [
       'Se chegaches ata aquí, unha de dúas:',
-      '1. Tes un proxecto que necesita a alguén que o entenda de verdade.',
-      '2. Aburríraste e isto era máis entretido que scrollear LinkedIn.',
+      '1. Tes un proxecto que necesita alguén que o entenda de verdade.',
+      '2. Aburríaste e isto era máis entretido que scrollear LinkedIn.',
       'Se é a primeira, falemos.',
       'Se é a segunda... grazas por ler, supoño.'
     ],
@@ -1379,13 +1379,13 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
   es: {
     meta: {
       title: 'Contrátame — Ismael Morejón',
-      description: '2 años haciendo lo que otros tardan 5. Backend, productos desde cero, código que escala. Si buscas alguien que mejore lo que toca, hablemos.'
+      description: 'Más de 2 años haciendo lo que otros tardan 5. Backend, productos desde cero, código que escala. Si buscas a alguien que mejore lo que toca, hablemos.'
     },
     hook: {
-      headline: '2 años de experiencia.\nLo que no dice el número.',
+      headline: 'Más de 2 años de experiencia.\nLo que no dice el número.',
       subheadline: [
         'Hay quien lleva una década haciendo lo mismo año tras año.',
-        'Y hay quien en dos años ha construido productos completos,',
+        'Y hay quien en poco más de dos años ha construido productos completos,',
         'optimizado sistemas que nadie quería tocar,',
         'y liderado migraciones que otros evitaban.',
         'Yo soy del segundo tipo.'
@@ -1393,14 +1393,14 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
     },
     proof: {
       headline: 'Un ejemplo vale más que mil bullets en un CV.',
-      subheadline: 'gestió-renda — ERP en producción para una gestoría real',
+      subheadline: 'gestió-renda — ERP en producción para una correduría de seguros',
       intro: [
-        'Una gestoría valenciana gestiona su campaña de la renta con esto.',
+        'Una correduría de seguros valenciana gestiona su campaña de la renta con esto.',
         'Lo construí solo, de cero.',
         'No hay demo pública: maneja datos fiscales reales de sus clientes.',
         'Por eso la prueba es un dossier con capturas de dentro.'
       ],
-      timeline: 'En producción. Datos fiscales reales.\nUna gestoría confía su campaña entera a este código.',
+      timeline: 'En producción. Datos fiscales reales.\nUna correduría confía su campaña entera a este código.',
       stack: {
         frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propio'],
         backend: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'Zod'],
@@ -1416,7 +1416,7 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
       ],
       closing: [
         'Esto no es una demo. Está en producción, con gente usándolo cada día.',
-        'Es lo que pasa cuando contratas a alguien que entrega producto, no promesas: lo serio se queda en sus manos y duerme tranquilo.',
+        'Es lo que pasa cuando contratas a alguien que entrega producto, no promesas: le dejas lo serio en sus manos y duermes tranquilo.',
         'Si buscas a ese dev para tu equipo, ya sabes dónde escribir.'
       ],
       cta: {
@@ -1463,7 +1463,7 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
       ],
       closing: [
         'No tengo 10 años de experiencia.',
-        'Tengo 2 años de hacer las cosas bien.',
+        'Tengo poco más de 2 haciendo las cosas bien.',
         'Y los próximos van a ser mejores.'
       ]
     },
@@ -1484,13 +1484,13 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
   en: {
     meta: {
       title: 'Hire Me — Ismael Morejón',
-      description: '2 years doing what others take 5 to do. Backend, products from scratch, code that scales. If you\'re looking for someone who improves what they touch, let\'s talk.'
+      description: 'Over 2 years doing what others take 5 to do. Backend, products from scratch, code that scales. If you\'re looking for someone who improves what they touch, let\'s talk.'
     },
     hook: {
-      headline: '2 years of experience.\nWhat the number doesn\'t tell you.',
+      headline: 'Over 2 years of experience.\nWhat the number doesn\'t tell you.',
       subheadline: [
         'Some people spend a decade doing the same thing year after year.',
-        'And some, in two years, have built complete products,',
+        'And some, in just over two years, have built complete products,',
         'optimized systems nobody wanted to touch,',
         'and led migrations others avoided.',
         'I\'m the second type.'
@@ -1498,21 +1498,21 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
     },
     proof: {
       headline: 'One example beats a hundred CV bullet points.',
-      subheadline: 'gestió-renda — an ERP running in production for a real accounting firm',
+      subheadline: 'gestió-renda — an ERP running in production for a real insurance brokerage',
       intro: [
-        'A Valencian accounting firm runs its entire tax season on this.',
+        'A Valencian insurance brokerage runs its entire tax season on this.',
         'I built it alone, from scratch.',
         'There\'s no public demo: it handles real tax data from their clients.',
         'That\'s why the proof is a dossier with screenshots from the inside.'
       ],
-      timeline: 'In production. Real tax data.\nAn accounting firm trusts its whole season to this code.',
+      timeline: 'In production. Real tax data.\nAn insurance brokerage trusts its whole season to this code.',
       stack: {
-        frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propio'],
+        frontend: ['Next.js', 'React 19', 'TypeScript', 'Custom CSS'],
         backend: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'Zod'],
         infra: ['Vercel', 'Neon']
       },
       features: [
-        'State machine per filing: reserved → review → closed',
+        'State machine per filing: booked → review → closed',
         'Calendar with conflict detection and drag to reschedule',
         'DNI/NIE/CIF and IBAN validation (mod-97)',
         'CRM with GDPR consent',
@@ -1568,7 +1568,7 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
       ],
       closing: [
         'I don\'t have 10 years of experience.',
-        'I have 2 years of doing things right.',
+        'I have just over 2 years of doing things right.',
         'And the next ones are going to be even better.'
       ]
     },
@@ -1582,20 +1582,20 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
         'No spam. No newsletters. Just a conversation.'
       ],
       placeholder: 'Your professional email',
-      button: 'I want you to write me',
+      button: 'Write to me',
       note: 'I only reply to corporate emails. If you\'re using @gmail, tell me something about your project.'
     }
   },
   ca: {
     meta: {
       title: 'Contracta\'m — Ismael Morejón',
-      description: '2 anys fent el que altres triguen 5. Backend, productes des de zero, codi que escala. Si busques algú que millore el que toca, parlem.'
+      description: 'Més de 2 anys fent el que altres triguen 5. Backend, productes des de zero, codi que escala. Si busques algú que millore el que toca, parlem.'
     },
     hook: {
-      headline: '2 anys d\'experiència.\nEl que no diu el número.',
+      headline: 'Més de 2 anys d\'experiència.\nEl que no diu el número.',
       subheadline: [
         'Hi ha qui porta una dècada fent el mateix any rere any.',
-        'I hi ha qui en dos anys ha construït productes complets,',
+        'I hi ha qui en poc més de dos anys ha construït productes complets,',
         'optimitzat sistemes que ningú volia tocar,',
         'i liderat migracions que altres evitaven.',
         'Jo sóc del segon tipus.'
@@ -1603,16 +1603,16 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
     },
     proof: {
       headline: 'Un exemple val més que mil punts en un CV.',
-      subheadline: 'gestió-renda — ERP en producció per a una gestoria real',
+      subheadline: 'gestió-renda — ERP en producció per a una corredoria d\'assegurances',
       intro: [
-        'Una gestoria valenciana gestiona la seua campanya de la renda amb açò.',
+        'Una corredoria d\'assegurances valenciana gestiona la seua campanya de la renda amb açò.',
         'El vaig construir a soles, de zero.',
         'No hi ha demo pública: maneja dades fiscals reals dels seus clients.',
         'Per això la prova és un dossier amb captures de dins.'
       ],
-      timeline: 'En producció. Dades fiscals reals.\nUna gestoria confia la seua campanya sencera a este codi.',
+      timeline: 'En producció. Dades fiscals reals.\nUna corredoria confia la seua campanya sencera a este codi.',
       stack: {
-        frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propio'],
+        frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propi'],
         backend: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'Zod'],
         infra: ['Vercel', 'Neon']
       },
@@ -1625,7 +1625,7 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
         'Command palette, bilingüe CA/ES, mode clar/fosc'
       ],
       closing: [
-        'Açò no és una demo. Està en producció, amb gent fent-la servir cada dia.',
+        'Açò no és una demo. Està en producció, amb gent que el fa servir cada dia.',
         'És el que passa quan contractes algú que entrega producte, no promeses: li deixes la part seriosa a les seues mans i dorms tranquil.',
         'Si busques eixe dev per al teu equip, ja saps on escriure\'m.'
       ],
@@ -1646,15 +1646,15 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
         },
         {
           quote: '"Fa més del que deu"',
-          translation: 'No em limite al meu ticket de Jira. Si veig algo que millorar, ho millore.'
+          translation: 'No em limite al meu ticket de Jira. Si veig alguna cosa a millorar, la millore.'
         },
         {
           quote: '"Té bones idees"',
           translation: 'No sóc un executor mut. Pense en el producte, no només en el codi.'
         },
         {
-          quote: '"No paga la pena donar-li tantes voltes"',
-          translation: 'Decideixc ràpid, execute ràpid, itere ràpid. El perfeccionisme que paralitza no va amb mi.'
+          quote: '"No val la pena donar-li tantes voltes"',
+          translation: 'Decidisc ràpid, execute ràpid, itere ràpid. El perfeccionisme que paralitza no va amb mi.'
         }
       ]
     },
@@ -1673,14 +1673,14 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
       ],
       closing: [
         'No tinc 10 anys d\'experiència.',
-        'Tinc 2 anys de fer les coses bé.',
+        'En tinc poc més de 2 fent les coses bé.',
         'I els pròxims seran millors.'
       ]
     },
     form: {
       headline: 'T\'interessa?',
       intro: [
-        'No vaig a deixar-te el meu CV ací penjat perquè el descarreguen bots i recruiters de masses.',
+        'No et deixaré el meu CV ací penjat perquè el descarreguen bots i recruiters de masses.',
         'Si de veritat creus que puc encaixar al teu equip, deixa\'m el teu email.',
         'T\'escric jo.',
         'Amb el meu CV, amb context, i amb una proposta clara.',
@@ -1688,19 +1688,19 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
       ],
       placeholder: 'El teu email professional',
       button: 'Vull que m\'escrigues',
-      note: 'Només respong a emails corporatius. Si uses @gmail, conta\'m algo del teu projecte.'
+      note: 'Només respong a emails corporatius. Si uses @gmail, conta\'m alguna cosa del teu projecte.'
     }
   },
   gl: {
     meta: {
       title: 'Contrátame — Ismael Morejón',
-      description: '2 anos facendo o que outros tardan 5. Backend, produtos desde cero, código que escala. Se buscas a alguén que mellore o que toca, falemos.'
+      description: 'Máis de 2 anos facendo o que outros tardan 5. Backend, produtos desde cero, código que escala. Se buscas a alguén que mellore o que toca, falemos.'
     },
     hook: {
-      headline: '2 anos de experiencia.\nO que non di o número.',
+      headline: 'Máis de 2 anos de experiencia.\nO que non di o número.',
       subheadline: [
         'Hai quen leva unha década facendo o mesmo ano tras ano.',
-        'E hai quen en dous anos construíu produtos completos,',
+        'E hai quen en pouco máis de dous anos construíu produtos completos,',
         'optimizou sistemas que ninguén quería tocar,',
         'e liderou migracións que outros evitaban.',
         'Eu son do segundo tipo.'
@@ -1708,14 +1708,14 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
     },
     proof: {
       headline: 'Un exemplo vale máis que mil puntos nun CV.',
-      subheadline: 'gestió-renda — ERP en produción para unha xestoría real',
+      subheadline: 'gestió-renda — ERP en produción para unha corredoría de seguros',
       intro: [
-        'Unha xestoría valenciana xestiona a súa campaña da renda con isto.',
+        'Unha corredoría de seguros valenciana xestiona a súa campaña da renda con isto.',
         'Construíno só, desde cero.',
         'Non hai demo pública: manexa datos fiscais reais dos seus clientes.',
         'Por iso a proba é un dossier con capturas de dentro.'
       ],
-      timeline: 'En produción. Datos fiscais reais.\nUnha xestoría confía a súa campaña enteira a este código.',
+      timeline: 'En produción. Datos fiscais reais.\nUnha corredoría confía a súa campaña enteira a este código.',
       stack: {
         frontend: ['Next.js', 'React 19', 'TypeScript', 'CSS propio'],
         backend: ['Node.js', 'PostgreSQL', 'Drizzle ORM', 'NextAuth', 'Zod'],
@@ -1730,7 +1730,7 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
         'Command palette, bilingüe CA/ES, modo claro/escuro'
       ],
       closing: [
-        'Isto non é unha demo. Está en produción, con xente usándoa cada día.',
+        'Isto non é unha demo. Está en produción, con xente usándoo cada día.',
         'É o que pasa cando contratas a alguén que entrega produto, non promesas: déixaslle o serio nas súas mans e dormes tranquilo.',
         'Se buscas ese dev para o teu equipo, xa sabes onde escribirme.'
       ],
@@ -1751,7 +1751,7 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
         },
         {
           quote: '"Fai máis do que debe"',
-          translation: 'Non me limito ao meu ticket de Jira. Se vexo algo que mellorar, mélloroo.'
+          translation: 'Non me limito ao meu ticket de Jira. Se vexo algo que mellorar, mellóroo.'
         },
         {
           quote: '"Ten boas ideas"',
@@ -1778,7 +1778,7 @@ export const hireMeCopy: Record<Lang, HireMeCopy> = {
       ],
       closing: [
         'Non teño 10 anos de experiencia.',
-        'Teño 2 anos de facer as cousas ben.',
+        'Teño pouco máis de 2 facendo as cousas ben.',
         'E os próximos van ser mellores.'
       ]
     },
